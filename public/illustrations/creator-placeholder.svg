@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="380" viewBox="0 0 320 380" fill="none">
+  <title>蓝灰色猫咪创作者临时占位</title>
+  <desc>原创平面猫咪占位插画：大头、小身体、黄眼睛，戴橙色领巾，手持铅笔和作品卡片。后续可替换为最终角色。</desc>
+  <g stroke="#35421F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- A curled tail and little boots keep the silhouette playful. -->
+    <path d="M198 288c33 20 57 5 54-17-3-16-19-19-18-33 1-11 17-16 27-5 24 26 14 65-17 76-21 7-40 1-52-7" fill="#7E9DA8"/>
+    <path d="M250 232c7 7 8 14 6 19" stroke="#597B86" stroke-width="8"/>
+    <path d="m122 312-7 31c-12-2-26 7-26 17 16 10 40 7 52 1l9-40" fill="#7E9DA8"/>
+    <path d="m174 317 4 28c19-4 33 4 37 15-15 10-36 10-54 4l-6-37" fill="#7E9DA8"/>
+    <path d="M89 360c15 6 31 6 47 1M167 363c17 4 29 1 43-2" stroke="#597B86"/>
+    <path d="m112 352-2 8m78-8 3 10" stroke-width="4"/>
+    <path d="M124 220c-19 23-31 65-15 99 27 20 57 19 82-1 12-31 3-74-15-95" fill="#7E9DA8"/>
+    <path d="M176 235c7 31 6 68-9 91l21-9c10-30 6-60-12-82Z" fill="#597B86" stroke="none"/>
+    <path d="M142 237c-19 8-30 45-19 65 11 21 40 19 51-1 8-19-10-59-20-64" fill="#FFF4DB" stroke-width="4"/>
+    <!-- The pencil is a deliberately oversized, replaceable creation tool. -->
+    <path d="m53 137 25 4-21 175-16 25-10-29 22-175Z" fill="#FFDD43"/>
+    <path d="m67 144-19 164" stroke="#D9A82F" stroke-width="7"/>
+    <path d="m53 137 2-16c2-12 28-7 26 5l-3 15-25-4Z" fill="#EDA4B5"/>
+    <path d="m52 146 24 4" stroke-width="5"/>
+    <path d="m31 312 10 29 16-25-26-4Z" fill="#FFF4DB"/>
+    <path d="m37 331 4 10 6-9-10-1Z" fill="#35421F" stroke-width="3"/>
+    <!-- Small arms; the near paw wraps around the pencil. -->
+    <path d="M117 233c-12 10-15 25-36 24-1-8-7-14-14-10-4 3-1 10-4 14-17-1-17 16-4 22 26 9 49-4 61-19" fill="#7E9DA8"/>
+    <path d="M60 262c-10 3-8 13 0 14m8-15c-7 5-7 11-2 15" stroke-width="4"/>
+    <path d="M183 235c17 5 19 17 31 18l18-5 11 23c-27 10-45 4-57-7" fill="#7E9DA8"/>
+    <!-- The orange neckerchief adds a warm, flat splash of color. -->
+    <path d="m116 214 62-2 8 20-33 24-37-21V214Z" fill="#EC7647"/>
+    <path d="m157 244 29 21-4-28-16-8" fill="#F39462"/>
+    <path d="m128 229 25 15 16-17" stroke-width="4"/>
+    <!-- Large original cat head: asymmetric ears, cream muzzle, clever grin. -->
+    <path d="M88 82 80 25c-1-6 3-9 8-6l53 37c17-4 37-4 53 1l42-37c5-5 10-2 10 4l-2 68c13 17 18 38 12 60l15 15-23 5 12 18-28-1c-19 27-49 42-84 37-36-1-64-14-81-39l-24-2 17-17-18-10 22-12c-4-24 1-48 24-64Z" fill="#7E9DA8"/>
+    <path d="m231 60 5 34c17 23 18 46 8 68l12 7-18 5 10 10-20-1c-17 24-41 39-76 39 37 8 64-9 79-32l28-1-12-17 21-6-13-15c7-27-3-44-14-59l2-60-12 28Z" fill="#597B86" stroke="none"/>
+    <path d="m95 40 29 27-30 16-5-42c0-3 2-4 6-1Zm136-1-27 30 28 14 5-42c0-4-3-6-6-2Z" fill="#EDA4B5" stroke-width="4"/>
+    <path d="m141 58 9-17 4 15 13-13 1 15" fill="#7E9DA8" stroke-width="5"/>
+    <path d="M77 151c6-15 22-17 39-8 12 7 19 20 35 20 20 0 26-15 43-20 18-7 40 0 45 16 3 22-16 48-39 56-32 10-61 7-88-7-22-11-37-33-35-57Z" fill="#FFF4DB" stroke="none"/>
+    <!-- Heavy brows and half-lidded yellow eyes make a confident expression. -->
+    <path d="M99 113c6-14 22-21 36-14M178 98c13-8 29-2 36 11" stroke-width="7"/>
+    <path d="M93 124c12-2 25 0 38 5-2 17-10 27-22 23-12-3-16-15-16-28Z" fill="#FFDD43" stroke-width="4"/>
+    <path d="M174 127c13-9 28-11 43-8 0 16-7 30-20 32-12 1-20-8-23-24Z" fill="#FFDD43" stroke-width="4"/>
+    <path d="m120 129-1 13m82-19-1 15" stroke-width="8"/>
+    <path d="m89 122 44 8m39-3c15-9 30-11 48-9" stroke-width="5"/>
+    <path d="M136 157c7-5 21-5 28-1-1 8-8 14-14 14-6 0-11-6-14-13Z" fill="#35421F" stroke-width="4"/>
+    <path d="M149 170v10c16 1 29-4 40-13-4 22-23 32-44 29-12-2-21-8-27-16 11 4 21 4 31 0Z" fill="#FFFDF0" stroke-width="4"/>
+    <path d="m177 176 1 10" stroke-width="3"/>
+    <path d="m84 159-21-3m24 13-23 4m151-17 18-6m-15 19 23 2" stroke-width="4"/>
+    <path d="m94 175 6 3m104-7 6-3" stroke="#EDA4B5" stroke-width="7"/>
+    <!-- Cream work card, pink tab and a tiny hand-drawn spark. -->
+    <path d="m225 226 55-9c5-1 9 2 10 7l11 78c1 5-2 9-7 10l-56 8c-5 1-9-3-10-8l-10-76c-1-5 2-9 7-10Z" fill="#FFF4DB"/>
+    <path d="m244 224 27-4 2 17-27 4-2-17Z" fill="#EDA4B5" stroke-width="4"/>
+    <path d="m264 248 6 11 12 2-9 9-1 12-10-6-12 3 3-12-7-10 13-1 5-8Z" fill="#FFDD43" stroke-width="4"/>
+    <path d="m248 297 30-4" stroke-width="4"/>
+    <path d="M226 262c-8-4-15 0-14 8 1 9 13 12 20 10 8-2 6-13 0-14l-6-4Z" fill="#7E9DA8" stroke-width="5"/>
+    <path d="m223 269 7 4" stroke-width="3"/>
+  </g>
+</svg>

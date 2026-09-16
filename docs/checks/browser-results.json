@@ -1,0 +1,343 @@
+{
+  "baseURL": "http://127.0.0.1:3001",
+  "checkedAt": "2026-09-16T00:50:02.228Z",
+  "browser": "153.0.8010.37",
+  "viewports": [
+    {
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320,
+      "language": "zh-CN",
+      "title": "创作空间｜独立创作者的作品展厅",
+      "columns": 1,
+      "heroArrangement": "stacked",
+      "headingFits": true,
+      "categoryTitles": [
+        "我推荐的 Prompt",
+        "我做的小工具",
+        "我做的小游戏",
+        "我做的 Skill",
+        "我做的 Agent",
+        "我的学习与技术积累"
+      ],
+      "linkedCategories": 0,
+      "githubDisabled": true,
+      "githubNote": "GitHub 链接待补充",
+      "buttons": [
+        {
+          "text": "浏览作品 ↘",
+          "height": 52
+        },
+        {
+          "text": "查看 GitHub ",
+          "height": 52
+        }
+      ],
+      "images": [
+        {
+          "src": "/illustrations/creator-placeholder.svg",
+          "alt": "临时蓝灰色猫咪创作者，大头小身体，一只手拿铅笔，另一只手扶着作品卡片",
+          "loaded": true
+        }
+      ],
+      "links": [
+        {
+          "href": "#works",
+          "targetExists": true
+        },
+        {
+          "href": "#top",
+          "targetExists": true
+        },
+        {
+          "href": "#works",
+          "targetExists": true
+        },
+        {
+          "href": "#learning",
+          "targetExists": true
+        },
+        {
+          "href": "#works",
+          "targetExists": true
+        },
+        {
+          "href": "#top",
+          "targetExists": true
+        }
+      ],
+      "motions": [],
+      "scrollBehavior": "auto",
+      "activeAnimations": 0,
+      "projectPlaceholder": true,
+      "projectLinks": 0,
+      "anchorClicks": "passed",
+      "errors": [],
+      "failedRequests": [],
+      "externalRequests": []
+    },
+    {
+      "viewport": 375,
+      "documentWidth": 375,
+      "bodyWidth": 375,
+      "language": "zh-CN",
+      "title": "创作空间｜独立创作者的作品展厅",
+      "columns": 1,
+      "heroArrangement": "stacked",
+      "headingFits": true,
+      "categoryTitles": [
+        "我推荐的 Prompt",
+        "我做的小工具",
+        "我做的小游戏",
+        "我做的 Skill",
+        "我做的 Agent",
+        "我的学习与技术积累"
+      ],
+      "linkedCategories": 0,
+      "githubDisabled": true,
+      "githubNote": "GitHub 链接待补充",
+      "buttons": [
+        {
+          "text": "浏览作品 ↘",
+          "height": 52
+        },
+        {
+          "text": "查看 GitHub ",
+          "height": 52
+        }
+      ],
+      "images": [
+        {
+          "src": "/illustrations/creator-placeholder.svg",
+          "alt": "临时蓝灰色猫咪创作者，大头小身体，一只手拿铅笔，另一只手扶着作品卡片",
+          "loaded": true
+        }
+      ],
+      "links": [
+        {
+          "href": "#works",
+          "targetExists": true
+        },
+        {
+          "href": "#top",
+          "targetExists": true
+        },
+        {
+          "href": "#works",
+          "targetExists": true
+        },
+        {
+          "href": "#learning",
+          "targetExists": true
+        },
+        {
+          "href": "#works",
+          "targetExists": true
+        },
+        {
+          "href": "#top",
+          "targetExists": true
+        }
+      ],
+      "motions": [],
+      "scrollBehavior": "auto",
+      "activeAnimations": 0,
+      "projectPlaceholder": true,
+      "projectLinks": 0,
+      "anchorClicks": "passed",
+      "errors": [],
+      "failedRequests": [],
+      "externalRequests": []
+    },
+    {
+      "viewport": 768,
+      "documentWidth": 768,
+      "bodyWidth": 768,
+      "language": "zh-CN",
+      "title": "创作空间｜独立创作者的作品展厅",
+      "columns": 2,
+      "heroArrangement": "side-by-side",
+      "headingFits": true,
+      "categoryTitles": [
+        "我推荐的 Prompt",
+        "我做的小工具",
+        "我做的小游戏",
+        "我做的 Skill",
+        "我做的 Agent",
+        "我的学习与技术积累"
+      ],
+      "linkedCategories": 0,
+      "githubDisabled": true,
+      "githubNote": "GitHub 链接待补充",
+      "buttons": [
+        {
+          "text": "浏览作品 ↘",
+          "height": 50
+        },
+        {
+          "text": "查看 GitHub ",
+          "height": 50
+        }
+      ],
+      "images": [
+        {
+          "src": "/illustrations/creator-placeholder.svg",
+          "alt": "临时蓝灰色猫咪创作者，大头小身体，一只手拿铅笔，另一只手扶着作品卡片",
+          "loaded": true
+        }
+      ],
+      "links": [
+        {
+          "href": "#works",
+          "targetExists": true
+        },
+        {
+          "href": "#top",
+          "targetExists": true
+        },
+        {
+          "href": "#works",
+          "targetExists": true
+        },
+        {
+          "href": "#learning",
+          "targetExists": true
+        },
+        {
+          "href": "#works",
+          "targetExists": true
+        },
+        {
+          "href": "#top",
+          "targetExists": true
+        }
+      ],
+      "motions": [],
+      "scrollBehavior": "auto",
+      "activeAnimations": 0,
+      "projectPlaceholder": true,
+      "projectLinks": 0,
+      "anchorClicks": "passed",
+      "errors": [],
+      "failedRequests": [],
+      "externalRequests": []
+    },
+    {
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "bodyWidth": 1440,
+      "language": "zh-CN",
+      "title": "创作空间｜独立创作者的作品展厅",
+      "columns": 3,
+      "heroArrangement": "side-by-side",
+      "headingFits": true,
+      "categoryTitles": [
+        "我推荐的 Prompt",
+        "我做的小工具",
+        "我做的小游戏",
+        "我做的 Skill",
+        "我做的 Agent",
+        "我的学习与技术积累"
+      ],
+      "linkedCategories": 0,
+      "githubDisabled": true,
+      "githubNote": "GitHub 链接待补充",
+      "buttons": [
+        {
+          "text": "浏览作品 ↘",
+          "height": 56
+        },
+        {
+          "text": "查看 GitHub ",
+          "height": 56
+        }
+      ],
+      "images": [
+        {
+          "src": "/illustrations/creator-placeholder.svg",
+          "alt": "临时蓝灰色猫咪创作者，大头小身体，一只手拿铅笔，另一只手扶着作品卡片",
+          "loaded": true
+        }
+      ],
+      "links": [
+        {
+          "href": "#works",
+          "targetExists": true
+        },
+        {
+          "href": "#top",
+          "targetExists": true
+        },
+        {
+          "href": "#works",
+          "targetExists": true
+        },
+        {
+          "href": "#learning",
+          "targetExists": true
+        },
+        {
+          "href": "#works",
+          "targetExists": true
+        },
+        {
+          "href": "#top",
+          "targetExists": true
+        }
+      ],
+      "motions": [],
+      "scrollBehavior": "auto",
+      "activeAnimations": 0,
+      "projectPlaceholder": true,
+      "projectLinks": 0,
+      "anchorClicks": "passed",
+      "errors": [],
+      "failedRequests": [],
+      "externalRequests": []
+    }
+  ],
+  "keyboard": [
+    {
+      "text": "跳到作品预览",
+      "tag": "A",
+      "outline": "solid",
+      "outlineWidth": "3px",
+      "visible": true
+    },
+    {
+      "text": "创作空间一个装满想法的地方",
+      "tag": "A",
+      "outline": "solid",
+      "outlineWidth": "3px",
+      "visible": true
+    },
+    {
+      "text": "作品↗",
+      "tag": "A",
+      "outline": "solid",
+      "outlineWidth": "3px",
+      "visible": true
+    },
+    {
+      "text": "学习积累↗",
+      "tag": "A",
+      "outline": "solid",
+      "outlineWidth": "3px",
+      "visible": true
+    },
+    {
+      "text": "浏览作品 ↘",
+      "tag": "A",
+      "outline": "solid",
+      "outlineWidth": "3px",
+      "visible": true
+    },
+    {
+      "text": "回到顶部 ↑",
+      "tag": "A",
+      "outline": "solid",
+      "outlineWidth": "3px",
+      "visible": true
+    }
+  ]
+}
