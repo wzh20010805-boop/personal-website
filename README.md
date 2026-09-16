@@ -16,14 +16,18 @@ npm run dev
 
 已实际启动并检查的开发地址：**http://127.0.0.1:3000**。仅绑定本机；端口占用时以终端输出为准。关闭服务使用对应终端的 `Ctrl+C`。
 
-生产构建与本地生产预览：
+静态生产构建与本地预览：
 
 ```powershell
 npm run build
-npm run start
+python -m http.server 4173 --bind 127.0.0.1 --directory out
 ```
 
-若开发服务仍占用 3000，可使用 `npm run start -- --port 3001`。这只是本地预览，不会部署或上传文件。
+构建会生成 `out/index.html` 及配套静态资源。上述预览命令需要 Python 3，访问 **http://127.0.0.1:4173**；也可使用其他静态 HTTP 服务托管 `out`。这只是本地预览，不会部署或上传文件。
+
+`next.config.ts` 已设置 `output: "export"` 和 `images.unoptimized: true`，图片直接读取本地素材，不依赖 `/_next/image` 服务。静态导出不使用 `next start`，因此移除了原来的 `start` 命令。`out/` 保持在 `.gitignore` 中，不提交构建产物。
+
+构建命令仍为 `npm run build`，静态输出目录为 `out`；构建环境需满足本项目 Node.js 24+ 要求。
 
 ## 修改内容
 
@@ -81,7 +85,7 @@ $env:PLAYWRIGHT_CHANNEL = 'chrome'
 npm run check:page
 ```
 
-验证另一端口时，在执行前设置 `$env:CHECK_URL = 'http://127.0.0.1:3001'`。脚本检查 320/375/768/1440px，锚点、禁用按钮、键盘焦点、资源、横向溢出和无动画，并生成截图。
+验证静态导出时，先启动上述静态服务，再设置 `$env:CHECK_URL = 'http://127.0.0.1:4173'` 后执行 `npm run check:page`。脚本检查 320/375/768/1440px，锚点、禁用按钮、键盘焦点、资源、横向溢出和无动画，并生成截图。
 
 - [桌面完整页面](docs/checks/page-1440.png) · [桌面首屏](docs/checks/first-screen-1440.png)
 - [手机完整页面](docs/checks/page-375.png) · [手机首屏](docs/checks/first-screen-375.png)
@@ -98,4 +102,4 @@ Next.js 16.3.5、React 19.3.0、TypeScript 5.9.3、Tailwind CSS 4.3.3，依赖�
 
 首次 `next dev` 自动生成的 `AGENTS.md` 和 `CLAUDE.md` 已保留，包含当前 Next.js 版本的开发指导。
 
-首页为静态预渲染内容。没有业务后端、数据库、密钥、登录、AI 调用、动画库、分析追踪、外部图片或字体请求；没有详情页、在线工具运行、搜索或筛选，也未执行公开部署。
+首页通过 `next build` 导出为独立的 HTML/CSS/JS 静态文件，无需运行 Next.js 服务。没有业务后端、数据库、密钥、登录、AI 调用、动画库、分析追踪、外部图片或字体请求；没有详情页、在线工具运行、搜索或筛选，也未执行公开部署。
