@@ -1,0 +1,413 @@
+{
+  "baseURL": "http://127.0.0.1:4174",
+  "checkedAt": "2026-09-17T06:06:55.763Z",
+  "routes": [
+    "/",
+    "/prompts/",
+    "/tools/",
+    "/games/",
+    "/skills/",
+    "/agents/",
+    "/learning/",
+    "/tools/pixel-cursor/"
+  ],
+  "categoryLinks": 6,
+  "emptyCategories": 5,
+  "publishedTools": 1,
+  "detailPath": "/tools/pixel-cursor/",
+  "externalHrefs": [
+    "https://github.com/wzh20010805-boop/pointer-tool/releases/latest",
+    "https://github.com/wzh20010805-boop/pointer-tool"
+  ],
+  "externalLinkNetworkCheck": "未在此脚本访问外站；仅核对精确目标、target 和 rel。",
+  "runtimeErrors": [],
+  "failedResources": [],
+  "imageChecks": [
+    {
+      "route": "/tools/",
+      "width": 244,
+      "src": "/images/tools/pixel-cursor-overview.png",
+      "alt": "像素光标软件真实界面：光标主题状态预览、尺寸选择、应用主题与恢复方案按钮",
+      "complete": true,
+      "naturalWidth": 1246,
+      "naturalHeight": 863,
+      "objectFit": "contain",
+      "height": 170.21875,
+      "withinContainer": true
+    },
+    {
+      "route": "/tools/pixel-cursor/",
+      "width": 244,
+      "src": "/images/tools/pixel-cursor-overview.png",
+      "alt": "像素光标软件真实界面：光标主题状态预览、尺寸选择、应用主题与恢复方案按钮",
+      "complete": true,
+      "naturalWidth": 1246,
+      "naturalHeight": 863,
+      "objectFit": "contain",
+      "height": 170.828125,
+      "withinContainer": true
+    },
+    {
+      "route": "/tools/",
+      "width": 291,
+      "src": "/images/tools/pixel-cursor-overview.png",
+      "alt": "像素光标软件真实界面：光标主题状态预览、尺寸选择、应用主题与恢复方案按钮",
+      "complete": true,
+      "naturalWidth": 1246,
+      "naturalHeight": 863,
+      "objectFit": "contain",
+      "height": 202.765625,
+      "withinContainer": true
+    },
+    {
+      "route": "/tools/pixel-cursor/",
+      "width": 291,
+      "src": "/images/tools/pixel-cursor-overview.png",
+      "alt": "像素光标软件真实界面：光标主题状态预览、尺寸选择、应用主题与恢复方案按钮",
+      "complete": true,
+      "naturalWidth": 1246,
+      "naturalHeight": 863,
+      "objectFit": "contain",
+      "height": 203.390625,
+      "withinContainer": true
+    },
+    {
+      "route": "/tools/",
+      "width": 285,
+      "src": "/images/tools/pixel-cursor-overview.png",
+      "alt": "像素光标软件真实界面：光标主题状态预览、尺寸选择、应用主题与恢复方案按钮",
+      "complete": true,
+      "naturalWidth": 1246,
+      "naturalHeight": 863,
+      "objectFit": "contain",
+      "height": 198.625,
+      "withinContainer": true
+    },
+    {
+      "route": "/tools/pixel-cursor/",
+      "width": 632,
+      "src": "/images/tools/pixel-cursor-overview.png",
+      "alt": "像素光标软件真实界面：光标主题状态预览、尺寸选择、应用主题与恢复方案按钮",
+      "complete": true,
+      "naturalWidth": 1246,
+      "naturalHeight": 863,
+      "objectFit": "contain",
+      "height": 439.5625,
+      "withinContainer": true
+    },
+    {
+      "route": "/tools/",
+      "width": 533,
+      "src": "/images/tools/pixel-cursor-overview.png",
+      "alt": "像素光标软件真实界面：光标主题状态预览、尺寸选择、应用主题与恢复方案按钮",
+      "complete": true,
+      "naturalWidth": 1246,
+      "naturalHeight": 863,
+      "objectFit": "contain",
+      "height": 370.390625,
+      "withinContainer": true
+    },
+    {
+      "route": "/tools/pixel-cursor/",
+      "width": 1136,
+      "src": "/images/tools/pixel-cursor-overview.png",
+      "alt": "像素光标软件真实界面：光标主题状态预览、尺寸选择、应用主题与恢复方案按钮",
+      "complete": true,
+      "naturalWidth": 1246,
+      "naturalHeight": 863,
+      "objectFit": "contain",
+      "height": 788.65625,
+      "withinContainer": true
+    }
+  ],
+  "layoutChecks": [
+    {
+      "route": "/",
+      "width": 320,
+      "documentWidth": 320,
+      "viewportWidth": 320,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/prompts/",
+      "width": 320,
+      "documentWidth": 320,
+      "viewportWidth": 320,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/tools/",
+      "width": 320,
+      "documentWidth": 320,
+      "viewportWidth": 320,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/games/",
+      "width": 320,
+      "documentWidth": 320,
+      "viewportWidth": 320,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/skills/",
+      "width": 320,
+      "documentWidth": 320,
+      "viewportWidth": 320,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/agents/",
+      "width": 320,
+      "documentWidth": 320,
+      "viewportWidth": 320,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/learning/",
+      "width": 320,
+      "documentWidth": 320,
+      "viewportWidth": 320,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/tools/pixel-cursor/",
+      "width": 320,
+      "documentWidth": 320,
+      "viewportWidth": 320,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/",
+      "width": 375,
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/prompts/",
+      "width": 375,
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/tools/",
+      "width": 375,
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/games/",
+      "width": 375,
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/skills/",
+      "width": 375,
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/agents/",
+      "width": 375,
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/learning/",
+      "width": 375,
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/tools/pixel-cursor/",
+      "width": 375,
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/prompts/",
+      "width": 768,
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/tools/",
+      "width": 768,
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/games/",
+      "width": 768,
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/skills/",
+      "width": 768,
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/agents/",
+      "width": 768,
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/learning/",
+      "width": 768,
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/tools/pixel-cursor/",
+      "width": 768,
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "documentWidth": 1440,
+      "viewportWidth": 1440,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/prompts/",
+      "width": 1440,
+      "documentWidth": 1440,
+      "viewportWidth": 1440,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/tools/",
+      "width": 1440,
+      "documentWidth": 1440,
+      "viewportWidth": 1440,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/games/",
+      "width": 1440,
+      "documentWidth": 1440,
+      "viewportWidth": 1440,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/skills/",
+      "width": 1440,
+      "documentWidth": 1440,
+      "viewportWidth": 1440,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/agents/",
+      "width": 1440,
+      "documentWidth": 1440,
+      "viewportWidth": 1440,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/learning/",
+      "width": 1440,
+      "documentWidth": 1440,
+      "viewportWidth": 1440,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    },
+    {
+      "route": "/tools/pixel-cursor/",
+      "width": 1440,
+      "documentWidth": 1440,
+      "viewportWidth": 1440,
+      "motions": 0,
+      "smoothScroll": false,
+      "brokenImages": 0
+    }
+  ]
+}

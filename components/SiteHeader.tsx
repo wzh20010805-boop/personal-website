@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { site } from "@/data/site";
 
 export function StudioMark({ className }: { className?: string }) {
@@ -7,8 +8,8 @@ export function StudioMark({ className }: { className?: string }) {
 export function SiteHeader() {
   return (
     <header className="site-header page-shell">
-      <a href="#top" className="site-brand"><StudioMark className="site-brand__mark" /><span>{site.name}<small>一个装满想法的地方</small></span></a>
-      <nav aria-label="主导航"><a href="#works">作品<span aria-hidden="true">↗</span></a><a href="#learning">学习积累<span aria-hidden="true">↗</span></a></nav>
+      <Link prefetch={false} href="/" className="site-brand"><StudioMark className="site-brand__mark" /><span>{site.name}<small>一个装满想法的地方</small></span></Link>
+      <nav aria-label="主导航"><Link prefetch={false} href="/#works">作品<span aria-hidden="true">↗</span></Link><Link prefetch={false} href="/learning/">学习积累<span aria-hidden="true">↗</span></Link></nav>
       <span className="header-note"><span aria-hidden="true" />保持好奇，自由创造</span>
     </header>
   );

@@ -1,7 +1,7 @@
 {
-  "baseURL": "http://127.0.0.1:3001",
-  "checkedAt": "2026-09-16T00:50:02.228Z",
-  "browser": "153.0.8010.37",
+  "baseURL": "http://127.0.0.1:4174",
+  "checkedAt": "2026-09-17T06:06:15.061Z",
+  "browser": "153.0.4234.32",
   "viewports": [
     {
       "viewport": 320,
@@ -20,7 +20,15 @@
         "我做的 Agent",
         "我的学习与技术积累"
       ],
-      "linkedCategories": 0,
+      "linkedCategories": 6,
+      "categoryHrefs": [
+        "/prompts/",
+        "/tools/",
+        "/games/",
+        "/skills/",
+        "/agents/",
+        "/learning/"
+      ],
       "githubDisabled": true,
       "githubNote": "GitHub 链接待补充",
       "buttons": [
@@ -40,21 +48,9 @@
           "loaded": true
         }
       ],
-      "links": [
+      "hashLinks": [
         {
           "href": "#works",
-          "targetExists": true
-        },
-        {
-          "href": "#top",
-          "targetExists": true
-        },
-        {
-          "href": "#works",
-          "targetExists": true
-        },
-        {
-          "href": "#learning",
           "targetExists": true
         },
         {
@@ -69,8 +65,7 @@
       "motions": [],
       "scrollBehavior": "auto",
       "activeAnimations": 0,
-      "projectPlaceholder": true,
-      "projectLinks": 0,
+      "projectPreviewExists": false,
       "anchorClicks": "passed",
       "errors": [],
       "failedRequests": [],
@@ -93,7 +88,15 @@
         "我做的 Agent",
         "我的学习与技术积累"
       ],
-      "linkedCategories": 0,
+      "linkedCategories": 6,
+      "categoryHrefs": [
+        "/prompts/",
+        "/tools/",
+        "/games/",
+        "/skills/",
+        "/agents/",
+        "/learning/"
+      ],
       "githubDisabled": true,
       "githubNote": "GitHub 链接待补充",
       "buttons": [
@@ -113,21 +116,9 @@
           "loaded": true
         }
       ],
-      "links": [
+      "hashLinks": [
         {
           "href": "#works",
-          "targetExists": true
-        },
-        {
-          "href": "#top",
-          "targetExists": true
-        },
-        {
-          "href": "#works",
-          "targetExists": true
-        },
-        {
-          "href": "#learning",
           "targetExists": true
         },
         {
@@ -142,8 +133,7 @@
       "motions": [],
       "scrollBehavior": "auto",
       "activeAnimations": 0,
-      "projectPlaceholder": true,
-      "projectLinks": 0,
+      "projectPreviewExists": false,
       "anchorClicks": "passed",
       "errors": [],
       "failedRequests": [],
@@ -166,7 +156,15 @@
         "我做的 Agent",
         "我的学习与技术积累"
       ],
-      "linkedCategories": 0,
+      "linkedCategories": 6,
+      "categoryHrefs": [
+        "/prompts/",
+        "/tools/",
+        "/games/",
+        "/skills/",
+        "/agents/",
+        "/learning/"
+      ],
       "githubDisabled": true,
       "githubNote": "GitHub 链接待补充",
       "buttons": [
@@ -186,21 +184,9 @@
           "loaded": true
         }
       ],
-      "links": [
+      "hashLinks": [
         {
           "href": "#works",
-          "targetExists": true
-        },
-        {
-          "href": "#top",
-          "targetExists": true
-        },
-        {
-          "href": "#works",
-          "targetExists": true
-        },
-        {
-          "href": "#learning",
           "targetExists": true
         },
         {
@@ -215,8 +201,7 @@
       "motions": [],
       "scrollBehavior": "auto",
       "activeAnimations": 0,
-      "projectPlaceholder": true,
-      "projectLinks": 0,
+      "projectPreviewExists": false,
       "anchorClicks": "passed",
       "errors": [],
       "failedRequests": [],
@@ -239,7 +224,15 @@
         "我做的 Agent",
         "我的学习与技术积累"
       ],
-      "linkedCategories": 0,
+      "linkedCategories": 6,
+      "categoryHrefs": [
+        "/prompts/",
+        "/tools/",
+        "/games/",
+        "/skills/",
+        "/agents/",
+        "/learning/"
+      ],
       "githubDisabled": true,
       "githubNote": "GitHub 链接待补充",
       "buttons": [
@@ -259,21 +252,9 @@
           "loaded": true
         }
       ],
-      "links": [
+      "hashLinks": [
         {
           "href": "#works",
-          "targetExists": true
-        },
-        {
-          "href": "#top",
-          "targetExists": true
-        },
-        {
-          "href": "#works",
-          "targetExists": true
-        },
-        {
-          "href": "#learning",
           "targetExists": true
         },
         {
@@ -288,8 +269,7 @@
       "motions": [],
       "scrollBehavior": "auto",
       "activeAnimations": 0,
-      "projectPlaceholder": true,
-      "projectLinks": 0,
+      "projectPreviewExists": false,
       "anchorClicks": "passed",
       "errors": [],
       "failedRequests": [],
@@ -327,6 +307,48 @@
     },
     {
       "text": "浏览作品 ↘",
+      "tag": "A",
+      "outline": "solid",
+      "outlineWidth": "3px",
+      "visible": true
+    },
+    {
+      "text": "01PROMPTS✳灵感从一句话开始我推荐的 Prompt让好问题，遇见好答案。\n收集值得分享的提示词与使用心得。正在整理 · 进入看看 →",
+      "tag": "A",
+      "outline": "solid",
+      "outlineWidth": "3px",
+      "visible": true
+    },
+    {
+      "text": "02LITTLE TOOLS✳小工具，大帮忙我做的小工具给日常的小麻烦，做点小发明。\n把想法变成顺手的工具。1 件作品 · 进入看看 →",
+      "tag": "A",
+      "outline": "solid",
+      "outlineWidth": "3px",
+      "visible": true
+    },
+    {
+      "text": "03MINI GAMES✳给好奇心留个位置我做的小游戏认真做一点好玩的东西。\n在规则和想象之间，探索乐趣。正在整理 · 进入看看 →",
+      "tag": "A",
+      "outline": "solid",
+      "outlineWidth": "3px",
+      "visible": true
+    },
+    {
+      "text": "04SKILLS✳让方法成为技能我做的 Skill把实用的方法，装进技能卡。\n积累可以反复使用的创作能力。正在整理 · 进入看看 →",
+      "tag": "A",
+      "outline": "solid",
+      "outlineWidth": "3px",
+      "visible": true
+    },
+    {
+      "text": "05AGENTS✳和想法一起行动我做的 Agent为一个想法，搭一位小帮手。\n记录 Agent 的设计与实践。正在整理 · 进入看看 →",
+      "tag": "A",
+      "outline": "solid",
+      "outlineWidth": "3px",
+      "visible": true
+    },
+    {
+      "text": "06LEARNING NOTES✳保持好奇，持续生长我的学习与技术积累一边探索，一边留下脚印。\n收好学习笔记、实践与技术心得。正在整理 · 进入看看 →",
       "tag": "A",
       "outline": "solid",
       "outlineWidth": "3px",
