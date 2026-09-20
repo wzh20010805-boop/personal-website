@@ -90,6 +90,60 @@ export default function AmazonProductRadarPage() {
             <p className={styles.privateNote}><span aria-hidden="true">🔒</span> 本项目目前为私人项目。此页面仅展示产品思路与实际效果，源码和仓库不公开。</p>
           </header>
 
+          <section className={`${styles.section} ${styles.originSection}`} aria-label="为什么我会做这个 Skill">
+            <SectionHeading number="01" eyebrow="THE ORIGIN" title="为什么我会做这个 Skill" />
+            <div className={styles.originStory}>
+              <div className={styles.originCopy}>
+                <p className={styles.originLead}>这个思路灵感来源于我的一位做亚马逊电商的亲戚。他是一个人做电商，但是由于没有专业的分析选品能力，所以问我能不能帮他做一个关于如何选品的skill，帮助他选一些好的产品来上线到亚马逊上。关于amazon-product-radar选品评分系统与逻辑的markdown文档在我的GitHub仓库中，这里不方便展示，尽情谅解。</p>
+              </div>
+
+              <blockquote className={styles.originQuote}>
+                <div className={styles.quoteIcon} aria-hidden="true">
+                  <svg viewBox="0 0 64 64" fill="none">
+                    <circle cx="32" cy="32" r="25" stroke="currentColor" strokeWidth="3" />
+                    <circle cx="32" cy="32" r="14" stroke="currentColor" strokeWidth="2" strokeDasharray="3 4" />
+                    <path d="M32 7v7M32 50v7M7 32h7M50 32h7M32 32 48 19" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                    <circle cx="32" cy="32" r="4" fill="var(--agent)" stroke="currentColor" strokeWidth="2" />
+                    <path d="M44 11c7 2 10 6 11 13" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                  </svg>
+                </div>
+                <span className={styles.quoteLabel}>最初的问题</span>
+                <p>
+                  <span className={styles.quoteLine}>“能不能帮我做一个 Skill，</span>
+                  <span className={styles.quoteLine}>帮我看看 Amazon 上有哪些</span>
+                  <span className={styles.quoteLine}>值得做的产品？”</span>
+                </p>
+                <footer>来自一位个人 Amazon 卖家的真实需求</footer>
+              </blockquote>
+            </div>
+
+            <ol className={styles.originReasons} aria-label="为什么这件事值得做">
+              <li>
+                <span className={styles.originReasonIndex}>01</span>
+                <h3>个人卖家的信息压力</h3>
+                <p>一个人经营店铺，很难同时拥有专业的数据分析、市场研究和持续选品能力。</p>
+              </li>
+              <li>
+                <span className={styles.originReasonIndex}>02</span>
+                <h3>选品不应该只靠感觉</h3>
+                <p>热销榜只能告诉你已经发生了什么，真正困难的是判断哪些需求值得进一步研究。</p>
+              </li>
+              <li>
+                <span className={styles.originReasonIndex}>03</span>
+                <h3>AI 应该辅助判断，而不是替人做决定</h3>
+                <p>让 Skill 帮忙整理证据、评分和风险，把最后的商业判断留给使用者。</p>
+              </li>
+            </ol>
+
+            <aside className={styles.originPrivate} aria-label="评分系统与运行逻辑的私有说明">
+              <span className={styles.privateMark} aria-hidden="true">PRIVATE</span>
+              <div>
+                <h3>评分系统与运行逻辑</h3>
+                <p>Amazon Product Radar 内部还有一套完整的选品评分系统与运行逻辑，用于处理候选发现、证据校验、机会评分、风险分析和结果排序。相关 Markdown 文档与具体实现目前保存在我的私人项目中。由于其中包含较完整的内部规则与评分细节，这里暂不公开展示，敬请谅解。</p>
+              </div>
+            </aside>
+          </section>
+
           <section className={styles.section} aria-label="它解决什么问题">
             <SectionHeading number="02" eyebrow="THE IDEA" title="它解决什么问题" />
             <div className={styles.problemGrid}>

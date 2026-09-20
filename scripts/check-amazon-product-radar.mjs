@@ -30,6 +30,7 @@ const report = {
   imageChecks: [],
   servedImageChecks: [],
   privacyChecks: [],
+  originChecks: [],
   layoutChecks: [],
   runtimeErrors: [],
   failedResources: [],
@@ -212,6 +213,38 @@ try {
   verify(reloadResponse?.ok() && /Amazon\s+Product\s+Radar/.test(await page.locator("h1").innerText()), "详情页刷新失败");
   report.navigationChecks.push({ method: "direct-and-reload", destination: detailPath });
   const detailText = (await page.locator("main").innerText()).replace(/\s+/g, " ");
+  const origin = page.locator("section[aria-label='为什么我会做这个 Skill']");
+  const idea = page.locator("section[aria-label='它解决什么问题']");
+  verify(await origin.count() === 1, "详情页缺少唯一的项目起源区域");
+  verify(await origin.evaluate((element) => element.previousElementSibling?.tagName === "HEADER"), "项目起源区域应紧接 Hero");
+  verify(await origin.evaluate((element) => Boolean(element.compareDocumentPosition(document.querySelector("section[aria-label='它解决什么问题']")) & Node.DOCUMENT_POSITION_FOLLOWING)), "项目起源区域应位于 Hero 与 THE IDEA 之间");
+  const expectedOriginBody = "这个思路灵感来源于我的一位做亚马逊电商的亲戚。他是一个人做电商，但是由于没有专业的分析选品能力，所以问我能不能帮他做一个关于如何选品的skill，帮助他选一些好的产品来上线到亚马逊上。关于amazon-product-radar选品评分系统与逻辑的markdown文档在我的GitHub仓库中，这里不方便展示，尽情谅解。";
+  const originBody = origin.locator(":scope > div:nth-child(2) > div:first-child");
+  verify(await originBody.locator(":scope > p").count() === 1
+    && await originBody.textContent().then((text) => text.trim()) === expectedOriginBody,
+  "项目起源正文必须逐字保留用户确认的单段原文");
+  verify(await origin.locator("blockquote p").textContent() === "“能不能帮我做一个 Skill，帮我看看 Amazon 上有哪些值得做的产品？”",
+    "最初的问题引用必须保留用户确认的原文");
+  const originText = (await origin.innerText()).replace(/\s+/g, " ");
+  for (const [description, expression] of [
+    ["THE ORIGIN 标题", /01[\s\S]*THE ORIGIN[\s\S]*为什么我会做这个 Skill/],
+    ["真实需求说明", /来自一位个人 Amazon 卖家的真实需求/],
+    ["个人卖家的信息压力", /个人卖家的信息压力/],
+    ["选品不应该只靠感觉", /选品不应该只靠感觉/],
+    ["AI 辅助判断边界", /AI 应该辅助判断，而不是替人做决定/],
+    ["评分系统与运行逻辑私有说明", /评分系统与运行逻辑[\s\S]*私人项目[\s\S]*暂不公开/],
+  ]) {
+    verify(expression.test(originText), "项目起源区域缺少" + description);
+  }
+  verify(await origin.locator("li").count() === 3, "项目起源区域应保留三个简洁小结");
+  verify(await origin.locator("a, button").count() === 0, "项目起源区域不应包含仓库或源码入口");
+  report.originChecks.push({
+    route: detailPath,
+    position: "after-hero-before-idea",
+    summaryPoints: await origin.locator("li").count(),
+    interactiveElements: await origin.locator("a, button").count(),
+  });
+  verify(await idea.count() === 1, "现有 THE IDEA 区域应保持唯一");
   for (const [description, expression] of [
     ["历史案例和原始报告日期", /历史[\s\S]*2026-09-14|2026-09-14[\s\S]*历史/],
     ["非实时推荐说明", /不代表当前实时选品推荐/],
@@ -265,6 +298,37 @@ try {
       verify(measured.documentWidth <= measured.viewportWidth, route + " 在 " + width + "px 出现横向溢出");
       verify(measured.motions === 0 && !measured.smoothScroll, route + " 不应新增动画、过渡或平滑滚动");
       verify(measured.brokenImages === 0, route + " 存在未加载的图片");
+      if (route === detailPath) {
+        const originLayout = await page.evaluate(() => {
+          const section = document.querySelector("section[aria-label='为什么我会做这个 Skill']");
+          const story = section.children[1];
+          const copy = story.children[0].getBoundingClientRect();
+          const quote = story.children[1].getBoundingClientRect();
+          const reasons = section.querySelector("ol").getBoundingClientRect();
+          const lastReason = section.querySelector("ol li:last-child").getBoundingClientRect();
+          const privateNote = section.querySelector("aside").getBoundingClientRect();
+          const ideaSection = document.querySelector("section[aria-label='它解决什么问题']").getBoundingClientRect();
+          const rect = ({ top, right, bottom, left, width, height }) => ({ top, right, bottom, left, width, height });
+          return {
+            copy: rect(copy),
+            quote: rect(quote),
+            reasons: rect(reasons),
+            lastReason: rect(lastReason),
+            privateNote: rect(privateNote),
+            ideaSection: rect(ideaSection),
+          };
+        });
+        if (width <= 700) {
+          verify(originLayout.quote.top >= originLayout.copy.bottom, width + "px 下引用卡应排在起源正文之后");
+          verify(originLayout.reasons.top >= originLayout.quote.bottom, width + "px 下三个小结应排在引用卡之后");
+          verify(originLayout.privateNote.top >= originLayout.lastReason.bottom, width + "px 下私有说明应排在三个小结之后");
+        } else {
+          verify(originLayout.quote.left >= originLayout.copy.right, width + "px 下引用卡应位于起源正文右侧");
+          verify(Math.abs(originLayout.copy.bottom - originLayout.quote.bottom) <= 0.5, width + "px 下左右卡片底边应齐平");
+        }
+        verify(originLayout.ideaSection.top >= originLayout.privateNote.bottom, width + "px 下 THE IDEA 应排在项目起源区域之后");
+        report.originChecks.push({ route, width, layout: originLayout });
+      }
       report.layoutChecks.push({ route, width, ...measured });
       if ([375, 1440].includes(width)) {
         const name = route === listPath ? "skills" : "amazon-product-radar";
@@ -272,6 +336,7 @@ try {
         await page.screenshot({ path: join(outputDirectory, name + "-" + width + ".png"), fullPage: true });
         if (route === detailPath) {
           await page.screenshot({ path: join(outputDirectory, name + "-hero-" + width + ".png") });
+          await origin.screenshot({ path: join(outputDirectory, name + "-origin-" + width + ".png") });
           const firstImage = page.locator("main img").first();
           const frame = firstImage.locator("xpath=ancestor::figure[1]");
           await (await frame.count() ? frame : firstImage).screenshot({
