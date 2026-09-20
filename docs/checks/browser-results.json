@@ -1,7 +1,7 @@
 {
   "baseURL": "http://127.0.0.1:4174",
-  "checkedAt": "2026-09-17T06:06:15.061Z",
-  "browser": "153.0.4234.32",
+  "checkedAt": "2026-09-20T04:13:35.229Z",
+  "browser": "153.0.8010.48",
   "viewports": [
     {
       "viewport": 320,
@@ -29,22 +29,26 @@
         "/agents/",
         "/learning/"
       ],
-      "githubDisabled": true,
-      "githubNote": "GitHub 链接待补充",
+      "githubHref": "https://github.com/wzh20010805-boop",
+      "githubLabel": "查看作者 GitHub 主页 ↗",
+      "githubPlaceholderExists": false,
+      "emailHref": "mailto:wzh20010805@gmail.com",
+      "emailLabel": "邮箱联系我wzh20010805@gmail.com",
+      "contactFits": true,
       "buttons": [
         {
           "text": "浏览作品 ↘",
           "height": 52
         },
         {
-          "text": "查看 GitHub ",
+          "text": "查看作者 GitHub 主页 ↗",
           "height": 52
         }
       ],
       "images": [
         {
-          "src": "/illustrations/creator-placeholder.svg",
-          "alt": "临时蓝灰色猫咪创作者，大头小身体，一只手拿铅笔，另一只手扶着作品卡片",
+          "src": "/illustrations/creator-hero-v2.png",
+          "alt": "蓝灰猫抱着电脑坐在黄色沙发上，身旁蜷着黑猫，粉色背景周围环绕 Prompt、小工具、小游戏、Skill、Agent 和学习笔记六类创作元素。",
           "loaded": true
         }
       ],
@@ -97,22 +101,26 @@
         "/agents/",
         "/learning/"
       ],
-      "githubDisabled": true,
-      "githubNote": "GitHub 链接待补充",
+      "githubHref": "https://github.com/wzh20010805-boop",
+      "githubLabel": "查看作者 GitHub 主页 ↗",
+      "githubPlaceholderExists": false,
+      "emailHref": "mailto:wzh20010805@gmail.com",
+      "emailLabel": "邮箱联系我wzh20010805@gmail.com",
+      "contactFits": true,
       "buttons": [
         {
           "text": "浏览作品 ↘",
           "height": 52
         },
         {
-          "text": "查看 GitHub ",
+          "text": "查看作者 GitHub 主页 ↗",
           "height": 52
         }
       ],
       "images": [
         {
-          "src": "/illustrations/creator-placeholder.svg",
-          "alt": "临时蓝灰色猫咪创作者，大头小身体，一只手拿铅笔，另一只手扶着作品卡片",
+          "src": "/illustrations/creator-hero-v2.png",
+          "alt": "蓝灰猫抱着电脑坐在黄色沙发上，身旁蜷着黑猫，粉色背景周围环绕 Prompt、小工具、小游戏、Skill、Agent 和学习笔记六类创作元素。",
           "loaded": true
         }
       ],
@@ -165,22 +173,26 @@
         "/agents/",
         "/learning/"
       ],
-      "githubDisabled": true,
-      "githubNote": "GitHub 链接待补充",
+      "githubHref": "https://github.com/wzh20010805-boop",
+      "githubLabel": "查看作者 GitHub 主页 ↗",
+      "githubPlaceholderExists": false,
+      "emailHref": "mailto:wzh20010805@gmail.com",
+      "emailLabel": "邮箱联系我wzh20010805@gmail.com",
+      "contactFits": true,
       "buttons": [
         {
           "text": "浏览作品 ↘",
           "height": 50
         },
         {
-          "text": "查看 GitHub ",
+          "text": "查看作者 GitHub 主页 ↗",
           "height": 50
         }
       ],
       "images": [
         {
-          "src": "/illustrations/creator-placeholder.svg",
-          "alt": "临时蓝灰色猫咪创作者，大头小身体，一只手拿铅笔，另一只手扶着作品卡片",
+          "src": "/illustrations/creator-hero-v2.png",
+          "alt": "蓝灰猫抱着电脑坐在黄色沙发上，身旁蜷着黑猫，粉色背景周围环绕 Prompt、小工具、小游戏、Skill、Agent 和学习笔记六类创作元素。",
           "loaded": true
         }
       ],
@@ -233,22 +245,26 @@
         "/agents/",
         "/learning/"
       ],
-      "githubDisabled": true,
-      "githubNote": "GitHub 链接待补充",
+      "githubHref": "https://github.com/wzh20010805-boop",
+      "githubLabel": "查看作者 GitHub 主页 ↗",
+      "githubPlaceholderExists": false,
+      "emailHref": "mailto:wzh20010805@gmail.com",
+      "emailLabel": "邮箱联系我wzh20010805@gmail.com",
+      "contactFits": true,
       "buttons": [
         {
           "text": "浏览作品 ↘",
           "height": 56
         },
         {
-          "text": "查看 GitHub ",
+          "text": "查看作者 GitHub 主页 ↗",
           "height": 56
         }
       ],
       "images": [
         {
-          "src": "/illustrations/creator-placeholder.svg",
-          "alt": "临时蓝灰色猫咪创作者，大头小身体，一只手拿铅笔，另一只手扶着作品卡片",
+          "src": "/illustrations/creator-hero-v2.png",
+          "alt": "蓝灰猫抱着电脑坐在黄色沙发上，身旁蜷着黑猫，粉色背景周围环绕 Prompt、小工具、小游戏、Skill、Agent 和学习笔记六类创作元素。",
           "loaded": true
         }
       ],
@@ -313,6 +329,20 @@
       "visible": true
     },
     {
+      "text": "查看作者 GitHub 主页 ↗",
+      "tag": "A",
+      "outline": "solid",
+      "outlineWidth": "3px",
+      "visible": true
+    },
+    {
+      "text": "邮箱联系我wzh20010805@gmail.com",
+      "tag": "A",
+      "outline": "solid",
+      "outlineWidth": "3px",
+      "visible": true
+    },
+    {
       "text": "01PROMPTS✳灵感从一句话开始我推荐的 Prompt让好问题，遇见好答案。\n收集值得分享的提示词与使用心得。正在整理 · 进入看看 →",
       "tag": "A",
       "outline": "solid",
@@ -334,7 +364,7 @@
       "visible": true
     },
     {
-      "text": "04SKILLS✳让方法成为技能我做的 Skill把实用的方法，装进技能卡。\n积累可以反复使用的创作能力。正在整理 · 进入看看 →",
+      "text": "04SKILLS✳让方法成为技能我做的 Skill把实用的方法，装进技能卡。\n积累可以反复使用的创作能力。1 件作品 · 进入看看 →",
       "tag": "A",
       "outline": "solid",
       "outlineWidth": "3px",

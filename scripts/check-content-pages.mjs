@@ -1,15 +1,18 @@
 import { mkdir, writeFile } from "node:fs/promises";
-import { fileURLToPath } from "node:url";
+import { resolve, sep } from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { chromium } from "playwright";
 
 const baseURL = (process.env.CHECK_URL ?? "http://127.0.0.1:4173").replace(/\/$/, "");
-const screenshotOutput = new URL("../docs/checks/category-upgrade/", import.meta.url);
+const screenshotOutput = process.env.CHECK_OUTPUT_DIR
+  ? pathToFileURL(resolve(process.env.CHECK_OUTPUT_DIR) + sep)
+  : new URL("../docs/checks/category-upgrade/", import.meta.url);
 await mkdir(screenshotOutput, { recursive: true });
 const categories = [
   ["prompts", "我推荐的 Prompt", "0"],
   ["tools", "我做的小工具", "1"],
   ["games", "我做的小游戏", "0"],
-  ["skills", "我做的 Skill", "0"],
+  ["skills", "我做的 Skill", "1"],
   ["agents", "我做的 Agent", "0"],
   ["learning", "我的学习与技术积累", "0"],
 ];
@@ -99,7 +102,7 @@ try {
     verify((await page.locator(".site-brand").getAttribute("href")) === "/", `/${slug}/ 品牌首页链接不正确`);
     verify((await page.getByRole("link", { name: "作品", exact: true }).getAttribute("href")) === "/#works", `/${slug}/ 作品导航不正确`);
     verify((await page.getByRole("link", { name: "学习积累", exact: true }).getAttribute("href")) === "/learning/", `/${slug}/ 学习导航不正确`);
-    if (slug !== "tools") {
+    if (count === "0") {
       const emptyState = page.locator(".empty-state");
       verify((await emptyState.count()) === 1, `/${slug}/ 缺少完整空状态`);
       verify((await emptyState.innerText()).includes("这个抽屉正在整理中。") && (await emptyState.innerText()).includes("有准备好的内容后，会放在这里。"), `/${slug}/ 空状态文案不完整`);
@@ -190,7 +193,8 @@ try {
     checkedAt: new Date().toISOString(),
     routes,
     categoryLinks: 6,
-    emptyCategories: 5,
+    emptyCategories: 4,
+    publishedSkills: 1,
     publishedTools: 1,
     detailPath,
     externalHrefs,
@@ -200,7 +204,7 @@ try {
     imageChecks,
     layoutChecks,
   }, null, 2)}\n`, "utf8");
-  console.log("内容页检查通过：六分类入口与五个空状态、工具列表与详情点击/刷新/返回、真实截图加载与完整比例、外链配置、四种屏宽布局、无动画及无运行错误。截图和检查 JSON 已写入 docs/checks/category-upgrade。");
+  console.log(`内容页检查通过：六分类入口与四个空状态、工具列表与详情点击/刷新/返回、真实截图加载与完整比例、外链配置、四种屏宽布局、无动画及无运行错误。截图和检查 JSON 已写入 ${fileURLToPath(screenshotOutput)}。`);
 } finally {
   await browser.close();
 }

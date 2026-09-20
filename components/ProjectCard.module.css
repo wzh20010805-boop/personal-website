@@ -1,0 +1,65 @@
+.skillCard {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  grid-column: 1 / -1;
+}
+
+.skillCard :global(.project-card__cover) {
+  min-width: 0;
+  align-content: center;
+  gap: 14px;
+  padding: 28px;
+  border-right: 4px solid var(--ink);
+  border-bottom: 0;
+}
+
+.skillCard .coverCaption {
+  padding: 4px 10px;
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  background: var(--paper-light);
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.skillCard :global(.project-card__body) {
+  min-width: 0;
+  padding: 32px;
+}
+
+.skillCard :global(.project-card__body) h2 {
+  font-size: clamp(26px, 2.5vw, 34px);
+  line-height: 1.2;
+  letter-spacing: -.035em;
+  overflow-wrap: anywhere;
+}
+
+.skillCard :global(.project-card__body) > .subtitle {
+  margin-top: 7px;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.skillCard :global(.project-card__body) > .privateNote {
+  margin-top: 14px;
+  padding-top: 13px;
+  border-top: 1px dashed var(--ink);
+  font-size: 12px;
+}
+
+@media (max-width: 760px) {
+  .skillCard {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .skillCard :global(.project-card__cover) {
+    padding: 18px;
+    border-right: 0;
+    border-bottom: 4px solid var(--ink);
+  }
+
+  .skillCard :global(.project-card__body) {
+    padding: 26px 22px;
+  }
+}

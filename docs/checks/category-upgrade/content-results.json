@@ -1,6 +1,6 @@
 {
   "baseURL": "http://127.0.0.1:4174",
-  "checkedAt": "2026-09-17T06:06:55.763Z",
+  "checkedAt": "2026-09-20T04:14:15.514Z",
   "routes": [
     "/",
     "/prompts/",
@@ -12,7 +12,8 @@
     "/tools/pixel-cursor/"
   ],
   "categoryLinks": 6,
-  "emptyCategories": 5,
+  "emptyCategories": 4,
+  "publishedSkills": 1,
   "publishedTools": 1,
   "detailPath": "/tools/pixel-cursor/",
   "externalHrefs": [

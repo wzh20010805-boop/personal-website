@@ -3,6 +3,11 @@ import type { CategoryId } from "./categories";
 export interface Project {
   id: string;
   title: string;
+  subtitle?: string;
+  visibility?: "private" | "public";
+  typeLabel?: string;
+  detailLabel?: string;
+  coverCaption?: string;
   category: CategoryId;
   description: string;
   motivation?: string[];
@@ -73,6 +78,33 @@ export const projects: Project[] = [{
     "运行 PixelCursor.exe，选择主题和尺寸后点击“应用这个主题”。",
   ],
   notice: "本工具会修改当前用户的 Windows 光标方案。关闭程序不会自动撤销已应用的主题，需要恢复时请使用恢复功能。当前展示版本未进行代码签名，Windows 可能提示未知发布者。不同系统版本、缩放设置及软件自身的光标行为可能影响效果；详细说明以仓库 README 和发布页为准。",
+}, {
+  id: "amazon-product-radar",
+  title: "Amazon Product Radar",
+  subtitle: "Amazon 选品机会雷达",
+  visibility: "private",
+  typeLabel: "AI SKILL",
+  detailLabel: "查看项目详情",
+  coverCaption: "真实历史报告 · 2026-09-14",
+  category: "skills",
+  description: "一个面向 Amazon 选品决策的机会发现 Skill，从真实商品与证据出发，对候选机会进行推荐理由、评分、风险和信息来源分析，帮助快速判断哪些产品值得进一步研究。",
+  status: "PRIVATE PROJECT",
+  cover: {
+    src: "/images/skills/amazon-product-radar/report-overview.png",
+    alt: "Amazon Product Radar 真实历史报告总览：2026 年 9 月 14 日的 JP 市场、2 个类目、4 个合格机会与 11 个校验候选",
+    width: 1009,
+    height: 505,
+  },
+  detailHref: "/skills/amazon-product-radar/",
+  links: [],
+  isPlaceholder: false,
+  published: true,
+  sourceVersion: "",
+  requirements: [],
+  delivery: "",
+  features: [],
+  steps: [],
+  notice: "私人项目 · 源码暂不公开",
 }];
 
 export function getPublishedProjectsByCategory(category: CategoryId) {

@@ -1,8 +1,12 @@
 node_modules/
 .next/
 out/
+output/
 .npm-cache/
 .env*
 *.tsbuildinfo
 *.log
 .DS_Store
+docs/checks/amazon-product-radar/
+docs/checks/contact-area-*.jpg
+docs/checks/title-fixed-*.jpg

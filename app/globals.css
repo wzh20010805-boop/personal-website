@@ -152,15 +152,22 @@ a:focus-visible, button:focus-visible {
 .header-note > span { width: 7px; height: 7px; background: var(--tool); border: 1.5px solid var(--ink); border-radius: 50%; }
 .hero { display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; gap: 20px; padding-top: 46px; padding-bottom: 54px; }
 .hero-copy { position: relative; padding-bottom: 12px; min-width: 0; }
+.hero-illustration { min-width: 0; width: 100%; }
+.hero-illustration > img { width: 100%; height: auto; object-fit: contain; }
 .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 3px 12px 3px 8px; border: 2px solid var(--ink); border-radius: 6px; font-size: 12px; font-weight: 700; background: var(--paper-light); transform: rotate(-2deg); box-shadow: 2px 2px 0 var(--ink); margin-bottom: 26px; }
 .hero-eyebrow > span { font-size: 20px; color: var(--agent); line-height: 1; }
 .hero h1 { font-size: clamp(44px, 5.1vw, 73px); line-height: 1.23; font-weight: 900; letter-spacing: -.075em; position: relative; z-index: 1; white-space: nowrap; }
-.hero-highlight { position: relative; isolation: isolate; }
+.hero-highlight { position: relative; }
 .hero-highlight::before { content: ""; position: absolute; z-index: -1; inset: 10% -5% -3%; background: var(--skill); clip-path: polygon(1% 14%,98% 0,100% 89%,3% 100%); transform: rotate(-3deg); }
 .hero-title-dot { color: var(--agent); -webkit-text-stroke: 2px var(--ink); display: inline-block; width: .6em; }
 .hero-description { max-width: 485px; margin-top: 26px; font-size: 17px; line-height: 1.95; }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; margin-top: 28px; }
-.github-note { margin-top: 15px; font-size: 11px; padding-left: 194px; }
+.hero-actions .candy-button { max-width: 100%; }
+.hero-contact { display: flex; align-items: center; gap: 10px; width: fit-content; max-width: 100%; min-height: 44px; margin-top: 18px; padding: 4px 0; border-radius: 4px; font-size: 14px; }
+.hero-contact > svg { flex-shrink: 0; }
+.hero-contact__text { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 10px; min-width: 0; }
+.hero-contact__address { font-weight: 700; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; overflow-wrap: anywhere; }
+.hero-contact:hover .hero-contact__address { text-decoration-thickness: 2px; }
 .hero-postscript { display: flex; align-items: center; gap: 9px; margin-top: 16px; padding-left: 12px; font-size: 12px; letter-spacing: .07em; transform: rotate(-3deg); }
 .hero-postscript svg { transform: rotate(10deg); }
 .creator-scene { position: relative; width: 100%; height: 548px; margin: 0; isolation: isolate; }
@@ -443,7 +450,7 @@ a:focus-visible, button:focus-visible {
   .scene-sticker { font-size: 10px; top: 9%; left: 1%; }
   .hero-actions { gap: 14px; }
   .candy-button { padding-inline: 14px; gap: 10px; font-size: 14px; min-height: 50px; }
-  .github-note { padding-left: 0; }
+  .hero-actions .candy-button { flex: 1 1 auto; }
   .header-note { display: none; }
   .hero-eyebrow { font-size: 11px; margin-bottom: 20px; }
 }
@@ -463,7 +470,8 @@ a:focus-visible, button:focus-visible {
   .hero-description { margin-top: 22px; font-size: 16px; line-height: 1.9; max-width: 460px; }
   .hero-actions { gap: 14px; margin-top: 24px; }
   .candy-button { font-size: 14px; gap: 12px; min-height: 52px; padding-inline: 17px; border-width: 3px; }
-  .github-note { padding-left: 156px; margin-top: 13px; font-size: 10px; }
+  .hero-actions .candy-button { flex: 1 1 auto; }
+  .hero-contact { font-size: 13px; }
   .hero-postscript { display: none; }
   .creator-scene { height: 403px; width: min(100%, 460px); margin-inline: auto; }
   .scene-sticker { left: 8%; top: 3%; font-size: 10px; }
@@ -540,6 +548,5 @@ a:focus-visible, button:focus-visible {
   .hero h1 { font-size: 36px; }
   .hero-actions { gap: 12px; }
   .candy-button { padding-inline: 13px; }
-  .github-note { padding-left: 143px; }
   .creator-scene { height: 364px; }
 }
