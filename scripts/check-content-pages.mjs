@@ -11,7 +11,7 @@ await mkdir(screenshotOutput, { recursive: true });
 const categories = [
   ["prompts", "我推荐的 Prompt", "0"],
   ["tools", "我做的小工具", "1"],
-  ["games", "我做的小游戏", "0"],
+  ["games", "我做的小游戏", "1"],
   ["skills", "我做的 Skill", "1"],
   ["agents", "我做的 Agent", "0"],
   ["learning", "我的学习与技术积累", "0"],
@@ -193,9 +193,10 @@ try {
     checkedAt: new Date().toISOString(),
     routes,
     categoryLinks: 6,
-    emptyCategories: 4,
+    emptyCategories: 3,
     publishedSkills: 1,
     publishedTools: 1,
+    publishedGames: 1,
     detailPath,
     externalHrefs,
     externalLinkNetworkCheck: "未在此脚本访问外站；仅核对精确目标、target 和 rel。",
@@ -204,7 +205,7 @@ try {
     imageChecks,
     layoutChecks,
   }, null, 2)}\n`, "utf8");
-  console.log(`内容页检查通过：六分类入口与四个空状态、工具列表与详情点击/刷新/返回、真实截图加载与完整比例、外链配置、四种屏宽布局、无动画及无运行错误。截图和检查 JSON 已写入 ${fileURLToPath(screenshotOutput)}。`);
+  console.log(`内容页检查通过：六分类入口与三个空状态、工具列表与详情点击/刷新/返回、真实截图加载与完整比例、外链配置、四种屏宽布局、无动画及无运行错误。截图和检查 JSON 已写入 ${fileURLToPath(screenshotOutput)}。`);
 } finally {
   await browser.close();
 }

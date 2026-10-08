@@ -1,0 +1,186 @@
+[
+  {
+    "width": 320,
+    "documentWidth": 320,
+    "images": [
+      {
+        "src": "/images/games/colony-roads/battlefield.png",
+        "loaded": true,
+        "alt": "微境节点战争真实开发画面：像素群岛上的蓝方主城、兵营、防御塔与小地图",
+        "fit": "contain"
+      },
+      {
+        "src": "/images/games/colony-roads/development-flow.png",
+        "loaded": true,
+        "alt": "制作流程图：Tiled地图编辑经资源管线进入WorldMap、CrowdController和CocosPhysicsMotor；玩家输入经ColonyGame与GameSession进入BattleView和Cocos画面，并连接HUD及TiledMapView。决策30Hz，物理60Hz。",
+        "fit": "contain"
+      },
+      {
+        "src": "/images/games/colony-roads/battlefield.png",
+        "loaded": true,
+        "alt": "真实 Cocos 普通关卡：蓝方建筑与生命值、镜头操作按钮及群岛小地图",
+        "fit": "contain"
+      },
+      {
+        "src": "/images/games/colony-roads/troop-selection.png",
+        "loaded": true,
+        "alt": "真实鼠标框选测试：黄色选框覆盖蓝方步兵和弓兵，士兵脚下显示选择圆环",
+        "fit": "contain"
+      },
+      {
+        "src": "/images/games/colony-roads/battle-lab.png",
+        "loaded": true,
+        "alt": "真实兵种测试场：双方出兵数量配置、开始对战与暂停按钮、实时统计区域",
+        "fit": "contain"
+      },
+      {
+        "src": "/images/games/colony-roads/slope-test.png",
+        "loaded": true,
+        "alt": "真实坡道专项测试：蓝方步兵及导航碰撞轮廓，工具栏显示接受20、到达20、越界0",
+        "fit": "contain"
+      }
+    ],
+    "brokenAnchors": [],
+    "errors": [],
+    "navigation": "passed",
+    "originalImage": "passed"
+  },
+  {
+    "width": 375,
+    "documentWidth": 375,
+    "images": [
+      {
+        "src": "/images/games/colony-roads/battlefield.png",
+        "loaded": true,
+        "alt": "微境节点战争真实开发画面：像素群岛上的蓝方主城、兵营、防御塔与小地图",
+        "fit": "contain"
+      },
+      {
+        "src": "/images/games/colony-roads/development-flow.png",
+        "loaded": true,
+        "alt": "制作流程图：Tiled地图编辑经资源管线进入WorldMap、CrowdController和CocosPhysicsMotor；玩家输入经ColonyGame与GameSession进入BattleView和Cocos画面，并连接HUD及TiledMapView。决策30Hz，物理60Hz。",
+        "fit": "contain"
+      },
+      {
+        "src": "/images/games/colony-roads/battlefield.png",
+        "loaded": true,
+        "alt": "真实 Cocos 普通关卡：蓝方建筑与生命值、镜头操作按钮及群岛小地图",
+        "fit": "contain"
+      },
+      {
+        "src": "/images/games/colony-roads/troop-selection.png",
+        "loaded": true,
+        "alt": "真实鼠标框选测试：黄色选框覆盖蓝方步兵和弓兵，士兵脚下显示选择圆环",
+        "fit": "contain"
+      },
+      {
+        "src": "/images/games/colony-roads/battle-lab.png",
+        "loaded": true,
+        "alt": "真实兵种测试场：双方出兵数量配置、开始对战与暂停按钮、实时统计区域",
+        "fit": "contain"
+      },
+      {
+        "src": "/images/games/colony-roads/slope-test.png",
+        "loaded": true,
+        "alt": "真实坡道专项测试：蓝方步兵及导航碰撞轮廓，工具栏显示接受20、到达20、越界0",
+        "fit": "contain"
+      }
+    ],
+    "brokenAnchors": [],
+    "errors": [],
+    "navigation": "passed",
+    "originalImage": "passed"
+  },
+  {
+    "width": 768,
+    "documentWidth": 768,
+    "images": [
+      {
+        "src": "/images/games/colony-roads/battlefield.png",
+        "loaded": true,
+        "alt": "微境节点战争真实开发画面：像素群岛上的蓝方主城、兵营、防御塔与小地图",
+        "fit": "contain"
+      },
+      {
+        "src": "/images/games/colony-roads/development-flow.png",
+        "loaded": true,
+        "alt": "制作流程图：Tiled地图编辑经资源管线进入WorldMap、CrowdController和CocosPhysicsMotor；玩家输入经ColonyGame与GameSession进入BattleView和Cocos画面，并连接HUD及TiledMapView。决策30Hz，物理60Hz。",
+        "fit": "contain"
+      },
+      {
+        "src": "/images/games/colony-roads/battlefield.png",
+        "loaded": true,
+        "alt": "真实 Cocos 普通关卡：蓝方建筑与生命值、镜头操作按钮及群岛小地图",
+        "fit": "contain"
+      },
+      {
+        "src": "/images/games/colony-roads/troop-selection.png",
+        "loaded": true,
+        "alt": "真实鼠标框选测试：黄色选框覆盖蓝方步兵和弓兵，士兵脚下显示选择圆环",
+        "fit": "contain"
+      },
+      {
+        "src": "/images/games/colony-roads/battle-lab.png",
+        "loaded": true,
+        "alt": "真实兵种测试场：双方出兵数量配置、开始对战与暂停按钮、实时统计区域",
+        "fit": "contain"
+      },
+      {
+        "src": "/images/games/colony-roads/slope-test.png",
+        "loaded": true,
+        "alt": "真实坡道专项测试：蓝方步兵及导航碰撞轮廓，工具栏显示接受20、到达20、越界0",
+        "fit": "contain"
+      }
+    ],
+    "brokenAnchors": [],
+    "errors": [],
+    "navigation": "passed",
+    "originalImage": "passed"
+  },
+  {
+    "width": 1440,
+    "documentWidth": 1440,
+    "images": [
+      {
+        "src": "/images/games/colony-roads/battlefield.png",
+        "loaded": true,
+        "alt": "微境节点战争真实开发画面：像素群岛上的蓝方主城、兵营、防御塔与小地图",
+        "fit": "contain"
+      },
+      {
+        "src": "/images/games/colony-roads/development-flow.png",
+        "loaded": true,
+        "alt": "制作流程图：Tiled地图编辑经资源管线进入WorldMap、CrowdController和CocosPhysicsMotor；玩家输入经ColonyGame与GameSession进入BattleView和Cocos画面，并连接HUD及TiledMapView。决策30Hz，物理60Hz。",
+        "fit": "contain"
+      },
+      {
+        "src": "/images/games/colony-roads/battlefield.png",
+        "loaded": true,
+        "alt": "真实 Cocos 普通关卡：蓝方建筑与生命值、镜头操作按钮及群岛小地图",
+        "fit": "contain"
+      },
+      {
+        "src": "/images/games/colony-roads/troop-selection.png",
+        "loaded": true,
+        "alt": "真实鼠标框选测试：黄色选框覆盖蓝方步兵和弓兵，士兵脚下显示选择圆环",
+        "fit": "contain"
+      },
+      {
+        "src": "/images/games/colony-roads/battle-lab.png",
+        "loaded": true,
+        "alt": "真实兵种测试场：双方出兵数量配置、开始对战与暂停按钮、实时统计区域",
+        "fit": "contain"
+      },
+      {
+        "src": "/images/games/colony-roads/slope-test.png",
+        "loaded": true,
+        "alt": "真实坡道专项测试：蓝方步兵及导航碰撞轮廓，工具栏显示接受20、到达20、越界0",
+        "fit": "contain"
+      }
+    ],
+    "brokenAnchors": [],
+    "errors": [],
+    "navigation": "passed",
+    "originalImage": "passed"
+  }
+]

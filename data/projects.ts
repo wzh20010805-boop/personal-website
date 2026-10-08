@@ -105,6 +105,32 @@ export const projects: Project[] = [{
   features: [],
   steps: [],
   notice: "私人项目 · 源码暂不公开",
+}, {
+  id: "colony-roads",
+  title: "Colony Roads · 微境节点战争",
+  subtitle: "在像素群岛上，指挥一场据点战争。",
+  typeLabel: "2D 即时策略",
+  detailLabel: "查看开发进度",
+  coverCaption: "真实引擎测试画面 · 2026-10-05",
+  category: "games",
+  description: "一款正在制作的像素风据点策略游戏。群岛地图、四类兵种与建筑攻防已接入，目前正在打磨群体移动、通道避让与战斗体验。",
+  status: "开发进行中",
+  cover: {
+    src: "/images/games/colony-roads/battlefield.png",
+    alt: "Colony Roads 真实测试画面：蓝方主城、兵营、塔与右下角群岛小地图",
+    width: 1600,
+    height: 900,
+  },
+  detailHref: "/games/colony-roads/",
+  links: [],
+  isPlaceholder: false,
+  published: true,
+  sourceVersion: "2026-10-08",
+  requirements: [],
+  delivery: "开发中，尚未提供公开下载。",
+  features: [],
+  steps: [],
+  notice: "Windows 原生版已完成开发验证，微信小游戏与 Steam 发行仍在规划中。",
 }];
 
 export function getPublishedProjectsByCategory(category: CategoryId) {
