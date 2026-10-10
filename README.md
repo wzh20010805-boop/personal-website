@@ -2,7 +2,7 @@
 
 使用 Next.js 静态导出的个人网页，保留糖果色、深橄榄绿粗描边、手绘 SVG、漫画网点和纸张颗粒。页面无动画。
 
-首页提供六个分类入口；小工具、游戏和 Skill 分类通过作品卡片进入独立详情页，其他三个分类显示完整空状态。当前作品包含像素光标、Colony Roads · 微境节点战争和 Amazon Product Radar。
+首页提供六个分类入口；小工具、游戏和 Skill 分类通过作品卡片进入独立详情页，其他三个分类显示完整空状态。当前作品包含像素光标、Sprint Motion Studio、Colony Roads · 微境节点战争和 Amazon Product Radar。
 
 ## 本地运行
 
@@ -33,8 +33,9 @@ python -m http.server 4174 --bind 127.0.0.1 --directory out
 | --- | --- |
 | `/` | 首页、六张整卡分类入口 |
 | `/prompts/` | Prompt 推荐空状态 |
-| `/tools/` | 小工具作品卡片列表，目前 1 件作品 |
+| `/tools/` | 小工具作品卡片列表，目前 2 件作品 |
 | `/tools/pixel-cursor/` | 像素光标完整介绍、软件截图、功能、用法和下载须知 |
+| `/tools/sprint-motion-studio/` | 小兵动画素材工坊介绍、当前功能、处理流程、真实测试画面和后续计划 |
 | `/games/` | 游戏作品卡片列表，目前 1 件作品 |
 | `/games/colony-roads/` | 微境节点战争的开发进度、制作流程原图与四张真实测试截图 |
 | `/skills/` | Skill 作品卡片列表，目前 1 件作品 |
@@ -58,6 +59,7 @@ python -m http.server 4174 --bind 127.0.0.1 --directory out
 | `app/page.tsx` | 首页与 `#works` 作品区 |
 | `app/tools/page.tsx` | 小工具卡片列表 |
 | `app/tools/pixel-cursor/page.tsx` | 像素光标静态详情页 |
+| `app/tools/sprint-motion-studio/` | Sprint Motion Studio 详情页与独立 CSS Module |
 | `app/games/colony-roads/` | 游戏进度展示页与独立 CSS Module |
 | `app/skills/page.tsx` | Skill 作品卡片列表 |
 | `app/skills/amazon-product-radar/page.tsx` | Amazon Product Radar 静态案例详情页 |
@@ -65,6 +67,7 @@ python -m http.server 4174 --bind 127.0.0.1 --directory out
 | `app/globals.css` | 色板、纸纹、组件样式及响应式布局 |
 | `public/illustrations/` | 本地 Hero 原图、保留的旧角色插画和纸张颗粒 SVG |
 | `public/images/tools/` | 用户提供的真实工具截图 |
+| `public/images/tools/sprint-motion-studio/` | 从工具本地仓库复制的三张真实桌面测试截图与完整抽帧检查图 |
 | `public/images/games/colony-roads/` | 作者提供的流程原图与游戏项目真实引擎测试截图 |
 | `public/images/skills/amazon-product-radar/` | 用户提供的 Amazon Product Radar 历史报告截图 |
 
@@ -91,11 +94,14 @@ npm run check:page
 npm run check:content
 node scripts/check-amazon-product-radar.mjs
 node scripts/check-game-showcase.mjs
+node scripts/check-sprint-motion-studio.mjs
 ```
 
 `check:page` 检查首页布局、分类入口、作者 GitHub 主页、邮箱链接、锚点和键盘焦点。`check:content` 检查六分类实际跳转、三个空状态、工具卡片进入详情、独立访问和刷新、面包屑和返回导航、截图加载与完整显示、GitHub 链接配置，以及 320/375/768/1440px 下的溢出、动画和浏览器运行错误。`check-amazon-product-radar.mjs` 检查 Skill 卡片、三级详情导航、六张本地原图、历史案例与私有项目措辞，以及四种屏宽下的布局和站外请求。`check-game-showcase.mjs` 检查首页到游戏详情的完整导航、四张实况截图、流程原图打开与四种屏宽；结果写入 `docs/checks/game-showcase/`。外链真实网络可达性需单独检查，脚本不会把目标地址校验写成外站访问通过。
 
 检查产物：
+
+Sprint Motion Studio 的新增验收脚本检查两件工具的分类计数、实际卡片跳转与返回、原有像素光标导航、截图加载、原图打开以及 320/375/768/1440px 布局。截图和结果写入 `docs/checks/sprint-motion-studio/`；本地素材与资料来源见 `docs/sprint-motion-studio-showcase.md`。
 
 - 首页截图与原始结果：`docs/checks/page-*.png`、`docs/checks/browser-results.json`。
 - 小工具列表截图：`docs/checks/category-upgrade/tools-1440.png`、`tools-375.png`。

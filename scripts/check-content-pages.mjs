@@ -10,7 +10,7 @@ const screenshotOutput = process.env.CHECK_OUTPUT_DIR
 await mkdir(screenshotOutput, { recursive: true });
 const categories = [
   ["prompts", "我推荐的 Prompt", "0"],
-  ["tools", "我做的小工具", "1"],
+  ["tools", "我做的小工具", "2"],
   ["games", "我做的小游戏", "1"],
   ["skills", "我做的 Skill", "1"],
   ["agents", "我做的 Agent", "0"],
@@ -84,7 +84,7 @@ try {
   await visit("/");
   verify((await page.locator("a.category-card").count()) === categories.length, "首页应有六张整卡分类链接");
   const toolsCardText = await page.locator("a.category-card[href='/tools/']").innerText();
-  verify(/1\s*件作品/.test(toolsCardText), "首页小工具卡片应显示 1 件作品");
+  verify(/2\s*件作品/.test(toolsCardText), "首页小工具卡片应显示 2 件作品");
 
   for (const [slug, title, count] of categories) {
     await visit("/");
@@ -113,7 +113,7 @@ try {
 
   await visit("/tools/");
   const projectCard = page.locator(`.project-grid > a.project-card[href='${detailPath}']`);
-  verify((await page.locator(".project-grid > a.project-card").count()) === 1, "工具列表应展示一张已发布作品卡片");
+  verify((await page.locator(".project-grid > a.project-card").count()) === 2, "工具列表应展示两张已收录作品卡片");
   verify((await projectCard.count()) === 1, "工具卡片应整卡链接至像素光标详情页");
   verify((await projectCard.getByRole("heading", { level: 2, name: projectTitle, exact: true }).count()) === 1, "工具卡片缺少正确的作品标题");
   verify((await projectCard.locator("a, button, input, select, textarea").count()) === 0, "整卡链接内不应嵌套其他交互控件");
@@ -163,7 +163,7 @@ try {
     await page.setViewportSize({ width, height: 1000 });
     for (const route of routes) {
       await visit(route);
-      if (route === "/tools/") await checkScreenshot(".project-card__cover img", route, width);
+      if (route === "/tools/") await checkScreenshot("a.project-card[href='/tools/pixel-cursor/'] .project-card__cover img", route, width);
       if (route === detailPath) await checkScreenshot(".tool-project__visual img", route, width);
       const measured = await page.evaluate(() => ({
         documentWidth: document.documentElement.scrollWidth,
@@ -195,7 +195,7 @@ try {
     categoryLinks: 6,
     emptyCategories: 3,
     publishedSkills: 1,
-    publishedTools: 1,
+    publishedTools: 2,
     publishedGames: 1,
     detailPath,
     externalHrefs,

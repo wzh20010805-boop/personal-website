@@ -131,6 +131,32 @@ export const projects: Project[] = [{
   features: [],
   steps: [],
   notice: "Windows 原生版已完成开发验证，微信小游戏与 Steam 发行仍在规划中。",
+}, {
+  id: "sprint-motion-studio",
+  title: "Sprint Motion Studio",
+  subtitle: "小兵动画素材工坊",
+  typeLabel: "动画素材工具",
+  detailLabel: "查看工具介绍",
+  coverCaption: "真实桌面测试 · 2026-10-10",
+  category: "tools",
+  description: "基于 FrameBaker 二次开发的动画素材工作台。完整提取视频中的每一帧，保留源时间信息，让图形界面与命令行共用一份项目，逐步走向游戏动画素材制作。",
+  status: "P0 / P1 开发版",
+  cover: {
+    src: "/images/tools/sprint-motion-studio/editor.png",
+    alt: "Sprint Motion Studio 真实编辑器测试：48帧合成样例、中央Pixi画布和下方逐帧时间轴",
+    width: 1360,
+    height: 900,
+  },
+  detailHref: "/tools/sprint-motion-studio/",
+  links: [{ href: "https://github.com/wzh20010805-boop/Sprint-Motion-Studio", label: "查看源码与说明" }],
+  isPlaceholder: false,
+  published: true,
+  sourceVersion: "P0 / P1 · 2026-10-10",
+  requirements: ["Windows 开发环境", "Bun + Electron", "FFmpeg / ffprobe"],
+  delivery: "源码开发版，通过 Start-SFS.cmd 启动；独立发行包仍在计划中。",
+  features: [],
+  steps: [],
+  notice: "当前输出保留原始背景；自动抠图、对齐、正式导出与 Cocos 接入为后续阶段。",
 }];
 
 export function getPublishedProjectsByCategory(category: CategoryId) {

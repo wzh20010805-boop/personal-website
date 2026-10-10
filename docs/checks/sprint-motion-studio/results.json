@@ -1,0 +1,166 @@
+{
+  "baseURL": "http://127.0.0.1:4174",
+  "checkedAt": "2026-10-10T03:00:14.594Z",
+  "viewports": [
+    {
+      "viewport": 320,
+      "documentWidth": 320,
+      "images": [
+        {
+          "src": "/images/tools/sprint-motion-studio/editor.png",
+          "loaded": true,
+          "alt": "Sprint Motion Studio真实桌面测试，展示48帧合成样例在逐帧编辑器中的画布与时间轴",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/tools/sprint-motion-studio/all-48-frames.png",
+          "loaded": true,
+          "alt": "合成视频的48张原始PNG按帧索引排列，彩条与时间变化连续保留；这不是小兵动作素材",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/tools/sprint-motion-studio/editor.png",
+          "loaded": true,
+          "alt": "真实桌面编辑器：48帧合成测试视频的帧列表、中央彩条画布及逐帧时间轴",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/tools/sprint-motion-studio/import-defaults.png",
+          "loaded": true,
+          "alt": "真实导入弹窗：全部原始帧默认选项、保留源帧与源时序说明、P2抠图待准备提示",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/tools/sprint-motion-studio/upload-complete.png",
+          "loaded": true,
+          "alt": "真实GUI视频上传完成：已选择48帧合成样例，全部原始帧模式，成功1与失败0",
+          "fit": "contain"
+        }
+      ],
+      "brokenAnchors": [],
+      "errors": [],
+      "navigation": "passed",
+      "originalImage": "passed"
+    },
+    {
+      "viewport": 375,
+      "documentWidth": 375,
+      "images": [
+        {
+          "src": "/images/tools/sprint-motion-studio/editor.png",
+          "loaded": true,
+          "alt": "Sprint Motion Studio真实桌面测试，展示48帧合成样例在逐帧编辑器中的画布与时间轴",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/tools/sprint-motion-studio/all-48-frames.png",
+          "loaded": true,
+          "alt": "合成视频的48张原始PNG按帧索引排列，彩条与时间变化连续保留；这不是小兵动作素材",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/tools/sprint-motion-studio/editor.png",
+          "loaded": true,
+          "alt": "真实桌面编辑器：48帧合成测试视频的帧列表、中央彩条画布及逐帧时间轴",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/tools/sprint-motion-studio/import-defaults.png",
+          "loaded": true,
+          "alt": "真实导入弹窗：全部原始帧默认选项、保留源帧与源时序说明、P2抠图待准备提示",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/tools/sprint-motion-studio/upload-complete.png",
+          "loaded": true,
+          "alt": "真实GUI视频上传完成：已选择48帧合成样例，全部原始帧模式，成功1与失败0",
+          "fit": "contain"
+        }
+      ],
+      "brokenAnchors": [],
+      "errors": [],
+      "navigation": "passed",
+      "originalImage": "passed"
+    },
+    {
+      "viewport": 768,
+      "documentWidth": 768,
+      "images": [
+        {
+          "src": "/images/tools/sprint-motion-studio/editor.png",
+          "loaded": true,
+          "alt": "Sprint Motion Studio真实桌面测试，展示48帧合成样例在逐帧编辑器中的画布与时间轴",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/tools/sprint-motion-studio/all-48-frames.png",
+          "loaded": true,
+          "alt": "合成视频的48张原始PNG按帧索引排列，彩条与时间变化连续保留；这不是小兵动作素材",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/tools/sprint-motion-studio/editor.png",
+          "loaded": true,
+          "alt": "真实桌面编辑器：48帧合成测试视频的帧列表、中央彩条画布及逐帧时间轴",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/tools/sprint-motion-studio/import-defaults.png",
+          "loaded": true,
+          "alt": "真实导入弹窗：全部原始帧默认选项、保留源帧与源时序说明、P2抠图待准备提示",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/tools/sprint-motion-studio/upload-complete.png",
+          "loaded": true,
+          "alt": "真实GUI视频上传完成：已选择48帧合成样例，全部原始帧模式，成功1与失败0",
+          "fit": "contain"
+        }
+      ],
+      "brokenAnchors": [],
+      "errors": [],
+      "navigation": "passed",
+      "originalImage": "passed"
+    },
+    {
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "/images/tools/sprint-motion-studio/editor.png",
+          "loaded": true,
+          "alt": "Sprint Motion Studio真实桌面测试，展示48帧合成样例在逐帧编辑器中的画布与时间轴",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/tools/sprint-motion-studio/all-48-frames.png",
+          "loaded": true,
+          "alt": "合成视频的48张原始PNG按帧索引排列，彩条与时间变化连续保留；这不是小兵动作素材",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/tools/sprint-motion-studio/editor.png",
+          "loaded": true,
+          "alt": "真实桌面编辑器：48帧合成测试视频的帧列表、中央彩条画布及逐帧时间轴",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/tools/sprint-motion-studio/import-defaults.png",
+          "loaded": true,
+          "alt": "真实导入弹窗：全部原始帧默认选项、保留源帧与源时序说明、P2抠图待准备提示",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/tools/sprint-motion-studio/upload-complete.png",
+          "loaded": true,
+          "alt": "真实GUI视频上传完成：已选择48帧合成样例，全部原始帧模式，成功1与失败0",
+          "fit": "contain"
+        }
+      ],
+      "brokenAnchors": [],
+      "errors": [],
+      "navigation": "passed",
+      "originalImage": "passed"
+    }
+  ]
+}
