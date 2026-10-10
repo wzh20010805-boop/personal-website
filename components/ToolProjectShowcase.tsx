@@ -1,3 +1,4 @@
+import { publicAsset } from "@/lib/public-assets";
 import Image from "next/image";
 import type { Project } from "@/data/projects";
 
@@ -9,7 +10,7 @@ export function ToolProjectShowcase({ project }: { project: Project }) {
           {project.cover ? (
             <>
               <Image
-                src={project.cover.src}
+                src={publicAsset(project.cover.src)}
                 alt={project.cover.alt}
                 width={project.cover.width}
                 height={project.cover.height}
@@ -62,7 +63,7 @@ export function ToolProjectShowcase({ project }: { project: Project }) {
                   <figure className="cursor-state" key={state.id}>
                     <div className="cursor-state__image">
                       <svg viewBox={state.viewBox} role="img" aria-label={`${state.title}光标的真实截图预览`}>
-                        <image href={project.cover!.src} width={project.cover!.width} height={project.cover!.height} />
+                        <image href={publicAsset(project.cover!.src)} width={project.cover!.width} height={project.cover!.height} />
                       </svg>
                     </div>
                     <figcaption>

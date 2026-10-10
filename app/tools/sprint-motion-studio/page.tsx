@@ -1,3 +1,4 @@
+import { publicAsset } from "@/lib/public-assets";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,7 +7,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import styles from "./studio.module.css";
 
 const repo = "https://github.com/wzh20010805-boop/Sprint-Motion-Studio";
-const assetRoot = "/images/tools/sprint-motion-studio";
+const assetRoot = publicAsset("/images/tools/sprint-motion-studio");
 
 export const metadata: Metadata = {
   title: "Sprint Motion Studio · 小兵动画素材工坊 | 创作空间",

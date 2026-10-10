@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
+import { publicAsset } from "@/lib/public-assets";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -7,5 +9,6 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="zh-CN"><body>{children}</body></html>;
+  const style = { "--paper-grain": `url("${publicAsset("/illustrations/paper-grain.svg")}")` } as CSSProperties;
+  return <html lang="zh-CN"><body style={style}>{children}</body></html>;
 }

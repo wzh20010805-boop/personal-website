@@ -1,3 +1,4 @@
+import { publicAsset } from "@/lib/public-assets";
 import Image from "next/image";
 import Link from "next/link";
 import type { Project } from "@/data/projects";
@@ -17,7 +18,7 @@ export function ProjectCard({ project }: { project: Project }) {
       <div className="project-card__cover">
         {project.cover ? (
           <Image
-            src={project.cover.src}
+            src={publicAsset(project.cover.src)}
             alt={project.cover.alt}
             width={project.cover.width}
             height={project.cover.height}

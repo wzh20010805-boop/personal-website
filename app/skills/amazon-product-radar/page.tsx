@@ -1,3 +1,4 @@
+import { publicAsset } from "@/lib/public-assets";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -34,7 +35,7 @@ function Screenshot({ name, caption }: { name: keyof typeof screenshots; caption
   return (
     <figure className={styles.screenshot}>
       <div className={styles.imageFrame}>
-        <Image src={`/images/skills/amazon-product-radar/${name}.png`} alt={shot.alt} width={shot.width} height={shot.height} unoptimized />
+        <Image src={publicAsset(`/images/skills/amazon-product-radar/${name}.png`)} alt={shot.alt} width={shot.width} height={shot.height} unoptimized />
       </div>
       <figcaption><span>历史案例 · 2026-09-14</span>{caption}</figcaption>
     </figure>

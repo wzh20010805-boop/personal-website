@@ -1,3 +1,4 @@
+import { publicAsset } from "@/lib/public-assets";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -57,7 +58,7 @@ export default function ColonyRoadsPage() {
             </div>
             <figure className={styles.heroVisual}>
               <div className={styles.windowBar}><span aria-hidden="true">● ● ●</span><span>一座群岛，一场战局</span><span aria-hidden="true">↗</span></div>
-              <Image src="/images/games/colony-roads/battlefield.png" alt="微境节点战争真实开发画面：像素群岛上的蓝方主城、兵营、防御塔与小地图" width={1600} height={900} unoptimized loading="eager" />
+              <Image src={publicAsset("/images/games/colony-roads/battlefield.png")} alt="微境节点战争真实开发画面：像素群岛上的蓝方主城、兵营、防御塔与小地图" width={1600} height={900} unoptimized loading="eager" />
               <figcaption><span>ENGINE CAPTURE</span>真实引擎画面 · 2026-10-05</figcaption>
               <span className={styles.sticker}>正在把想法<br />做成好玩的东西</span>
             </figure>
@@ -84,8 +85,8 @@ export default function ColonyRoadsPage() {
           <section className={styles.section} id="roadmap" aria-labelledby="roadmap-title">
             <div className={styles.sectionHeading}><span className="section-kicker">02 / HOW IT COMES TO LIFE</span><h2 id="roadmap-title">从地图到一场战斗</h2><p>这张制作流程图，串起地图资源、玩家指令、游戏逻辑与画面反馈。</p></div>
             <figure className={styles.roadmap}>
-              <div className={styles.roadmapBar}><span>制作流程 / 系统运行链</span><a href="/images/games/colony-roads/development-flow.png" target="_blank" rel="noopener noreferrer" aria-label="打开制作流程原图">查看原图 <span aria-hidden="true">↗</span><span className="sr-only">（新标签页打开）</span></a></div>
-              <Image src="/images/games/colony-roads/development-flow.png" alt="制作流程图：Tiled地图编辑经资源管线进入WorldMap、CrowdController和CocosPhysicsMotor；玩家输入经ColonyGame与GameSession进入BattleView和Cocos画面，并连接HUD及TiledMapView。决策30Hz，物理60Hz。" width={5376} height={2872} unoptimized />
+              <div className={styles.roadmapBar}><span>制作流程 / 系统运行链</span><a href={publicAsset("/images/games/colony-roads/development-flow.png")} target="_blank" rel="noopener noreferrer" aria-label="打开制作流程原图">查看原图 <span aria-hidden="true">↗</span><span className="sr-only">（新标签页打开）</span></a></div>
+              <Image src={publicAsset("/images/games/colony-roads/development-flow.png")} alt="制作流程图：Tiled地图编辑经资源管线进入WorldMap、CrowdController和CocosPhysicsMotor；玩家输入经ColonyGame与GameSession进入BattleView和Cocos画面，并连接HUD及TiledMapView。决策30Hz，物理60Hz。" width={5376} height={2872} unoptimized />
               <figcaption>作者提供的制作流程原图 · 决策 30 Hz / 物理 60 Hz 为系统更新频率</figcaption>
             </figure>
             <div className={styles.pipeline}>{pipeline.map((item) => <div key={item.label}><span className={styles.pipelineLabel}>{item.label}</span><h3>{item.title}</h3><p>{item.text}</p></div>)}</div>
@@ -94,8 +95,8 @@ export default function ColonyRoadsPage() {
           <section className={styles.section} id="screenshots" aria-labelledby="screenshots-title">
             <div className={styles.sectionHeading}><span className="section-kicker">03 / FROM THE ACTUAL GAME</span><h2 id="screenshots-title">游戏实测实况</h2><p>来自项目中的真实引擎测试记录。保留完整画面，点击可打开原图。</p></div>
             <div className={styles.gallery}>{screenshots.map((shot, index) => <figure className={styles.screenshot} key={shot.file}>
-              <a href={`/images/games/colony-roads/${shot.file}`} target="_blank" rel="noopener noreferrer" aria-label={`打开${shot.title}原图（新标签页）`}>
-                <Image src={`/images/games/colony-roads/${shot.file}`} alt={shot.alt} width={shot.width} height={shot.height} unoptimized />
+              <a href={publicAsset(`/images/games/colony-roads/${shot.file}`)} target="_blank" rel="noopener noreferrer" aria-label={`打开${shot.title}原图（新标签页）`}>
+                <Image src={publicAsset(`/images/games/colony-roads/${shot.file}`)} alt={shot.alt} width={shot.width} height={shot.height} unoptimized />
                 <span className={styles.expand} aria-hidden="true">↗</span>
               </a>
               <figcaption><div className={styles.shotMeta}><span>实测记录 / 0{index + 1}</span><time dateTime={shot.date.slice(0, 10)}>{shot.date}</time></div><h3>{shot.title}</h3><p>{shot.text}</p></figcaption>

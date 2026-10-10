@@ -4,6 +4,16 @@
 
 首页提供六个分类入口；小工具、游戏和 Skill 分类通过作品卡片进入独立详情页，其他三个分类显示完整空状态。当前作品包含像素光标、Sprint Motion Studio、Colony Roads · 微境节点战争和 Amazon Product Radar。
 
+## 在线访问与自动发布
+
+公开网页：[创作空间](https://wzh20010805-boop.github.io/personal-website/)。
+
+GitHub Pages 使用 `.github/workflows/deploy-pages.yml` 构建并发布。推送到 `main` 后自动执行依赖安装、lint、typecheck、静态构建和部署；也可在 Actions 中手动运行。部署源码和内容使用同一仓库，无需提交 `out/`。
+
+发布时设置 `NEXT_PUBLIC_BASE_PATH=/personal-website`，供 Next.js 路由和 `lib/public-assets.ts` 中的图片、原图及纸纹资源使用。本地不设置该变量，仍可在根路径预览。仓库 Settings → Pages 的构建来源为 GitHub Actions。公开地址是否已经更新，以最新发布工作流和公网检查为准。
+
+发布后运行 `node scripts/check-public-site.mjs`，检查公开网页的九条路由、手机与桌面布局、图片和纸纹资源、原图链接及页面导航。可通过 `CHECK_URL` 指向带仓库路径的本地预览进行发布前验证。
+
 ## 本地运行
 
 需要 Node.js 24 或更高版本，依赖版本由 `package-lock.json` 固定。
@@ -67,7 +77,7 @@ python -m http.server 4174 --bind 127.0.0.1 --directory out
 | `app/globals.css` | 色板、纸纹、组件样式及响应式布局 |
 | `public/illustrations/` | 本地 Hero 原图、保留的旧角色插画和纸张颗粒 SVG |
 | `public/images/tools/` | 用户提供的真实工具截图 |
-| `public/images/tools/sprint-motion-studio/` | 从工具本地仓库复制的三张真实桌面测试截图与完整抽帧检查图 |
+| `public/images/tools/sprint-motion-studio/` | 最新 test 项目的三张真实界面截图与一张原始素材帧 |
 | `public/images/games/colony-roads/` | 作者提供的流程原图与游戏项目真实引擎测试截图 |
 | `public/images/skills/amazon-product-radar/` | 用户提供的 Amazon Product Radar 历史报告截图 |
 

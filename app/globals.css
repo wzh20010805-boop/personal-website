@@ -37,7 +37,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("/illustrations/paper-grain.svg");
+  background-image: var(--paper-grain);
   opacity: .22;
   pointer-events: none;
   z-index: 10;
