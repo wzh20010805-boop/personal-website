@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 const capabilities = [
-  { number: "01", title: "完整留住每一帧", text: "视频导入默认提取全部原始帧，保留重复画面。已经用 48、61、120、300 帧样例验证，输出数量与源显示帧逐一对应。", tag: "FULL-FRAME EXTRACTION" },
+  { number: "01", title: "完整留住每一帧", text: "视频导入默认提取全部原始帧，保留重复画面。本次小兵奔跑案例的源视频包含 121 帧，原始素材目录完整保留了 121 张 PNG。", tag: "FULL-FRAME EXTRACTION" },
   { number: "02", title: "让动作保留原来的节奏", text: "保存每帧的源时间戳与显示时长，支持变帧率视频的原始时间信息。编辑器预览可能量化，精确时序以源记录为准。", tag: "SOURCE TIMING" },
   { number: "03", title: "手动编辑，也能命令行处理", text: "图形界面与 CLI 共用一份工作区和项目。导入后在画布与时间轴中检查、调整帧；保存并重新打开后，改动仍然保留。", tag: "GUI + CLI" },
   { number: "04", title: "原素材与编辑副本分开", text: "保留原视频和完整源帧，用独立副本进行编辑。任务可查询、等待或取消；失败与中断有明确记录，方便继续处理。", tag: "KEEP THE ORIGINALS" },
@@ -28,9 +28,9 @@ const workflow = [
 ];
 
 const screenshots = [
-  { file: "editor.png", title: "完整帧进入编辑器", text: "真实桌面测试中，CLI 导入的 48 帧合成视频进入同一项目；左侧帧列表、中央画布与下方时间轴已正常渲染。", alt: "真实桌面编辑器：48帧合成测试视频的帧列表、中央彩条画布及逐帧时间轴" },
-  { file: "import-defaults.png", title: "默认导入模式", text: "上传视频时，默认选择“全部原始帧”，同时说明保留源时序。界面明确标出当前仅完成抽帧，背景处理仍待下一阶段。", alt: "真实导入弹窗：全部原始帧默认选项、保留源帧与源时序说明、P2抠图待准备提示" },
-  { file: "upload-complete.png", title: "一次真实的上传完成", text: "通过界面上传 48 帧测试视频，实际任务显示成功 1、失败 0。完成后可回到编辑器继续查看与调整素材。", alt: "真实GUI视频上传完成：已选择48帧合成样例，全部原始帧模式，成功1与失败0" },
+  { file: "test-project-editor.png", title: "新建项目 · 小兵奔跑", text: "刚刚创建的 test 项目，以“5s奔跑视频制作.mp4”为素材。左侧显示 31 张帧资产，中央画布查看持剑盾小兵，下方是同名动画轴与 Main 轨道。", alt: "test 项目的真实编辑界面：31张小兵奔跑帧资产、角色画布及5s奔跑视频制作动画轴" },
+  { file: "test-project-frame.png", title: "逐帧查看动作", text: "选中帧资产 #17，单独检查这一帧的角色姿态。可以在帧列表与画布间对照查看，当前图片仍保留源视频的浅色背景。", alt: "test 项目中选中第17张帧资产，画布展示持剑盾小兵的奔跑姿态" },
+  { file: "test-project-preview.png", title: "播放预览", text: "在项目画布内播放当前动作，截图暂停在第 12 / 31 步。播放控制条显示 24 FPS，可结合时间轴检查动作衔接与节奏。", alt: "test 项目的小兵奔跑播放预览，控制条显示24 FPS与第12步共31步" },
 ];
 
 export default function SprintMotionStudioPage() {
@@ -61,9 +61,9 @@ export default function SprintMotionStudioPage() {
             </div>
             <figure className={styles.heroVisual}>
               <div className={styles.windowBar}><span aria-hidden="true">● ● ●</span><span>FRAME BY FRAME</span><span aria-hidden="true">↗</span></div>
-              <Image src={`${assetRoot}/editor.png`} alt="Sprint Motion Studio真实桌面测试，展示48帧合成样例在逐帧编辑器中的画布与时间轴" width={1360} height={900} unoptimized loading="eager" />
-              <figcaption><span>真实桌面画面 · 2026-10-10</span><span>合成样例 / 48 帧</span></figcaption>
-              <div className={styles.sticker}><span>完整抽帧验证</span><strong>48 → 48</strong></div>
+              <Image src={`${assetRoot}/test-project-editor.png`} alt="Sprint Motion Studio中刚创建的test项目，展示小兵奔跑帧资产、角色画布及动画轴" width={1600} height={1100} unoptimized loading="eager" />
+              <figcaption><span>真实项目 · 2026-10-10</span><span>test / 小兵奔跑</span></figcaption>
+              <div className={styles.sticker}><span>当前帧资产</span><strong>31 帧</strong></div>
             </figure>
           </header>
 
@@ -85,18 +85,18 @@ export default function SprintMotionStudioPage() {
             <div className={styles.sectionHeading}><span className="section-kicker">02 / THE MAKING FLOW</span><h2 id="workflow-title">从视频到逐帧素材</h2><p>当前工作流从项目出发，连接素材导入、抽帧与编辑。</p></div>
             <ol className={styles.workflow}>{workflow.map((step) => <li key={step.hint}><span>{step.hint}</span><h3>{step.title}</h3><p>{step.text}</p></li>)}</ol>
             <div className={styles.evidence}>
-              <div className={styles.evidenceCopy}><span className={styles.badge}>真实抽帧验证</span><h3>源视频有多少帧，<br />就留下多少帧。</h3><div className={styles.frameCounts}>{[48, 61, 120, 300].map((count) => <span key={count}><strong>{count} → {count}</strong><small>源显示帧 / 输出 PNG</small></span>)}</div><p>在合成视频样例中，完整保留全部显示帧。GUI 与 CLI 对同一段 48 帧视频得到的源时序和原始 PNG 逐一一致。</p></div>
-              <figure className={styles.contactSheet}><a href={`${assetRoot}/all-48-frames.png`} target="_blank" rel="noopener noreferrer" aria-label="打开48帧抽取结果原图（新标签页）"><Image src={`${assetRoot}/all-48-frames.png`} alt="合成视频的48张原始PNG按帧索引排列，彩条与时间变化连续保留；这不是小兵动作素材" width={512} height={288} unoptimized /></a><figcaption>48 帧输出检查图 · 合成测试视频<br /><span>样例用于验证抽帧，不代表小兵抠图效果。</span></figcaption></figure>
+              <div className={styles.evidenceCopy}><span className={styles.badge}>最新项目 / test</span><h3>一段小兵奔跑视频，<br />进入逐帧工作台。</h3><div className={styles.frameCounts}><span><strong>121 → 121</strong><small>源显示帧 / 原始 PNG</small></span><span><strong>31 帧</strong><small>当前项目帧资产</small></span><span><strong>1280 × 720</strong><small>源视频与原始帧尺寸</small></span><span><strong>24 FPS</strong><small>当前动画轴播放帧率</small></span></div><p>素材来自“5s奔跑视频制作.mp4”，源视频约 5 秒。完整源帧单独保留；当前编辑项目有 31 张帧资产与 31 个动画步骤，和源视频总帧数分别统计。</p></div>
+              <figure className={styles.contactSheet}><a href={`${assetRoot}/test-project-source-frame.png`} target="_blank" rel="noopener noreferrer" aria-label="打开小兵奔跑原始帧原图（新标签页）"><Image src={`${assetRoot}/test-project-source-frame.png`} alt="5s奔跑视频制作素材的第一张原始PNG，浅色背景上是一名持剑盾的金发小兵" width={1280} height={720} unoptimized /></a><figcaption>小兵奔跑 · 第一张原始帧<br /><span>直接来自项目素材，保留视频背景。</span></figcaption></figure>
             </div>
           </section>
 
           <section id="screenshots" className={styles.section} aria-labelledby="screenshots-title">
-            <div className={styles.sectionHeading}><span className="section-kicker">03 / FROM THE ACTUAL APP</span><h2 id="screenshots-title">真实桌面测试画面</h2><p>来自本地仓库的 P1 Windows 桌面验证。保留完整截图，点击可打开原图。</p></div>
+            <div className={styles.sectionHeading}><span className="section-kicker">03 / FROM THE ACTUAL APP</span><h2 id="screenshots-title">真实桌面测试画面</h2><p>刚刚新建的 test 项目：小兵奔跑素材的编辑、逐帧查看与播放预览。点击可打开完整原图。</p></div>
             <div className={styles.gallery}>{screenshots.map((shot, index) => <figure className={styles.screenshot} key={shot.file}>
-              <a href={`${assetRoot}/${shot.file}`} target="_blank" rel="noopener noreferrer" aria-label={`打开${shot.title}原图（新标签页）`}><Image src={`${assetRoot}/${shot.file}`} alt={shot.alt} width={1360} height={900} unoptimized /><span className={styles.expand} aria-hidden="true">↗</span></a>
-              <figcaption><div className={styles.shotMeta}><span>桌面验证 / 0{index + 1}</span><time dateTime="2026-10-10">2026-10-10</time></div><h3>{shot.title}</h3><p>{shot.text}</p></figcaption>
+              <a href={`${assetRoot}/${shot.file}`} target="_blank" rel="noopener noreferrer" aria-label={`打开${shot.title}原图（新标签页）`}><Image src={`${assetRoot}/${shot.file}`} alt={shot.alt} width={1600} height={1100} unoptimized /><span className={styles.expand} aria-hidden="true">↗</span></a>
+              <figcaption><div className={styles.shotMeta}><span>test 项目 / 0{index + 1}</span><time dateTime="2026-10-10">2026-10-10</time></div><h3>{shot.title}</h3><p>{shot.text}</p></figcaption>
             </figure>)}</div>
-            <p className={styles.captionNote}>截图沿用上游编辑器界面与窗口名称，测试素材为本机生成的合成视频。</p>
+            <p className={styles.captionNote}>截图直接拍摄于本地工具的实际项目界面，素材为“5s奔跑视频制作.mp4”；保留当前背景，未生成或重绘角色画面。</p>
           </section>
 
           <section id="getting-started" className={styles.section} aria-labelledby="getting-started-title">

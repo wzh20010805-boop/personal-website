@@ -44,12 +44,18 @@ try {
     assert.match(await page.locator("#scope-note").innerText(), /原始.*背景/);
     const source = page.getByRole("link", { name: "查看源码与说明", exact: false });
     assert.equal(await source.getAttribute("href"), "https://github.com/wzh20010805-boop/Sprint-Motion-Studio");
-    const original = page.getByRole("link", { name: "打开默认导入模式原图", exact: false });
+    const original = page.getByRole("link", { name: "打开播放预览原图", exact: false });
     const [popup] = await Promise.all([page.waitForEvent("popup"), original.click()]);
     await popup.waitForLoadState();
-    assert.ok(popup.url().endsWith("/images/tools/sprint-motion-studio/import-defaults.png"));
+    assert.ok(popup.url().endsWith("/images/tools/sprint-motion-studio/test-project-preview.png"));
+    assert.ok(layout.images.every((image) => image.src.includes("test-project-")), "案例图片应全部来自最新真实项目");
+    assert.match(await page.locator("#workflow").innerText(), /121 → 121/);
+    assert.match(await page.locator("#screenshots").innerText(), /5s奔跑视频制作\.mp4/);
     await popup.close();
     assert.equal((await page.reload({ waitUntil: "networkidle" })).status(), 200);
+    await page.evaluate(async () => {
+      await Promise.all([...document.images].map((image) => { image.loading = "eager"; return image.decode(); }));
+    });
     await page.evaluate(() => { document.activeElement?.blur(); window.scrollTo(0, 0); });
     await page.screenshot({ path: fileURLToPath(new URL(`detail-${width}.png`, output)), fullPage: true });
     assert.deepEqual(errors, []);
