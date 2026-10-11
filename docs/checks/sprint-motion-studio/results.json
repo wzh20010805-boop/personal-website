@@ -1,15 +1,15 @@
 {
   "baseURL": "http://127.0.0.1:4174",
-  "checkedAt": "2026-10-10T03:12:38.051Z",
+  "checkedAt": "2026-10-11T10:49:32.946Z",
   "viewports": [
     {
       "viewport": 320,
       "documentWidth": 320,
       "images": [
         {
-          "src": "/images/tools/sprint-motion-studio/test-project-editor.png",
+          "src": "/images/tools/sprint-motion-studio/v1-editor.png",
           "loaded": true,
-          "alt": "Sprint Motion Studio中刚创建的test项目，展示小兵奔跑帧资产、角色画布及动画轴",
+          "alt": "Sprint Motion Studio 1.0.0便携版真实界面，展示27帧抠图小兵奔跑案例",
           "fit": "contain"
         },
         {
@@ -19,21 +19,27 @@
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/test-project-editor.png",
+          "src": "/images/tools/sprint-motion-studio/v1-editor.png",
           "loaded": true,
-          "alt": "test 项目的真实编辑界面：31张小兵奔跑帧资产、角色画布及5s奔跑视频制作动画轴",
+          "alt": "Sprint Motion Studio 1.0.0实拍编辑器：27帧小兵奔跑角色、透明画布及12 FPS动画轴",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/test-project-frame.png",
+          "src": "/images/tools/sprint-motion-studio/v1-library.png",
           "loaded": true,
-          "alt": "test 项目中选中第17张帧资产，画布展示持剑盾小兵的奔跑姿态",
+          "alt": "新版素材库显示122个素材，包含原视频与完整抽取的小兵奔跑源帧",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/test-project-preview.png",
+          "src": "/images/tools/sprint-motion-studio/v1-mask-workshop.png",
           "loaded": true,
-          "alt": "test 项目的小兵奔跑播放预览，控制条显示24 FPS与第12步共31步",
+          "alt": "场景抠图与修正窗口，展示原始角色、框选、擦除恢复笔刷及待人工检查状态",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/tools/sprint-motion-studio/v1-alignment-workshop.png",
+          "loaded": true,
+          "alt": "地面基准统一比例与导出窗口，展示画布参数、地面根位置、透明预览以及正式导出入口",
           "fit": "contain"
         }
       ],
@@ -47,9 +53,9 @@
       "documentWidth": 375,
       "images": [
         {
-          "src": "/images/tools/sprint-motion-studio/test-project-editor.png",
+          "src": "/images/tools/sprint-motion-studio/v1-editor.png",
           "loaded": true,
-          "alt": "Sprint Motion Studio中刚创建的test项目，展示小兵奔跑帧资产、角色画布及动画轴",
+          "alt": "Sprint Motion Studio 1.0.0便携版真实界面，展示27帧抠图小兵奔跑案例",
           "fit": "contain"
         },
         {
@@ -59,21 +65,27 @@
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/test-project-editor.png",
+          "src": "/images/tools/sprint-motion-studio/v1-editor.png",
           "loaded": true,
-          "alt": "test 项目的真实编辑界面：31张小兵奔跑帧资产、角色画布及5s奔跑视频制作动画轴",
+          "alt": "Sprint Motion Studio 1.0.0实拍编辑器：27帧小兵奔跑角色、透明画布及12 FPS动画轴",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/test-project-frame.png",
+          "src": "/images/tools/sprint-motion-studio/v1-library.png",
           "loaded": true,
-          "alt": "test 项目中选中第17张帧资产，画布展示持剑盾小兵的奔跑姿态",
+          "alt": "新版素材库显示122个素材，包含原视频与完整抽取的小兵奔跑源帧",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/test-project-preview.png",
+          "src": "/images/tools/sprint-motion-studio/v1-mask-workshop.png",
           "loaded": true,
-          "alt": "test 项目的小兵奔跑播放预览，控制条显示24 FPS与第12步共31步",
+          "alt": "场景抠图与修正窗口，展示原始角色、框选、擦除恢复笔刷及待人工检查状态",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/tools/sprint-motion-studio/v1-alignment-workshop.png",
+          "loaded": true,
+          "alt": "地面基准统一比例与导出窗口，展示画布参数、地面根位置、透明预览以及正式导出入口",
           "fit": "contain"
         }
       ],
@@ -87,9 +99,9 @@
       "documentWidth": 768,
       "images": [
         {
-          "src": "/images/tools/sprint-motion-studio/test-project-editor.png",
+          "src": "/images/tools/sprint-motion-studio/v1-editor.png",
           "loaded": true,
-          "alt": "Sprint Motion Studio中刚创建的test项目，展示小兵奔跑帧资产、角色画布及动画轴",
+          "alt": "Sprint Motion Studio 1.0.0便携版真实界面，展示27帧抠图小兵奔跑案例",
           "fit": "contain"
         },
         {
@@ -99,21 +111,27 @@
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/test-project-editor.png",
+          "src": "/images/tools/sprint-motion-studio/v1-editor.png",
           "loaded": true,
-          "alt": "test 项目的真实编辑界面：31张小兵奔跑帧资产、角色画布及5s奔跑视频制作动画轴",
+          "alt": "Sprint Motion Studio 1.0.0实拍编辑器：27帧小兵奔跑角色、透明画布及12 FPS动画轴",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/test-project-frame.png",
+          "src": "/images/tools/sprint-motion-studio/v1-library.png",
           "loaded": true,
-          "alt": "test 项目中选中第17张帧资产，画布展示持剑盾小兵的奔跑姿态",
+          "alt": "新版素材库显示122个素材，包含原视频与完整抽取的小兵奔跑源帧",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/test-project-preview.png",
+          "src": "/images/tools/sprint-motion-studio/v1-mask-workshop.png",
           "loaded": true,
-          "alt": "test 项目的小兵奔跑播放预览，控制条显示24 FPS与第12步共31步",
+          "alt": "场景抠图与修正窗口，展示原始角色、框选、擦除恢复笔刷及待人工检查状态",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/tools/sprint-motion-studio/v1-alignment-workshop.png",
+          "loaded": true,
+          "alt": "地面基准统一比例与导出窗口，展示画布参数、地面根位置、透明预览以及正式导出入口",
           "fit": "contain"
         }
       ],
@@ -127,9 +145,9 @@
       "documentWidth": 1440,
       "images": [
         {
-          "src": "/images/tools/sprint-motion-studio/test-project-editor.png",
+          "src": "/images/tools/sprint-motion-studio/v1-editor.png",
           "loaded": true,
-          "alt": "Sprint Motion Studio中刚创建的test项目，展示小兵奔跑帧资产、角色画布及动画轴",
+          "alt": "Sprint Motion Studio 1.0.0便携版真实界面，展示27帧抠图小兵奔跑案例",
           "fit": "contain"
         },
         {
@@ -139,21 +157,27 @@
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/test-project-editor.png",
+          "src": "/images/tools/sprint-motion-studio/v1-editor.png",
           "loaded": true,
-          "alt": "test 项目的真实编辑界面：31张小兵奔跑帧资产、角色画布及5s奔跑视频制作动画轴",
+          "alt": "Sprint Motion Studio 1.0.0实拍编辑器：27帧小兵奔跑角色、透明画布及12 FPS动画轴",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/test-project-frame.png",
+          "src": "/images/tools/sprint-motion-studio/v1-library.png",
           "loaded": true,
-          "alt": "test 项目中选中第17张帧资产，画布展示持剑盾小兵的奔跑姿态",
+          "alt": "新版素材库显示122个素材，包含原视频与完整抽取的小兵奔跑源帧",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/test-project-preview.png",
+          "src": "/images/tools/sprint-motion-studio/v1-mask-workshop.png",
           "loaded": true,
-          "alt": "test 项目的小兵奔跑播放预览，控制条显示24 FPS与第12步共31步",
+          "alt": "场景抠图与修正窗口，展示原始角色、框选、擦除恢复笔刷及待人工检查状态",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/tools/sprint-motion-studio/v1-alignment-workshop.png",
+          "loaded": true,
+          "alt": "地面基准统一比例与导出窗口，展示画布参数、地面根位置、透明预览以及正式导出入口",
           "fit": "contain"
         }
       ],

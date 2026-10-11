@@ -45,7 +45,7 @@ python -m http.server 4174 --bind 127.0.0.1 --directory out
 | `/prompts/` | Prompt 推荐空状态 |
 | `/tools/` | 小工具作品卡片列表，目前 2 件作品 |
 | `/tools/pixel-cursor/` | 像素光标完整介绍、软件截图、功能、用法和下载须知 |
-| `/tools/sprint-motion-studio/` | 小兵动画素材工坊介绍、当前功能、处理流程、真实测试画面和后续计划 |
+| `/tools/sprint-motion-studio/` | 小兵动画素材工坊 v1.0.0 介绍、Windows 便携版下载、安装使用、实拍截图与后续验证 |
 | `/games/` | 游戏作品卡片列表，目前 1 件作品 |
 | `/games/colony-roads/` | 微境节点战争的开发进度、制作流程原图与四张真实测试截图 |
 | `/skills/` | Skill 作品卡片列表，目前 1 件作品 |
@@ -77,7 +77,7 @@ python -m http.server 4174 --bind 127.0.0.1 --directory out
 | `app/globals.css` | 色板、纸纹、组件样式及响应式布局 |
 | `public/illustrations/` | 本地 Hero 原图、保留的旧角色插画和纸张颗粒 SVG |
 | `public/images/tools/` | 用户提供的真实工具截图 |
-| `public/images/tools/sprint-motion-studio/` | 最新 test 项目的三张真实界面截图与一张原始素材帧 |
+| `public/images/tools/sprint-motion-studio/` | v1.0.0 的四张便携版实拍截图与原始素材对照帧 |
 | `public/images/games/colony-roads/` | 作者提供的流程原图与游戏项目真实引擎测试截图 |
 | `public/images/skills/amazon-product-radar/` | 用户提供的 Amazon Product Radar 历史报告截图 |
 

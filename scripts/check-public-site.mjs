@@ -31,11 +31,15 @@ try {
       assert.ok(layout.background.includes(`${basePath}/illustrations/paper-grain.svg`), "Paper texture path");
       if (route === "/tools/sprint-motion-studio/") {
         assert.match(await page.locator("#screenshots").innerText(), /5s奔跑视频制作\.mp4/);
-        assert.equal(await page.locator("#screenshots figure").count(), 3);
-        const original = page.getByRole("link", { name: "打开播放预览原图", exact: false });
+        assert.equal(await page.locator("#screenshots figure").count(), 4);
+        const downloads = page.getByRole("link", { name: "下载 Windows 便携版", exact: false });
+        assert.equal(await downloads.count(), 2);
+        for (const download of await downloads.all()) assert.equal(await download.getAttribute("href"), "https://github.com/wzh20010805-boop/Sprint-Motion-Studio/releases/download/v1.0.0/SpriteMotionStudio-win-x64-1.0.0.zip");
+        assert.match(await page.locator("#getting-started").innerText(), /u2netp/);
+        const original = page.getByRole("link", { name: "打开地面基准与审核导出原图", exact: false });
         const [popup] = await Promise.all([page.waitForEvent("popup"), original.click()]);
         await popup.waitForLoadState();
-        assert.equal(popup.url(), `${baseURL}/images/tools/sprint-motion-studio/test-project-preview.png`);
+        assert.equal(popup.url(), `${baseURL}/images/tools/sprint-motion-studio/v1-alignment-workshop.png`);
         await popup.close();
       }
       assert.deepEqual(errors, [], route);

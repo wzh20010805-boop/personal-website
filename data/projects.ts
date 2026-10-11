@@ -1,3 +1,4 @@
+import { studioRelease } from "./sprint-motion-studio";
 import type { CategoryId } from "./categories";
 
 export interface Project {
@@ -137,26 +138,26 @@ export const projects: Project[] = [{
   subtitle: "小兵动画素材工坊",
   typeLabel: "动画素材工具",
   detailLabel: "查看工具介绍",
-  coverCaption: "test 项目 · 小兵奔跑实拍",
+  coverCaption: "v1.0.0 便携版 · 小兵奔跑实拍",
   category: "tools",
-  description: "基于 FrameBaker 二次开发的动画素材工作台。完整提取视频中的每一帧，保留源时间信息，让图形界面与命令行共用一份项目，逐步走向游戏动画素材制作。",
-  status: "P0 / P1 开发版",
+  description: "从视频完整抽帧，到抠图修正、地面对齐与审核导出。Windows 便携版已提供下载，解压即可启动，也能通过 CLI / MCP 接入 Codex。",
+  status: "v1.0.0 · 可下载",
   cover: {
-    src: "/images/tools/sprint-motion-studio/test-project-editor.png",
-    alt: "Sprint Motion Studio 的 test 项目：31张小兵奔跑帧资产、角色画布与动画时间轴",
-    width: 1600,
-    height: 1100,
+    src: "/images/tools/sprint-motion-studio/v1-editor.png",
+    alt: "Sprint Motion Studio 1.0.0便携版实拍：27帧抠图小兵、角色画布与动画时间轴",
+    width: 1344,
+    height: 861,
   },
   detailHref: "/tools/sprint-motion-studio/",
-  links: [{ href: "https://github.com/wzh20010805-boop/Sprint-Motion-Studio", label: "查看源码与说明" }],
+  links: [{ href: studioRelease.downloadUrl, label: "下载 Windows 便携版" }, { href: studioRelease.repoUrl, label: "查看源码与说明" }],
   isPlaceholder: false,
   published: true,
-  sourceVersion: "P0 / P1 · 2026-10-10",
-  requirements: ["Windows 开发环境", "Bun + Electron", "FFmpeg / ffprobe"],
-  delivery: "源码开发版，通过 Start-SFS.cmd 启动；独立发行包仍在计划中。",
+  sourceVersion: "v1.0.0 · 2026-10-11",
+  requirements: ["Windows 64 位", "解压到可写目录", "自动抠图模型需另行下载或离线导入"],
+  delivery: "Windows 便携 ZIP，解压后双击 SpriteMotionStudio.exe 或 START.cmd，无需另装开发环境。",
   features: [],
   steps: [],
-  notice: "当前输出保留原始背景；自动抠图、对齐、正式导出与 Cocos 接入为后续阶段。",
+  notice: "模型未随包附带，自动抠图需另行准备；正式导出需完成遮罩与对齐审核，Cocos 实际播放仍待验证。",
 }];
 
 export function getPublishedProjectsByCategory(category: CategoryId) {

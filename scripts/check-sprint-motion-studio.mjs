@@ -31,7 +31,7 @@ try {
     await page.evaluate(async () => {
       await Promise.all([...document.images].map((image) => { image.loading = "eager"; return image.decode(); }));
     });
-    assert.equal(await page.locator("#screenshots figure").count(), 3);
+    assert.equal(await page.locator("#screenshots figure").count(), 4);
     const layout = await page.evaluate(() => ({
       viewport: innerWidth,
       documentWidth: document.documentElement.scrollWidth,
@@ -44,12 +44,20 @@ try {
     assert.match(await page.locator("#scope-note").innerText(), /原始.*背景/);
     const source = page.getByRole("link", { name: "查看源码与说明", exact: false });
     assert.equal(await source.getAttribute("href"), "https://github.com/wzh20010805-boop/Sprint-Motion-Studio");
-    const original = page.getByRole("link", { name: "打开播放预览原图", exact: false });
+    const downloads = page.getByRole("link", { name: "下载 Windows 便携版", exact: false });
+    assert.equal(await downloads.count(), 2);
+    for (const download of await downloads.all()) {
+      assert.equal(await download.getAttribute("href"), "https://github.com/wzh20010805-boop/Sprint-Motion-Studio/releases/download/v1.0.0/SpriteMotionStudio-win-x64-1.0.0.zip");
+    }
+    assert.match(await page.locator("#getting-started").innerText(), /SpriteMotionStudio\.exe/);
+    assert.match(await page.locator("#getting-started").innerText(), /u2netp.*模型.*未随包附带/);
+    assert.equal(await page.getByRole("link", { name: "SHA256 校验文件", exact: false }).getAttribute("href"), "https://github.com/wzh20010805-boop/Sprint-Motion-Studio/releases/download/v1.0.0/SpriteMotionStudio-win-x64-1.0.0.zip.sha256");
+    const original = page.getByRole("link", { name: "打开地面基准与审核导出原图", exact: false });
     const [popup] = await Promise.all([page.waitForEvent("popup"), original.click()]);
     await popup.waitForLoadState();
-    assert.ok(popup.url().endsWith("/images/tools/sprint-motion-studio/test-project-preview.png"));
-    assert.ok(layout.images.every((image) => image.src.includes("test-project-")), "案例图片应全部来自最新真实项目");
-    assert.match(await page.locator("#workflow").innerText(), /121 → 121/);
+    assert.ok(popup.url().endsWith("/images/tools/sprint-motion-studio/v1-alignment-workshop.png"));
+    assert.ok(layout.images.every((image) => image.src.includes("v1-") || image.src.includes("test-project-source-frame")), "案例图片应来自当前便携版与原始素材");
+    assert.match(await page.locator("#workflow").innerText(), /27 帧/);
     assert.match(await page.locator("#screenshots").innerText(), /5s奔跑视频制作\.mp4/);
     await popup.close();
     assert.equal((await page.reload({ waitUntil: "networkidle" })).status(), 200);

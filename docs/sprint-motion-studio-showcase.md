@@ -1,47 +1,46 @@
-# Sprint Motion Studio 网页展示
+# Sprint Motion Studio v1.0.0 网页更新
 
-更新日期：2026-10-10。详情路由：`/tools/sprint-motion-studio/`。
+更新时间：2026-10-11。详情路由：`/tools/sprint-motion-studio/`。
 
-## 已确认范围
+用户要求更新最新功能、公开安装包下载与使用方法，并推送个人网页仓库，让其他用户查看和使用工具。沿用已确认的页面样式，保留此前授权的同一小兵奔跑案例，更新为本版实拍截图。
 
-用户确认采用本地仓库中的名称 Sprint Motion Studio，添加“小工具”卡片和独立详情页，沿用网站风格，展示当前功能、使用流程、真实测试画面及后续计划。
+## 版本与来源
 
-本地资料来自 `D:/AIJOB/tools/Sprite Motion Studio/framebaker/`；本次没有修改工具工程、项目帧、时间轴内容或源素材。该工程的 origin 为 `https://github.com/wzh20010805-boop/Sprint-Motion-Studio.git`，上游为 FrameBaker。网页提供配置中的源码入口，没有虚构独立下载包。
+- 最新正式 Release：`v1.0.0`，2026-10-11 发布，非预发布。
+- 项目仓库：https://github.com/wzh20010805-boop/Sprint-Motion-Studio
+- 发布说明：https://github.com/wzh20010805-boop/Sprint-Motion-Studio/releases/tag/v1.0.0
+- 来源源码版本：`5afcc861db19e2d1d38db63e75e37bab86ef93d9`。本地工具仓库 HEAD 与远端一致，README、使用指南和展示图片没有本地修改。本轮没有修改工具工程或用户工作区。
+- 依据：`README.md`、`docs/p3-p5-guide.md`、`docs/releases/v1.0.0.md`、Release 正文。历史 progress.md 下半部不作为当前范围。
 
-## 内容依据
+已实现并写入网页：完整视频/GIF/PNG 导入、源帧与时序保留、CPU 抠图和遮罩修正、公共画布与地面基准、审核导出 PNG/规则图集/manifest/MP4/ZIP、共享 CLI 与九工具 MCP、Windows 便携发行。
 
-- `README_SFS.md`：P0/P1 范围、完整抽帧、源时序、GUI/CLI 共享、独立可编辑副本、任务状态、Windows 开发宿主的启动与依赖。
-- `docs/progress.md`：当前阶段、限制和后续 P2–P6 计划。没有将上游所有功能或计划当作本项目已完成。
-- `docs/p1-desktop.md`：2026-10-10 真实桌面编辑器、导入默认值、GUI 上传、保存重开与 GUI/CLI 逐帧等价性。
-- `docs/evidence/p1/extraction-report.md`：合成视频 48/61/120/300 个源显示帧逐一提取；重复画面保留和真实 VFR 源时序。
-- `docs/evidence/p1/quality-report.md`：输出为保留背景的原始帧，检查图来自合成测试视频，不是小兵动作素材或透明抠图结果。
-- `README.zh-CN.md` 与 `THIRD_PARTY_NOTICES.md`：名称、FrameBaker 二次开发与上游 MIT 署名。
+尚未完成：干净 Windows 虚拟机验收、真实美术逐帧质量确认、Cocos 实际接入和播放。页面不把这些写成已完成，也不把本轮网页检查写成安装包实际安装验证。
 
-页面使用 P0/P1 开发版作为展示阶段，未将上游 package.json 的 0.5.0 作为本工具独立发行版本。没有把上游骨骼编辑、场景分层、云生成与宽权限 MCP 宣称为当前开发入口已开放。
+## 公开下载
 
-## 最新真实项目案例
+- 文件：`SpriteMotionStudio-win-x64-1.0.0.zip`，Windows x64，552404998 字节（页面标示约 552 MB）。
+- URL：https://github.com/wzh20010805-boop/Sprint-Motion-Studio/releases/download/v1.0.0/SpriteMotionStudio-win-x64-1.0.0.zip
+- 校验文件：同一 URL 后附 `.sha256`。
+- GitHub Release API 确认安装包为 uploaded；公开下载链接 HEAD 返回 200，Content-Length 与 Release 资产大小一致。
+- 解压至可写目录，打开 `SpriteMotionStudio.exe` 或 `START.cmd`，不要求另装 Node.js/Bun/Python。
+- u2netp 模型未随包附带，需在菜单明确下载或离线导入。包未签名，工作区和模型默认保留在用户数据目录。
+- 可下载的是便携 ZIP，不虚构 MSI 或传统安装向导。版本数据集中在 `data/sprint-motion-studio.ts`。
 
-用户要求把合成测试案例替换为刚刚新建的项目。案例取自默认工作区中最新项目 `test`（ID `ab89e225-ec8a-4ecf-bd05-ef0956e95ad5`），素材名称为 `5s奔跑视频制作.mp4`。数据库通过 SQLite 只读连接核对，读取时包含实时 WAL。
+## 当前案例与图片
 
-- 源视频：1280 × 720，24 FPS，约 5.04 秒，121 个源显示帧；原始源素材目录确有 121 张 PNG。
-- 当前项目：31 张 ready 帧资产，动画轴 `5s奔跑视频制作`、Main 轨道、31 个动画步骤、24 FPS。
-- 源帧总数与当前编辑素材分别展示，不将 31 张资产误称为完整抽帧结果。
-- 本地实际服务中打开项目，查看第 17 张资产并播放预览，暂停在第 12 / 31 步拍摄。没有重新导入视频或修改项目；拍摄前后项目修订号均为 6680。
-- 为完整展示时间轴，拍摄时通过界面调整面板尺寸；最终拍摄会话拦截布局持久化请求，仅改变该浏览器的显示布局。
+截图来自 `docs/media/sfs/`，原样复制，无裁剪、重绘或生成。案例来源为此前提供的 `5s奔跑视频制作.mp4`；121 张完整源帧和原视频合计 122 个素材，当前动作 27 帧，编辑器截图显示 12 FPS。原始来源和编辑动作分别统计，不宣称全部帧已通过美术审核。示例媒体仅展示工作流程，不作为 MIT 授权素材库。
 
-截图直接来自实际工具界面；原始帧直接复制，不裁剪、重绘或生成。
-
-| 网页图片 | 内容 | 尺寸 |
+| 网站文件 | 工具仓库来源 | 尺寸 |
 | --- | --- | --- |
-| `test-project-editor.png` | 最新 test 项目的编辑器全景 | 1600 × 1100 |
-| `test-project-frame.png` | 第 17 张小兵奔跑帧资产 | 1600 × 1100 |
-| `test-project-preview.png` | 24 FPS 播放预览，暂停在 12 / 31 步 | 1600 × 1100 |
-| `test-project-source-frame.png` | 当前项目第一张原始帧 PNG | 1280 × 720 |
+| `v1-editor.png` | `docs/media/sfs/editor.png` | 1344 × 861 |
+| `v1-library.png` | `docs/media/sfs/library.png` | 1344 × 861 |
+| `v1-mask-workshop.png` | `docs/media/sfs/mask-workshop.png` | 1344 × 835 |
+| `v1-alignment-workshop.png` | `docs/media/sfs/alignment-workshop.png` | 1344 × 835 |
 
-网页图片目录：`public/images/tools/sprint-motion-studio/`。工具列表封面、详情页主图、案例说明和三张截图均已换为本次真实项目；原始视频背景仍然保留。
+保留此前 `test-project-source-frame.png` 作为原始背景画面对照；旧桌面截图不再用于当前展示。
 
-## 检查
+## 验证
 
-`scripts/check-sprint-motion-studio.mjs` 验证首页两个工具的计数、实际卡片跳转、详情刷新、原有工具导航、三张真实项目截图及原始帧加载、真实案例来源文案、原图打开、页面锚点和四种宽度布局；输出至 `docs/checks/sprint-motion-studio/`。
+`scripts/check-sprint-motion-studio.mjs` 检查首页计数、两件工具卡片和导航、当前四张实拍截图、原始帧加载、下载入口的实际 URL、启动和模型说明、SHA256 链接、原图打开及 320/375/768/1440px 布局。输出至 `docs/checks/sprint-motion-studio/`。
 
-既有 `check-content-pages.mjs` 更新工具数量为 2，并将原工具截图检查限定到像素光标卡片，继续验证六分类和现有详情页。另执行 typecheck、lint 与静态构建。
+`scripts/check-public-site.mjs` 继续检查带仓库路径的公网页面、图片、导航和当前下载入口。执行 lint、typecheck、静态构建后推送，等待 Pages 发布并检查公开网页；具体结果以本轮终端输出与 GitHub Actions 为准。
