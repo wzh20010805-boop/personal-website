@@ -1,45 +1,51 @@
 {
   "baseURL": "http://127.0.0.1:4174",
-  "checkedAt": "2026-10-12T15:33:28.835Z",
+  "checkedAt": "2026-10-12T16:20:12.624Z",
   "viewports": [
     {
       "viewport": 320,
       "documentWidth": 320,
       "images": [
         {
-          "src": "/images/tools/sprint-motion-studio/v1-editor.png",
+          "src": "/images/tools/sprint-motion-studio/v107-home.png",
           "loaded": true,
-          "alt": "Sprint Motion Studio 1.0.0便携版真实界面，展示27帧抠图小兵奔跑案例",
+          "alt": "素材创意工坊1.0.7首页实拍：让创意动起来的插图及test项目14帧动作",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/test-project-source-frame.png",
+          "src": "/images/tools/sprint-motion-studio/v107-frame.png",
           "loaded": true,
-          "alt": "5s奔跑视频制作素材的第一张原始PNG，浅色背景上是一名持剑盾的金发小兵",
+          "alt": "test项目正式导出的128乘128透明PNG角色帧，保留真实Alpha通道",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/v1-editor.png",
+          "src": "/images/tools/sprint-motion-studio/v107-sprite-sheet.png",
           "loaded": true,
-          "alt": "Sprint Motion Studio 1.0.0实拍编辑器：27帧小兵奔跑角色、透明画布及12 FPS动画轴",
+          "alt": "test项目正式导出的14帧规则精灵图集，所有角色帧保持透明通道",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/v1-library.png",
+          "src": "/images/tools/sprint-motion-studio/v107-editor.png",
           "loaded": true,
-          "alt": "新版素材库显示122个素材，包含原视频与完整抽取的小兵奔跑源帧",
+          "alt": "1.0.7实拍编辑器：test项目14帧角色素材、左右键逐帧预览和动画时间轴",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/v1-mask-workshop.png",
+          "src": "/images/tools/sprint-motion-studio/v107-library.png",
           "loaded": true,
-          "alt": "场景抠图与修正窗口，展示原始角色、框选、擦除恢复笔刷及待人工检查状态",
+          "alt": "1.0.7素材库实拍：test项目的视频1与照片121分区及自定义文件夹",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/v1-alignment-workshop.png",
+          "src": "/images/tools/sprint-motion-studio/v107-mask-workshop.png",
           "loaded": true,
-          "alt": "地面基准统一比例与导出窗口，展示画布参数、地面根位置、透明预览以及正式导出入口",
+          "alt": "1.0.7遮罩修正窗口，14帧动作中第9帧已检查，角色显示于透明棋盘格",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/tools/sprint-motion-studio/v107-alignment-workshop.png",
+          "loaded": true,
+          "alt": "1.0.7对齐与导出实拍，128乘128公共画布预览及所有帧均在画布内的预检结果",
           "fit": "contain"
         }
       ],
@@ -53,39 +59,45 @@
       "documentWidth": 375,
       "images": [
         {
-          "src": "/images/tools/sprint-motion-studio/v1-editor.png",
+          "src": "/images/tools/sprint-motion-studio/v107-home.png",
           "loaded": true,
-          "alt": "Sprint Motion Studio 1.0.0便携版真实界面，展示27帧抠图小兵奔跑案例",
+          "alt": "素材创意工坊1.0.7首页实拍：让创意动起来的插图及test项目14帧动作",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/test-project-source-frame.png",
+          "src": "/images/tools/sprint-motion-studio/v107-frame.png",
           "loaded": true,
-          "alt": "5s奔跑视频制作素材的第一张原始PNG，浅色背景上是一名持剑盾的金发小兵",
+          "alt": "test项目正式导出的128乘128透明PNG角色帧，保留真实Alpha通道",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/v1-editor.png",
+          "src": "/images/tools/sprint-motion-studio/v107-sprite-sheet.png",
           "loaded": true,
-          "alt": "Sprint Motion Studio 1.0.0实拍编辑器：27帧小兵奔跑角色、透明画布及12 FPS动画轴",
+          "alt": "test项目正式导出的14帧规则精灵图集，所有角色帧保持透明通道",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/v1-library.png",
+          "src": "/images/tools/sprint-motion-studio/v107-editor.png",
           "loaded": true,
-          "alt": "新版素材库显示122个素材，包含原视频与完整抽取的小兵奔跑源帧",
+          "alt": "1.0.7实拍编辑器：test项目14帧角色素材、左右键逐帧预览和动画时间轴",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/v1-mask-workshop.png",
+          "src": "/images/tools/sprint-motion-studio/v107-library.png",
           "loaded": true,
-          "alt": "场景抠图与修正窗口，展示原始角色、框选、擦除恢复笔刷及待人工检查状态",
+          "alt": "1.0.7素材库实拍：test项目的视频1与照片121分区及自定义文件夹",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/v1-alignment-workshop.png",
+          "src": "/images/tools/sprint-motion-studio/v107-mask-workshop.png",
           "loaded": true,
-          "alt": "地面基准统一比例与导出窗口，展示画布参数、地面根位置、透明预览以及正式导出入口",
+          "alt": "1.0.7遮罩修正窗口，14帧动作中第9帧已检查，角色显示于透明棋盘格",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/tools/sprint-motion-studio/v107-alignment-workshop.png",
+          "loaded": true,
+          "alt": "1.0.7对齐与导出实拍，128乘128公共画布预览及所有帧均在画布内的预检结果",
           "fit": "contain"
         }
       ],
@@ -99,39 +111,45 @@
       "documentWidth": 768,
       "images": [
         {
-          "src": "/images/tools/sprint-motion-studio/v1-editor.png",
+          "src": "/images/tools/sprint-motion-studio/v107-home.png",
           "loaded": true,
-          "alt": "Sprint Motion Studio 1.0.0便携版真实界面，展示27帧抠图小兵奔跑案例",
+          "alt": "素材创意工坊1.0.7首页实拍：让创意动起来的插图及test项目14帧动作",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/test-project-source-frame.png",
+          "src": "/images/tools/sprint-motion-studio/v107-frame.png",
           "loaded": true,
-          "alt": "5s奔跑视频制作素材的第一张原始PNG，浅色背景上是一名持剑盾的金发小兵",
+          "alt": "test项目正式导出的128乘128透明PNG角色帧，保留真实Alpha通道",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/v1-editor.png",
+          "src": "/images/tools/sprint-motion-studio/v107-sprite-sheet.png",
           "loaded": true,
-          "alt": "Sprint Motion Studio 1.0.0实拍编辑器：27帧小兵奔跑角色、透明画布及12 FPS动画轴",
+          "alt": "test项目正式导出的14帧规则精灵图集，所有角色帧保持透明通道",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/v1-library.png",
+          "src": "/images/tools/sprint-motion-studio/v107-editor.png",
           "loaded": true,
-          "alt": "新版素材库显示122个素材，包含原视频与完整抽取的小兵奔跑源帧",
+          "alt": "1.0.7实拍编辑器：test项目14帧角色素材、左右键逐帧预览和动画时间轴",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/v1-mask-workshop.png",
+          "src": "/images/tools/sprint-motion-studio/v107-library.png",
           "loaded": true,
-          "alt": "场景抠图与修正窗口，展示原始角色、框选、擦除恢复笔刷及待人工检查状态",
+          "alt": "1.0.7素材库实拍：test项目的视频1与照片121分区及自定义文件夹",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/v1-alignment-workshop.png",
+          "src": "/images/tools/sprint-motion-studio/v107-mask-workshop.png",
           "loaded": true,
-          "alt": "地面基准统一比例与导出窗口，展示画布参数、地面根位置、透明预览以及正式导出入口",
+          "alt": "1.0.7遮罩修正窗口，14帧动作中第9帧已检查，角色显示于透明棋盘格",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/tools/sprint-motion-studio/v107-alignment-workshop.png",
+          "loaded": true,
+          "alt": "1.0.7对齐与导出实拍，128乘128公共画布预览及所有帧均在画布内的预检结果",
           "fit": "contain"
         }
       ],
@@ -145,39 +163,45 @@
       "documentWidth": 1440,
       "images": [
         {
-          "src": "/images/tools/sprint-motion-studio/v1-editor.png",
+          "src": "/images/tools/sprint-motion-studio/v107-home.png",
           "loaded": true,
-          "alt": "Sprint Motion Studio 1.0.0便携版真实界面，展示27帧抠图小兵奔跑案例",
+          "alt": "素材创意工坊1.0.7首页实拍：让创意动起来的插图及test项目14帧动作",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/test-project-source-frame.png",
+          "src": "/images/tools/sprint-motion-studio/v107-frame.png",
           "loaded": true,
-          "alt": "5s奔跑视频制作素材的第一张原始PNG，浅色背景上是一名持剑盾的金发小兵",
+          "alt": "test项目正式导出的128乘128透明PNG角色帧，保留真实Alpha通道",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/v1-editor.png",
+          "src": "/images/tools/sprint-motion-studio/v107-sprite-sheet.png",
           "loaded": true,
-          "alt": "Sprint Motion Studio 1.0.0实拍编辑器：27帧小兵奔跑角色、透明画布及12 FPS动画轴",
+          "alt": "test项目正式导出的14帧规则精灵图集，所有角色帧保持透明通道",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/v1-library.png",
+          "src": "/images/tools/sprint-motion-studio/v107-editor.png",
           "loaded": true,
-          "alt": "新版素材库显示122个素材，包含原视频与完整抽取的小兵奔跑源帧",
+          "alt": "1.0.7实拍编辑器：test项目14帧角色素材、左右键逐帧预览和动画时间轴",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/v1-mask-workshop.png",
+          "src": "/images/tools/sprint-motion-studio/v107-library.png",
           "loaded": true,
-          "alt": "场景抠图与修正窗口，展示原始角色、框选、擦除恢复笔刷及待人工检查状态",
+          "alt": "1.0.7素材库实拍：test项目的视频1与照片121分区及自定义文件夹",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/sprint-motion-studio/v1-alignment-workshop.png",
+          "src": "/images/tools/sprint-motion-studio/v107-mask-workshop.png",
           "loaded": true,
-          "alt": "地面基准统一比例与导出窗口，展示画布参数、地面根位置、透明预览以及正式导出入口",
+          "alt": "1.0.7遮罩修正窗口，14帧动作中第9帧已检查，角色显示于透明棋盘格",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/tools/sprint-motion-studio/v107-alignment-workshop.png",
+          "loaded": true,
+          "alt": "1.0.7对齐与导出实拍，128乘128公共画布预览及所有帧均在画布内的预检结果",
           "fit": "contain"
         }
       ],

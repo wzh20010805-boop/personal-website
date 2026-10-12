@@ -77,7 +77,7 @@ python -m http.server 4174 --bind 127.0.0.1 --directory out
 | `app/globals.css` | 色板、纸纹、组件样式及响应式布局 |
 | `public/illustrations/` | 本地 Hero 原图、保留的旧角色插画和纸张颗粒 SVG |
 | `public/images/tools/` | 用户提供的真实工具截图 |
-| `public/images/tools/sprint-motion-studio/` | v1.0.0 的四张便携版实拍截图与原始素材对照帧 |
+| `public/images/tools/sprint-motion-studio/` | v1.0.7 当前界面实拍、14帧透明输出、规则图集及动作预览文件 |
 | `public/images/games/colony-roads/` | 作者提供的流程原图与游戏项目真实引擎测试截图 |
 | `public/images/skills/amazon-product-radar/` | 用户提供的 Amazon Product Radar 历史报告截图 |
 

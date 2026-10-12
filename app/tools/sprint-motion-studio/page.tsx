@@ -21,7 +21,7 @@ const capabilities = [
   { number: "03", title: "让动作站在同一条地面上", text: "统一角色画布、比例与锚点，设置固定地面基准或根轨迹关键帧，再调整逐帧偏移。主编辑器的位移、缩放、旋转与透明度同步用于生产预览和导出，让动作更便于组合。", tag: "CANVAS + GROUND ROOT" },
   { number: "04", title: "检查后，导出完整素材包", text: "完成遮罩与对齐审核后，导出透明 PNG 序列、多页图集、manifest、联系表、背景 MP4 和完整 ZIP。非空半透明 PNG 也支持人工确认；未审核素材可以显式导出草稿。", tag: "REVIEW + EXPORT" },
   { number: "05", title: "手动制作，也能接入 Codex", text: "图形界面、CLI 与九工具 MCP 共用工作区和导出逻辑。可以查询任务、运行素材流程、继续中断任务，遇到需要人工检查的步骤会暂停。", tag: "GUI + CLI + MCP" },
-  { number: "06", title: "解压启动，少一步环境准备", text: "Windows 便携包自带运行时、FFmpeg 和字体，无需另装 Node.js、Bun 或 Python。自动抠图模型单独下载或离线导入，其余本地操作可断网使用。", tag: "WINDOWS PORTABLE" },
+  { number: "06", title: "解压启动，少一步环境准备", text: "Windows 便携包自带运行时、FFmpeg 和字体，无需另装 Node.js、Bun 或 Python。包内不含 u2netp 模型，首次需下载或离线导入；模型准备好后，自动抠图也可断网使用。", tag: "WINDOWS PORTABLE" },
 ];
 
 const workflow = [
@@ -32,10 +32,10 @@ const workflow = [
 ];
 
 const screenshots = [
-  { file: "v1-editor.png", title: "动画编辑器 · 小兵奔跑", text: "v1.0.0 Windows 便携版的真实编辑界面。“5s奔跑视频制作.mp4”案例当前整理为 27 帧，抠图后的角色进入画布与时间轴，动画轴设置为 12 FPS。", alt: "Sprint Motion Studio 1.0.0实拍编辑器：27帧小兵奔跑角色、透明画布及12 FPS动画轴", height: 861 },
-  { file: "v1-library.png", title: "素材库 · 原件与完整源帧", text: "视频原件和 121 张完整源帧保存在素材库中，合计 122 个素材；可以对照原图，并跨项目复用。源帧数量与编辑后的动作帧数分别保留。", alt: "新版素材库显示122个素材，包含原视频与完整抽取的小兵奔跑源帧", height: 861 },
-  { file: "v1-mask-workshop.png", title: "抠图与遮罩修正", text: "在原始画面中框住角色，生成抠图初稿，用擦除和恢复笔刷修边。右侧仍标明“待人工检查”，逐帧核对后再确认，不把初稿当作已审核成品。", alt: "场景抠图与修正窗口，展示原始角色、框选、擦除恢复笔刷及待人工检查状态", height: 835 },
-  { file: "v1-alignment-workshop.png", title: "地面基准与审核导出", text: "将原画面与共享后端的透明输出预览并排查看，配置统一画布、比例、锚点和根位置。完成越界预检与修订确认后，可正式导出 PNG 与图集。", alt: "地面基准统一比例与导出窗口，展示画布参数、地面根位置、透明预览以及正式导出入口", height: 835 },
+  { file: "v107-editor.png", title: "动画编辑器 · 小兵奔跑", text: "1.0.7 版实拍界面，test 项目保留 14 帧动作。选中帧资产或时间轴后，可用左右方向键逐帧查看“5s奔跑视频制作.mp4”的角色姿态。", alt: "1.0.7实拍编辑器：test项目14帧角色素材、左右键逐帧预览和动画时间轴" },
+  { file: "v107-library.png", title: "素材库 · 项目与来源分类", text: "test 项目的视频 / 照片分区保留 1 个原视频与 121 张源帧，合计 122 个素材。照片分区也包含视频抽帧图片；跨项目复用、自定义文件夹与原件继续保留。", alt: "1.0.7素材库实拍：test项目的视频1与照片121分区及自定义文件夹" },
+  { file: "v107-mask-workshop.png", title: "抠图与遮罩修正", text: "14 帧动作的遮罩修正窗口，截图显示第 9 帧已检查。可以切换透明底、原图、Alpha 和黑白底，擦除或恢复边缘；完整源视频的其它帧仍需单独审核。", alt: "1.0.7遮罩修正窗口，14帧动作中第9帧已检查，角色显示于透明棋盘格" },
+  { file: "v107-alignment-workshop.png", title: "地面基准与审核导出", text: "原图与 128 × 128 的输出画布并排预览。截图显示全帧越界预检通过，公共比例、锚点与根位置可继续调整；确认当前修订后正式导出透明 PNG 与图集。", alt: "1.0.7对齐与导出实拍，128乘128公共画布预览及所有帧均在画布内的预检结果" },
 ];
 
 export default function SprintMotionStudioPage() {
@@ -63,12 +63,12 @@ export default function SprintMotionStudioPage() {
                 <a className={styles.textLink} href="#getting-started">安装与使用 <span aria-hidden="true">↓</span></a>
                 <a className={styles.textLink} href={repo} target="_blank" rel="noopener noreferrer">查看源码与说明 <span aria-hidden="true">↗</span><span className="sr-only">（新标签页打开）</span></a>
               </div>
-              <p className={styles.updated}>版本更新于 <time dateTime={studioRelease.publishedDate}>2026.10.12</time> · ZIP 约 554 MB · 解压启动</p>
+              <p className={styles.updated}>资料更新于 <time dateTime="2026-10-13">2026.10.13</time> · ZIP 约 554 MB · 解压启动</p>
             </div>
             <figure className={styles.heroVisual}>
               <div className={styles.windowBar}><span aria-hidden="true">● ● ●</span><span>FRAME BY FRAME</span><span aria-hidden="true">↗</span></div>
-              <Image src={`${assetRoot}/v1-editor.png`} alt="Sprint Motion Studio 1.0.0便携版真实界面，展示27帧抠图小兵奔跑案例" width={1344} height={861} unoptimized loading="eager" />
-              <figcaption><span>v1.0.0 案例实拍 · 2026-10-11</span><span>小兵奔跑 / 27 帧</span></figcaption>
+              <Image src={`${assetRoot}/v107-home.png`} alt="素材创意工坊1.0.7首页实拍：让创意动起来的插图及test项目14帧动作" width={1360} height={900} unoptimized loading="eager" />
+              <figcaption><span>v1.0.7 首页实拍</span><span>test / 14 帧动作</span></figcaption>
               <div className={styles.sticker}><span>Windows 便携版</span><strong>v{studioRelease.version}</strong></div>
             </figure>
           </header>
@@ -91,26 +91,30 @@ export default function SprintMotionStudioPage() {
             <div className={styles.sectionHeading}><span className="section-kicker">02 / THE MAKING FLOW</span><h2 id="workflow-title">从视频到逐帧素材</h2><p>保留原件，在独立处理结果上制作；每个动作都能回到源画面检查。</p></div>
             <ol className={styles.workflow}>{workflow.map((step) => <li key={step.hint}><span>{step.hint}</span><h3>{step.title}</h3><p>{step.text}</p></li>)}</ol>
             <div className={styles.evidence}>
-              <div className={styles.evidenceCopy}><span className={styles.badge}>真实奔跑案例 / v1.0.0 实拍</span><h3>保留完整来源，<br />把动作一帧一帧做好。</h3><div className={styles.frameCounts}><span><strong>121 张</strong><small>完整源帧，保留视频原件</small></span><span><strong>27 帧</strong><small>案例截图中的动作素材</small></span><span><strong>1280 × 720</strong><small>源视频与原始帧尺寸</small></span><span><strong>12 FPS</strong><small>截图中的动画轴设置</small></span></div><p>继续使用“5s奔跑视频制作.mp4”案例。原件、完整源帧和截图中的 27 帧动作分别保留；工具支持修正透明边缘、统一画布并导出，展示不代表全部帧已通过美术审核。</p></div>
-              <figure className={styles.contactSheet}><a href={`${assetRoot}/test-project-source-frame.png`} target="_blank" rel="noopener noreferrer" aria-label="打开小兵奔跑原始帧原图（新标签页）"><Image src={`${assetRoot}/test-project-source-frame.png`} alt="5s奔跑视频制作素材的第一张原始PNG，浅色背景上是一名持剑盾的金发小兵" width={1280} height={720} unoptimized /></a><figcaption>小兵奔跑 · 第一张原始帧<br /><span>直接来自项目素材，保留视频背景。</span></figcaption></figure>
+              <div className={styles.evidenceCopy}><span className={styles.badge}>test / 14 帧正式导出</span><h3>保留完整来源，<br />把动作一帧一帧做好。</h3><div className={styles.frameCounts}><span><strong>121 张</strong><small>完整源帧，保留视频原件</small></span><span><strong>14 帧</strong><small>最近一次正式导出的动作</small></span><span><strong>1280 × 720</strong><small>源视频与原始帧尺寸</small></span><span><strong>128 × 128</strong><small>透明 PNG 的输出画布</small></span></div><p>继续使用“5s奔跑视频制作.mp4”案例。test 项目最近一次正式导出包含 14 张透明 PNG，右侧展示其中一帧；原视频和完整源帧继续保留，其它源帧仍需单独检查。</p></div>
+              <figure className={styles.contactSheet}><a className={styles.transparentPreview} href={`${assetRoot}/v107-frame.png`} target="_blank" rel="noopener noreferrer" aria-label="打开透明 PNG 示例原图（新标签页）"><Image src={`${assetRoot}/v107-frame.png`} alt="test项目正式导出的128乘128透明PNG角色帧，保留真实Alpha通道" width={128} height={128} unoptimized /></a><figcaption>正式导出 · 透明 PNG 示例<br /><span>棋盘格用于显示透明区域，PNG 本身保留透明通道。</span></figcaption></figure>
             </div>
+            <figure id="export-example" className={styles.outputSheet}>
+              <a href={`${assetRoot}/v107-sprite-sheet.png`} target="_blank" rel="noopener noreferrer" aria-label="打开14帧规则精灵图集原图（新标签页）"><Image src={`${assetRoot}/v107-sprite-sheet.png`} alt="test项目正式导出的14帧规则精灵图集，所有角色帧保持透明通道" width={1820} height={130} unoptimized /></a>
+              <figcaption><strong>14 帧正式导出 · 规则精灵图集</strong><p>透明 PNG 与图集原图保留 Alpha；动作动图中的棋盘格仅用于展示。点击原图可查看完整尺寸。</p><div className={styles.downloadLinks}><a href={`${assetRoot}/v107-frame.png`} target="_blank" rel="noopener noreferrer">查看透明 PNG ↗</a><a href={`${assetRoot}/v107-sprite-sheet.png`} target="_blank" rel="noopener noreferrer">查看精灵图集 ↗</a><a href={`${assetRoot}/v107-run-loop.gif`} target="_blank" rel="noopener noreferrer">查看14帧动作预览 ↗</a></div></figcaption>
+            </figure>
           </section>
 
           <section id="screenshots" className={styles.section} aria-labelledby="screenshots-title">
-            <div className={styles.sectionHeading}><span className="section-kicker">03 / FROM THE ACTUAL APP</span><h2 id="screenshots-title">真实桌面测试画面</h2><p>保留 v1.0.0 Windows 便携版的真实奔跑案例截图，说明抠图、对齐与导出流程；当前下载版本为 v1.0.7。点击可打开原图。</p></div>
+            <div className={styles.sectionHeading}><span className="section-kicker">03 / FROM THE ACTUAL APP</span><h2 id="screenshots-title">真实桌面测试画面</h2><p>来自更新后的 README：1.0.7 实拍界面，使用现有 test 项目的 14 帧动作。点击可打开原图。</p></div>
             <div className={styles.gallery}>{screenshots.map((shot, index) => <figure className={styles.screenshot} key={shot.file}>
-              <a href={`${assetRoot}/${shot.file}`} target="_blank" rel="noopener noreferrer" aria-label={`打开${shot.title}原图（新标签页）`}><Image src={`${assetRoot}/${shot.file}`} alt={shot.alt} width={1344} height={shot.height} unoptimized /><span className={styles.expand} aria-hidden="true">↗</span></a>
-              <figcaption><div className={styles.shotMeta}><span>便携版实拍 / 0{index + 1}</span><time dateTime="2026-10-11">2026-10-11</time></div><h3>{shot.title}</h3><p>{shot.text}</p></figcaption>
+              <a href={`${assetRoot}/${shot.file}`} target="_blank" rel="noopener noreferrer" aria-label={`打开${shot.title}原图（新标签页）`}><Image src={`${assetRoot}/${shot.file}`} alt={shot.alt} width={1360} height={900} unoptimized /><span className={styles.expand} aria-hidden="true">↗</span></a>
+              <figcaption><div className={styles.shotMeta}><span>便携版实拍 / 0{index + 1}</span><span>v1.0.7 / test 项目</span></div><h3>{shot.title}</h3><p>{shot.text}</p></figcaption>
             </figure>)}</div>
-            <p className={styles.captionNote}>截图取自项目仓库的 v1.0.0 实拍媒体，沿用此前的奔跑素材，未生成或重绘。示例媒体用于展示工作流程，不作为可再分发的 MIT 素材库。</p>
+            <p className={styles.captionNote}>截图与正式导出示例取自最新 README 的实拍媒体，沿用此前的奔跑素材，未生成或重绘。示例媒体用于展示工作流程，不作为可再分发的 MIT 素材库。</p>
           </section>
 
           <section id="getting-started" className={styles.section} aria-labelledby="getting-started-title">
             <div className={styles.startPanel}>
               <div><span className="section-kicker">04 / DOWNLOAD + GET STARTED</span><h2 id="getting-started-title">下载，解压，开始制作</h2><p>v{studioRelease.version} · Windows 64 位便携版 · 约 554 MB。运行时已包含在包内，无需另装 Node.js、Bun 或 Python。</p><a className="candy-button candy-button--secondary" href={studioRelease.downloadUrl} target="_blank" rel="noopener noreferrer">下载 Windows 便携版 <span aria-hidden="true">↗</span><span className="sr-only">（新标签页打开）</span></a><div className={styles.downloadLinks}><a href={studioRelease.releaseUrl} target="_blank" rel="noopener noreferrer">版本说明 ↗</a><a href={studioRelease.guideUrl} target="_blank" rel="noopener noreferrer">完整使用说明 ↗</a><a href={studioRelease.checksumUrl} target="_blank" rel="noopener noreferrer">SHA256 校验文件 ↗</a></div></div>
-              <ol><li><strong>下载并解压 ZIP</strong><span>下载 {studioRelease.archiveName}，解压到可写目录；不要直接在压缩包里运行。</span></li><li><strong>双击启动</strong><span>打开 SpriteMotionStudio.exe 或 START.cmd。个人工作区默认保存在 LocalAppData，可通过菜单切换已有工作区；升级时继续选择原工作区，保留源素材与已保存的遮罩。</span></li><li><strong>导入你的第一段素材</strong><span>新建项目，导入视频或 PNG 序列。自动抠图需要通过菜单下载或离线导入 u2netp 模型，模型未随包附带。</span></li></ol>
+              <ol><li><strong>下载并解压 ZIP</strong><span>下载 {studioRelease.archiveName}，解压到可写目录；不要直接在压缩包里运行。</span></li><li><strong>双击启动</strong><span>打开 SpriteMotionStudio.exe 或 START.cmd。个人工作区默认保存在 LocalAppData，可通过菜单切换已有工作区；升级时继续选择原工作区，保留源素材与已保存的遮罩。</span></li><li><strong>导入你的第一段素材</strong><span>新建项目，导入视频或 PNG 序列。u2netp 模型未随包附带。首次自动抠图需通过菜单选择“离线导入模型”或“下载 CPU 模型（需联网）”；已安装模型会继续复用，准备好后也可离线抠图。</span></li></ol>
             </div>
-            <p className={styles.captionNote}>便携包无需传统安装；卸载时删除解压目录，个人工作区与模型默认保留。本版程序未签名，已完成本机启动与换目录验证，干净 Windows 虚拟机验收尚未完成。后续版本可在 <a href={studioRelease.latestUrl} target="_blank" rel="noopener noreferrer">最新发布页 ↗</a> 查看。</p>
+            <p className={styles.captionNote}>模型保存在 %LOCALAPPDATA%\SpriteMotionStudio\models；换到另一台电脑使用时，需在那里准备模型。导入、修正已有遮罩、预览和导出可离线操作。便携包无需传统安装；卸载时删除解压目录，个人工作区与模型默认保留。本版程序未签名，已完成本机启动与换目录验证，干净 Windows 虚拟机验收尚未完成。后续版本可在 <a href={studioRelease.latestUrl} target="_blank" rel="noopener noreferrer">最新发布页 ↗</a> 查看。</p>
           </section>
 
           <section id="roadmap" className={styles.section} aria-labelledby="roadmap-title">

@@ -69,7 +69,7 @@
 .shotMeta > span { color: #577437; font-weight: 800; }
 .screenshot h3 { font-size: 21px; margin-top: 13px; }
 .screenshot p { margin-top: 9px; font-size: 13px; line-height: 1.9; }
-.captionNote { font-size: 11px; margin-top: 15px; }
+.captionNote { font-size: 11px; margin-top: 15px; overflow-wrap: anywhere; }
 .startPanel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 45px; border: 2px solid var(--ink); border-radius: 13px; background: var(--paper-light); padding: 30px 34px; }
 .startPanel h2 { font-size: 27px; margin-top: 9px; }
 .startPanel p { margin-top: 10px; font-size: 13px; }
@@ -128,3 +128,11 @@
   .frameCounts strong { font-size: 18px; }
   .labels { font-size: 10px; }
 }
+
+.contactSheet > .transparentPreview, .outputSheet > a { background-color: #fff8e8; background-image: repeating-conic-gradient(#e4ddce 0% 25%, #fff8e8 0% 50%); background-size: 20px 20px; }
+.transparentPreview img { max-width: 192px; margin: 24px auto; }
+.outputSheet { margin: 27px 0 0; border: 2px solid var(--ink); border-radius: 10px; overflow: hidden; background: var(--paper-light); }
+.outputSheet > a { display: block; padding: 16px; border-bottom: 2px solid var(--ink); }
+.outputSheet img { width: 100%; height: auto; object-fit: contain; }
+.outputSheet figcaption { padding: 18px 22px; font-size: 13px; }
+.outputSheet p { margin-top: 7px; font-size: 12px; }
