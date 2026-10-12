@@ -1,4 +1,23 @@
-# Sprint Motion Studio v1.0.0 网页更新
+# 素材创意工坊 v1.0.7 网页更新
+
+更新时间：2026-10-12。沿用 `/tools/sprint-motion-studio/` 路由，保留现有导航和版式。
+
+## 本轮最新内容
+
+- 最新正式 Release：`v1.0.7`，2026-10-12 发布，非预发布。仓库 README 的安装段仍写 1.0.0，当前版本以 Release 为准。
+- 发布来源：https://github.com/wzh20010805-boop/Sprint-Motion-Studio/releases/tag/v1.0.7
+- 工具源码版本：`5f8c306ed8c7f236e85d25bd3f284bc978046d8a`，与本地工具 HEAD 一致。
+- 中文名更新为“素材创意工坊”，英文名按 Release 改为 Sprite Motion Studio。GitHub 仓库名和网站路由保留 Sprint，避免破坏旧入口。
+- 更新介绍：主编辑器与抠图窗口支持左右方向键逐帧预览；素材库按项目下的视频/照片分类；帧位移、缩放、旋转与透明度用于生产预览和导出；非空半透明 PNG 支持人工确认。发布说明还记录了播放闪烁和旧抠图任务问题修复。
+- Windows x64 便携包：`SpriteMotionStudio-win-x64-1.0.7.zip`，554216275 字节，页面标注约 554 MB。
+- 下载：https://github.com/wzh20010805-boop/Sprint-Motion-Studio/releases/download/v1.0.7/SpriteMotionStudio-win-x64-1.0.7.zip
+- 校验文件：上述地址加 `.sha256`。Release 公布整包摘要 `a9a09ece5eb70511b4685dd30ac10d416b68bddbef28ea45871ed0063cdd8f4f`。
+- 解压后运行 SpriteMotionStudio.exe 或 START.cmd；运行时已附包，CPU 抠图模型仍需另行准备。升级时通过菜单继续选择原工作区，保留源素材和已保存遮罩。
+- 现有四张案例截图仍为 2026-10-11 的 v1.0.0 实拍。网页明确标记历史版本，保持源帧与案例帧数区分；没有伪造 v1.0.7 实拍。
+- 本轮不修改工具工程、用户工作区或网站的其他作品。下面保留上次版本更新的来源记录。
+
+## v1.0.0 历史更新记录
+
 
 更新时间：2026-10-11。详情路由：`/tools/sprint-motion-studio/`。
 

@@ -34,7 +34,7 @@ try {
         assert.equal(await page.locator("#screenshots figure").count(), 4);
         const downloads = page.getByRole("link", { name: "下载 Windows 便携版", exact: false });
         assert.equal(await downloads.count(), 2);
-        for (const download of await downloads.all()) assert.equal(await download.getAttribute("href"), "https://github.com/wzh20010805-boop/Sprint-Motion-Studio/releases/download/v1.0.0/SpriteMotionStudio-win-x64-1.0.0.zip");
+        for (const download of await downloads.all()) assert.equal(await download.getAttribute("href"), "https://github.com/wzh20010805-boop/Sprint-Motion-Studio/releases/download/v1.0.7/SpriteMotionStudio-win-x64-1.0.7.zip");
         assert.match(await page.locator("#getting-started").innerText(), /u2netp/);
         const original = page.getByRole("link", { name: "打开地面基准与审核导出原图", exact: false });
         const [popup] = await Promise.all([page.waitForEvent("popup"), original.click()]);

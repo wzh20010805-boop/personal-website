@@ -24,7 +24,7 @@ try {
     await page.waitForURL(`${baseURL}/tools/sprint-motion-studio/`);
     await page.waitForLoadState("networkidle");
     assert.equal(await page.locator("h1").count(), 1);
-    assert.match(await page.locator("h1").innerText(), /Sprint\s+Motion\s+Studio/);
+    assert.match(await page.locator("h1").innerText(), /Sprite\s+Motion\s+Studio/);
     for (const title of ["目前能做什么", "从视频到逐帧素材", "真实桌面测试画面", "下一步，走向游戏素材管线"]) {
       assert.equal(await page.getByRole("heading", { name: title, exact: true }).count(), 1);
     }
@@ -42,16 +42,19 @@ try {
     assert.ok(layout.images.every((image) => image.loaded && image.alt && image.fit === "contain"));
     assert.deepEqual(layout.brokenAnchors, []);
     assert.match(await page.locator("#scope-note").innerText(), /原始.*背景/);
+    assert.match(await page.locator("#scope-note").innerText(), /v1\.0\.7/);
+    assert.match(await page.locator("#scope-note").innerText(), /逐帧预览/);
+    assert.match(await page.locator("#scope-note").innerText(), /视频 \/ 照片/);
     const source = page.getByRole("link", { name: "查看源码与说明", exact: false });
     assert.equal(await source.getAttribute("href"), "https://github.com/wzh20010805-boop/Sprint-Motion-Studio");
     const downloads = page.getByRole("link", { name: "下载 Windows 便携版", exact: false });
     assert.equal(await downloads.count(), 2);
     for (const download of await downloads.all()) {
-      assert.equal(await download.getAttribute("href"), "https://github.com/wzh20010805-boop/Sprint-Motion-Studio/releases/download/v1.0.0/SpriteMotionStudio-win-x64-1.0.0.zip");
+      assert.equal(await download.getAttribute("href"), "https://github.com/wzh20010805-boop/Sprint-Motion-Studio/releases/download/v1.0.7/SpriteMotionStudio-win-x64-1.0.7.zip");
     }
     assert.match(await page.locator("#getting-started").innerText(), /SpriteMotionStudio\.exe/);
     assert.match(await page.locator("#getting-started").innerText(), /u2netp.*模型.*未随包附带/);
-    assert.equal(await page.getByRole("link", { name: "SHA256 校验文件", exact: false }).getAttribute("href"), "https://github.com/wzh20010805-boop/Sprint-Motion-Studio/releases/download/v1.0.0/SpriteMotionStudio-win-x64-1.0.0.zip.sha256");
+    assert.equal(await page.getByRole("link", { name: "SHA256 校验文件", exact: false }).getAttribute("href"), "https://github.com/wzh20010805-boop/Sprint-Motion-Studio/releases/download/v1.0.7/SpriteMotionStudio-win-x64-1.0.7.zip.sha256");
     const original = page.getByRole("link", { name: "打开地面基准与审核导出原图", exact: false });
     const [popup] = await Promise.all([page.waitForEvent("popup"), original.click()]);
     await popup.waitForLoadState();

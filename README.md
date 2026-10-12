@@ -45,7 +45,7 @@ python -m http.server 4174 --bind 127.0.0.1 --directory out
 | `/prompts/` | Prompt 推荐空状态 |
 | `/tools/` | 小工具作品卡片列表，目前 2 件作品 |
 | `/tools/pixel-cursor/` | 像素光标完整介绍、软件截图、功能、用法和下载须知 |
-| `/tools/sprint-motion-studio/` | 小兵动画素材工坊 v1.0.0 介绍、Windows 便携版下载、安装使用、实拍截图与后续验证 |
+| `/tools/sprint-motion-studio/` | 素材创意工坊 v1.0.7 介绍、Windows 便携版下载、安装使用、实拍截图与后续验证 |
 | `/games/` | 游戏作品卡片列表，目前 1 件作品 |
 | `/games/colony-roads/` | 微境节点战争的开发进度、制作流程原图与四张真实测试截图 |
 | `/skills/` | Skill 作品卡片列表，目前 1 件作品 |
