@@ -4,7 +4,7 @@ import { chromium } from "playwright";
 const baseURL = (process.env.CHECK_URL ?? "https://wzh20010805-boop.github.io/personal-website").replace(/\/$/, "");
 const base = new URL(baseURL);
 const basePath = base.pathname.replace(/\/$/, "");
-const routes = ["/", "/tools/", "/tools/sprint-motion-studio/", "/tools/pixel-cursor/", "/tools/personal-knowledge/", "/games/colony-roads/", "/skills/amazon-product-radar/", "/prompts/", "/agents/", "/learning/"];
+const routes = ["/", "/tools/", "/tools/sprint-motion-studio/", "/tools/pixel-cursor/", "/agents/personal-knowledge/", "/games/colony-roads/", "/skills/amazon-product-radar/", "/prompts/", "/agents/", "/learning/"];
 const browser = await chromium.launch({ headless: true, channel: process.env.PLAYWRIGHT_CHANNEL ?? "msedge" });
 try {
   for (const width of [375, 1440]) {
@@ -45,18 +45,27 @@ try {
         assert.equal(popup.url(), `${baseURL}/images/tools/sprint-motion-studio/v107-alignment-workshop.png`);
         await popup.close();
       }
-      if (route === "/tools/personal-knowledge/") {
+      if (route === "/agents/personal-knowledge/") {
         assert.equal(await page.locator("#screenshots figure").count(), 4);
         assert.match(await page.locator("#demo-note").innerText(), /演示资料与模拟模型输出/);
         assert.match(await page.locator("#project-status").innerText(), /源码仓库为私有/);
+        assert.match(await page.locator("#workflow").innerText(), /DeepSeek API/);
+        const diagramLink = page.getByRole("link", { name: "打开 Archify 交互流程图", exact: false });
+        const [diagram] = await Promise.all([page.waitForEvent("popup"), diagramLink.click()]);
+        await diagram.waitForLoadState();
+        assert.equal(diagram.url(), `${baseURL}/diagrams/personal-knowledge-workflow.html`);
+        assert.equal(await diagram.locator("svg[role='img']").count(), 1);
+        await diagram.close();
         const original = page.getByRole("link", { name: "打开引用定位", exact: false });
         const [popup] = await Promise.all([page.waitForEvent("popup"), original.click()]);
         await popup.waitForLoadState();
-        assert.equal(popup.url(), `${baseURL}/images/tools/personal-knowledge/source-citation.png`);
+        assert.equal(popup.url(), `${baseURL}/images/agents/personal-knowledge/source-citation.png`);
         await popup.close();
       }
       assert.deepEqual(errors, [], route);
     }
+    await page.goto(`${baseURL}/tools/personal-knowledge/`, { waitUntil: "networkidle" });
+    await page.waitForURL(`${baseURL}/agents/personal-knowledge/`);
     await page.goto(`${baseURL}/`, { waitUntil: "networkidle" });
     await page.locator(`a.category-card[href='${basePath}/tools/']`).click();
     await page.waitForURL(`${baseURL}/tools/`);

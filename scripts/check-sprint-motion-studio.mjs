@@ -16,10 +16,10 @@ try {
     page.on("response", (response) => { if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`); });
     await page.goto(baseURL, { waitUntil: "networkidle" });
     const tools = page.locator("a.category-card[href='/tools/']");
-    assert.match(await tools.innerText(), /3\s*件作品/, "首页应包含新增工具");
+    assert.match(await tools.innerText(), /2\s*件作品/, "首页应包含新增工具");
     await tools.click();
     await page.waitForURL(`${baseURL}/tools/`);
-    assert.equal(await page.locator("a.project-card").count(), 3);
+    assert.equal(await page.locator("a.project-card").count(), 2);
     await page.locator("a.project-card[href='/tools/sprint-motion-studio/']").click();
     await page.waitForURL(`${baseURL}/tools/sprint-motion-studio/`);
     await page.waitForLoadState("networkidle");
@@ -85,7 +85,7 @@ try {
     await page.close();
   }
   await writeFile(new URL("results.json", output), JSON.stringify(results, null, 2));
-  console.log("Sprint Motion Studio: three tool cards, detail navigation, real images, original-image links and 4 viewport widths passed.");
+  console.log("Sprint Motion Studio: two tool cards, detail navigation, real images, original-image links and 4 viewport widths passed.");
 } finally {
   await browser.close();
 }

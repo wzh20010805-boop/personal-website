@@ -10,10 +10,10 @@ const screenshotOutput = process.env.CHECK_OUTPUT_DIR
 await mkdir(screenshotOutput, { recursive: true });
 const categories = [
   ["prompts", "我推荐的 Prompt", "0"],
-  ["tools", "我做的小工具", "3"],
+  ["tools", "我做的小工具", "2"],
   ["games", "我做的小游戏", "1"],
   ["skills", "我做的 Skill", "1"],
-  ["agents", "我做的 Agent", "0"],
+  ["agents", "我做的 Agent", "1"],
   ["learning", "我的学习与技术积累", "0"],
 ];
 const detailPath = "/tools/pixel-cursor/";
@@ -84,7 +84,7 @@ try {
   await visit("/");
   verify((await page.locator("a.category-card").count()) === categories.length, "首页应有六张整卡分类链接");
   const toolsCardText = await page.locator("a.category-card[href='/tools/']").innerText();
-  verify(/3\s*件作品/.test(toolsCardText), "首页小工具卡片应显示 3 件作品");
+  verify(/2\s*件作品/.test(toolsCardText), "首页小工具卡片应显示 2 件作品");
 
   for (const [slug, title, count] of categories) {
     await visit("/");
@@ -113,7 +113,7 @@ try {
 
   await visit("/tools/");
   const projectCard = page.locator(`.project-grid > a.project-card[href='${detailPath}']`);
-  verify((await page.locator(".project-grid > a.project-card").count()) === 3, "工具列表应展示三张已收录作品卡片");
+  verify((await page.locator(".project-grid > a.project-card").count()) === 2, "工具列表应展示两张已收录作品卡片");
   verify((await projectCard.count()) === 1, "工具卡片应整卡链接至像素光标详情页");
   verify((await projectCard.getByRole("heading", { level: 2, name: projectTitle, exact: true }).count()) === 1, "工具卡片缺少正确的作品标题");
   verify((await projectCard.locator("a, button, input, select, textarea").count()) === 0, "整卡链接内不应嵌套其他交互控件");
@@ -193,9 +193,10 @@ try {
     checkedAt: new Date().toISOString(),
     routes,
     categoryLinks: 6,
-    emptyCategories: 3,
+    emptyCategories: 2,
     publishedSkills: 1,
-    publishedTools: 3,
+    publishedTools: 2,
+    publishedAgents: 1,
     publishedGames: 1,
     detailPath,
     externalHrefs,
@@ -205,7 +206,7 @@ try {
     imageChecks,
     layoutChecks,
   }, null, 2)}\n`, "utf8");
-  console.log(`内容页检查通过：六分类入口与三个空状态、工具列表与详情点击/刷新/返回、真实截图加载与完整比例、外链配置、四种屏宽布局、无动画及无运行错误。截图和检查 JSON 已写入 ${fileURLToPath(screenshotOutput)}。`);
+  console.log(`内容页检查通过：六分类入口与两个空状态、工具列表与详情点击/刷新/返回、真实截图加载与完整比例、外链配置、四种屏宽布局、无动画及无运行错误。截图和检查 JSON 已写入 ${fileURLToPath(screenshotOutput)}。`);
 } finally {
   await browser.close();
 }

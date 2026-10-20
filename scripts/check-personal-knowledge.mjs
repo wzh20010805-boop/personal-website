@@ -16,15 +16,16 @@ try {
     page.on("pageerror", (error) => errors.push(error.message));
     page.on("response", (response) => { if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`); });
     await page.goto(`${baseURL}/`, { waitUntil: "networkidle" });
-    const tools = page.locator(`a.category-card[href='${basePath}/tools/']`);
-    assert.match(await tools.innerText(), /3\s*件作品/);
-    await tools.click();
-    await page.waitForURL(`${baseURL}/tools/`);
-    assert.equal(await page.locator("a.project-card").count(), 3);
-    const card = page.locator(`a.project-card[href='${basePath}/tools/personal-knowledge/']`);
+    const agents = page.locator(`a.category-card[href='${basePath}/agents/']`);
+    assert.match(await agents.innerText(), /1\s*件作品/);
+    assert.match(await page.locator(`a.category-card[href='${basePath}/tools/']`).innerText(), /2\s*件作品/);
+    await agents.click();
+    await page.waitForURL(`${baseURL}/agents/`);
+    assert.equal(await page.locator("a.project-card").count(), 1);
+    const card = page.locator(`a.project-card[href='${basePath}/agents/personal-knowledge/']`);
     assert.match(await card.innerText(), /源码私有/);
     await card.click();
-    await page.waitForURL(`${baseURL}/tools/personal-knowledge/`);
+    await page.waitForURL(`${baseURL}/agents/personal-knowledge/`);
     await page.waitForLoadState("networkidle");
     assert.equal(await page.locator("h1").count(), 1);
     assert.match(await page.locator("h1").innerText(), /个人知识库/);
@@ -42,22 +43,34 @@ try {
     });
     const layout = await page.evaluate(() => ({
       documentWidth: document.documentElement.scrollWidth,
-      images: [...document.images].map((image) => ({ src: image.getAttribute("src"), loaded: image.complete && image.naturalWidth === 1600 && image.naturalHeight === 1100, alt: image.alt, fit: getComputedStyle(image).objectFit })),
+      images: [...document.images].map((image) => ({ src: image.getAttribute("src"), loaded: image.complete && image.naturalWidth > 0 && image.naturalHeight > 0, alt: image.alt, fit: getComputedStyle(image).objectFit })),
       brokenAnchors: [...document.querySelectorAll("a[href^='#']")].filter((link) => !document.querySelector(link.getAttribute("href"))).map((link) => link.getAttribute("href")),
     }));
     assert.equal(layout.documentWidth, width);
     assert.ok(layout.images.every((image) => image.loaded && image.alt && image.fit === "contain"));
     assert.deepEqual(layout.brokenAnchors, []);
+    assert.match(await page.locator("header").last().innerText(), /DeepSeek API/);
+    assert.match(await page.locator("#workflow").innerText(), /默认固定 RAG/);
+    const diagramLink = page.getByRole("link", { name: "打开 Archify 交互流程图", exact: false });
+    const [diagram] = await Promise.all([page.waitForEvent("popup"), diagramLink.click()]);
+    await diagram.waitForLoadState();
+    assert.equal(diagram.url(), `${baseURL}/diagrams/personal-knowledge-workflow.html`);
+    assert.equal(await diagram.locator("svg[role='img']").count(), 1);
+    await diagram.close();
     const original = page.getByRole("link", { name: "打开引用定位", exact: false });
     const [popup] = await Promise.all([page.waitForEvent("popup"), original.click()]);
     await popup.waitForLoadState();
-    assert.equal(popup.url(), `${baseURL}/images/tools/personal-knowledge/source-citation.png`);
+    assert.equal(popup.url(), `${baseURL}/images/agents/personal-knowledge/source-citation.png`);
     await popup.close();
     assert.equal((await page.reload({ waitUntil: "networkidle" })).status(), 200);
     await page.evaluate(async () => { await Promise.all([...document.images].map((image) => { image.loading = "eager"; return image.decode(); })); window.scrollTo(0, 0); });
     await page.screenshot({ path: fileURLToPath(new URL(`detail-${width}.png`, output)), fullPage: true });
-    await page.getByRole("link", { name: "返回小工具列表" }).click();
-    await page.waitForURL(`${baseURL}/tools/`);
+    await page.getByRole("link", { name: "返回 Agent 列表" }).click();
+    await page.waitForURL(`${baseURL}/agents/`);
+    await page.goto(`${baseURL}/tools/personal-knowledge/`, { waitUntil: "networkidle" });
+    await page.waitForURL(`${baseURL}/agents/personal-knowledge/`);
+    await page.goto(`${baseURL}/tools/`, { waitUntil: "networkidle" });
+    assert.equal(await page.locator("a.project-card").count(), 2);
     await page.locator(`a.project-card[href='${basePath}/tools/pixel-cursor/']`).click();
     await page.waitForURL(`${baseURL}/tools/pixel-cursor/`);
     assert.match(await page.locator("h1").innerText(), /Pixel Cursor/);
@@ -66,7 +79,7 @@ try {
     await page.close();
   }
   await writeFile(new URL("results.json", output), `${JSON.stringify(results, null, 2)}\n`);
-  console.log("Personal Knowledge: 3 tool cards, 4 demo screenshots, original image, privacy/model labels and 4 viewport widths passed.");
+  console.log("Personal Knowledge: 1 Agent, 2 tools, Archify workflow, legacy redirect, 4 demo screenshots, original image, privacy/model labels and 4 viewport widths passed.");
 } finally {
   await browser.close();
 }

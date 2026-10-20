@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "deliver",
+  "type": "workflow",
+  "input": "D:\\AIJOB\\personal-web\\personal-web-v0.1\\docs\\diagrams\\personal-knowledge-workflow.json",
+  "output": "D:\\AIJOB\\personal-web\\personal-web-v0.1\\public\\diagrams\\personal-knowledge-workflow.html",
+  "specification": {
+    "sha256": "6c872c0297523960d87bc7742052127d29b273535987e1592eb52ccd4449d5b7",
+    "bytes": 2996
+  },
+  "artifact": {
+    "sha256": "4ac98056352628290afebc34f642115c28ee31590fdc88231ef6e051f861d3ba",
+    "bytes": 807181
+  },
+  "validation": {
+    "checksPassed": 9,
+    "checkCount": 9,
+    "compositionProfile": "showcase",
+    "compositionStatus": "pass",
+    "errors": 0,
+    "warnings": 0
+  }
+}

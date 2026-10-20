@@ -1,0 +1,45 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "当前 dev 分支的问答流程",
+    "locale": "zh-CN",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    {"id": "ui", "label": "浏览器"},
+    {"id": "api", "label": "FastAPI 与任务"},
+    {"id": "qa", "label": "问答引擎与证据"}
+  ],
+  "mainPath": ["browser", "api", "job", "answer-service", "qa-engine", "citation-check", "result"],
+  "nodes": [
+    {"id": "browser", "lane": "ui", "col": 0, "type": "frontend", "label": "React 对话页", "sublabel": "用户提交问题", "width": 150},
+    {"id": "result", "lane": "ui", "col": 5, "type": "frontend", "label": "展示回答", "sublabel": "轮询任务 · 来源可查看", "width": 150},
+    {"id": "api", "lane": "api", "col": 1, "type": "backend", "label": "问答 API", "sublabel": "会话轮次 / 一次性入口", "width": 150},
+    {"id": "job", "lane": "api", "col": 2, "type": "messagebus", "label": "持久任务", "sublabel": "202 接收 · 后台执行", "width": 150},
+    {"id": "answer-service", "lane": "api", "col": 3, "type": "backend", "label": "AnswerService", "sublabel": "按服务端配置选择引擎", "width": 160},
+    {"id": "citation-check", "lane": "api", "col": 5, "type": "security", "label": "引用核验", "sublabel": "SQLite 原文与来源复查", "width": 150},
+    {"id": "qa-engine", "lane": "qa", "col": 4, "type": "backend", "label": "legacy / Agent", "sublabel": "默认固定 RAG · 可选模型决策", "width": 170},
+    {"id": "rag-search", "lane": "qa", "col": 5, "type": "database", "label": "rag_search", "sublabel": "Chroma 候选 → SQLite 原文", "tag": "仅 Agent 可调用", "width": 165}
+  ],
+  "edges": [
+    {"id": "submit-question", "from": "browser", "to": "api", "label": "HTTP 提交问题", "variant": "emphasis"},
+    {"id": "admit-job", "from": "api", "to": "job", "label": "持久化并排队", "variant": "emphasis"},
+    {"id": "execute-answer", "from": "job", "to": "answer-service", "variant": "emphasis"},
+    {"id": "select-engine", "from": "answer-service", "to": "qa-engine", "label": "PK_QA_ENGINE", "variant": "emphasis"},
+    {"id": "candidate-answer", "from": "qa-engine", "to": "citation-check", "label": "候选回答", "variant": "emphasis"},
+    {"id": "publish-result", "from": "citation-check", "to": "result", "label": "通过后保存并展示", "variant": "emphasis"},
+    {"id": "tool-call", "from": "qa-engine", "to": "rag-search", "label": "仅 agent：tool_calls", "variant": "dashed", "role": "branch"},
+    {"id": "tool-result", "from": "rag-search", "to": "qa-engine", "label": "证据回传后继续", "variant": "dashed", "role": "return"}
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "项目中的其他流程",
+      "items": [
+        "资料导入保存原文件与片段，并在本地建立 Chroma 索引。",
+        "知识页生成和观点审核有独立入口，不经过这条问答任务链。"
+      ]
+    }
+  ]
+}

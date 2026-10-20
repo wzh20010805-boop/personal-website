@@ -1,39 +1,45 @@
 {
   "baseURL": "http://127.0.0.1:4174",
-  "checkedAt": "2026-10-20T07:10:12.213Z",
+  "checkedAt": "2026-10-20T07:31:44.979Z",
   "viewports": [
     {
       "width": 320,
       "documentWidth": 320,
       "images": [
         {
-          "src": "/images/tools/personal-knowledge/source-citation.png",
+          "src": "/images/agents/personal-knowledge/source-citation.png",
           "loaded": true,
           "alt": "个人知识库真实界面演示：带证据的回答与右侧原文定位面板并排显示",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/personal-knowledge/library.png",
+          "src": "/images/agents/personal-knowledge/library.png",
           "loaded": true,
           "alt": "个人知识库真实界面，资料库中展示两份演示Markdown笔记、演示摘要、标签与待确认状态",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/personal-knowledge/evidence-answer.png",
+          "src": "/images/agents/personal-knowledge/evidence-answer.png",
           "loaded": true,
           "alt": "个人知识库Agent对话真实界面，演示学习计划问题、模拟回答与两条资料证据",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/personal-knowledge/source-citation.png",
+          "src": "/images/agents/personal-knowledge/source-citation.png",
           "loaded": true,
           "alt": "点击资料引用后的真实工作台，右侧面板显示演示复盘方法原文、段落位置和引用编号",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/personal-knowledge/viewpoint-review.png",
+          "src": "/images/agents/personal-knowledge/viewpoint-review.png",
           "loaded": true,
           "alt": "我的观点真实界面，左侧两条演示待确认观点，右侧暂无已确认观点",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/agents/personal-knowledge/workflow.png",
+          "loaded": true,
+          "alt": "Archify 问答流程图：React 对话页、FastAPI、持久任务、AnswerService、legacy 或 Agent 引擎、rag_search 检索、引用核验与回答展示",
           "fit": "contain"
         }
       ],
@@ -47,33 +53,39 @@
       "documentWidth": 375,
       "images": [
         {
-          "src": "/images/tools/personal-knowledge/source-citation.png",
+          "src": "/images/agents/personal-knowledge/source-citation.png",
           "loaded": true,
           "alt": "个人知识库真实界面演示：带证据的回答与右侧原文定位面板并排显示",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/personal-knowledge/library.png",
+          "src": "/images/agents/personal-knowledge/library.png",
           "loaded": true,
           "alt": "个人知识库真实界面，资料库中展示两份演示Markdown笔记、演示摘要、标签与待确认状态",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/personal-knowledge/evidence-answer.png",
+          "src": "/images/agents/personal-knowledge/evidence-answer.png",
           "loaded": true,
           "alt": "个人知识库Agent对话真实界面，演示学习计划问题、模拟回答与两条资料证据",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/personal-knowledge/source-citation.png",
+          "src": "/images/agents/personal-knowledge/source-citation.png",
           "loaded": true,
           "alt": "点击资料引用后的真实工作台，右侧面板显示演示复盘方法原文、段落位置和引用编号",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/personal-knowledge/viewpoint-review.png",
+          "src": "/images/agents/personal-knowledge/viewpoint-review.png",
           "loaded": true,
           "alt": "我的观点真实界面，左侧两条演示待确认观点，右侧暂无已确认观点",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/agents/personal-knowledge/workflow.png",
+          "loaded": true,
+          "alt": "Archify 问答流程图：React 对话页、FastAPI、持久任务、AnswerService、legacy 或 Agent 引擎、rag_search 检索、引用核验与回答展示",
           "fit": "contain"
         }
       ],
@@ -87,33 +99,39 @@
       "documentWidth": 768,
       "images": [
         {
-          "src": "/images/tools/personal-knowledge/source-citation.png",
+          "src": "/images/agents/personal-knowledge/source-citation.png",
           "loaded": true,
           "alt": "个人知识库真实界面演示：带证据的回答与右侧原文定位面板并排显示",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/personal-knowledge/library.png",
+          "src": "/images/agents/personal-knowledge/library.png",
           "loaded": true,
           "alt": "个人知识库真实界面，资料库中展示两份演示Markdown笔记、演示摘要、标签与待确认状态",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/personal-knowledge/evidence-answer.png",
+          "src": "/images/agents/personal-knowledge/evidence-answer.png",
           "loaded": true,
           "alt": "个人知识库Agent对话真实界面，演示学习计划问题、模拟回答与两条资料证据",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/personal-knowledge/source-citation.png",
+          "src": "/images/agents/personal-knowledge/source-citation.png",
           "loaded": true,
           "alt": "点击资料引用后的真实工作台，右侧面板显示演示复盘方法原文、段落位置和引用编号",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/personal-knowledge/viewpoint-review.png",
+          "src": "/images/agents/personal-knowledge/viewpoint-review.png",
           "loaded": true,
           "alt": "我的观点真实界面，左侧两条演示待确认观点，右侧暂无已确认观点",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/agents/personal-knowledge/workflow.png",
+          "loaded": true,
+          "alt": "Archify 问答流程图：React 对话页、FastAPI、持久任务、AnswerService、legacy 或 Agent 引擎、rag_search 检索、引用核验与回答展示",
           "fit": "contain"
         }
       ],
@@ -127,33 +145,39 @@
       "documentWidth": 1440,
       "images": [
         {
-          "src": "/images/tools/personal-knowledge/source-citation.png",
+          "src": "/images/agents/personal-knowledge/source-citation.png",
           "loaded": true,
           "alt": "个人知识库真实界面演示：带证据的回答与右侧原文定位面板并排显示",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/personal-knowledge/library.png",
+          "src": "/images/agents/personal-knowledge/library.png",
           "loaded": true,
           "alt": "个人知识库真实界面，资料库中展示两份演示Markdown笔记、演示摘要、标签与待确认状态",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/personal-knowledge/evidence-answer.png",
+          "src": "/images/agents/personal-knowledge/evidence-answer.png",
           "loaded": true,
           "alt": "个人知识库Agent对话真实界面，演示学习计划问题、模拟回答与两条资料证据",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/personal-knowledge/source-citation.png",
+          "src": "/images/agents/personal-knowledge/source-citation.png",
           "loaded": true,
           "alt": "点击资料引用后的真实工作台，右侧面板显示演示复盘方法原文、段落位置和引用编号",
           "fit": "contain"
         },
         {
-          "src": "/images/tools/personal-knowledge/viewpoint-review.png",
+          "src": "/images/agents/personal-knowledge/viewpoint-review.png",
           "loaded": true,
           "alt": "我的观点真实界面，左侧两条演示待确认观点，右侧暂无已确认观点",
+          "fit": "contain"
+        },
+        {
+          "src": "/images/agents/personal-knowledge/workflow.png",
+          "loaded": true,
+          "alt": "Archify 问答流程图：React 对话页、FastAPI、持久任务、AnswerService、legacy 或 Agent 引擎、rag_search 检索、引用核验与回答展示",
           "fit": "contain"
         }
       ],

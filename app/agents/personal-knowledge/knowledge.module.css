@@ -59,6 +59,10 @@
 .shot h3 { margin-top: 12px; font-size: 21px; }
 .shot p { margin-top: 8px; font-size: 13px; line-height: 1.9; }
 .caption { margin-top: 15px; font-size: 11px; }
+.workflowFigure { margin: 0; border: 2px solid var(--ink); border-radius: 12px; background: var(--paper-light); overflow: hidden; }
+.workflowFigure > a { display: block; background: #f7f9fc; border-bottom: 2px solid var(--ink); }
+.workflowFigure img { display: block; width: 100%; height: auto; object-fit: contain; }
+.workflowFigure figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; padding: 18px 22px; font-size: 13px; }
 .boundaries > div { border-top: 3px solid var(--ink); padding: 20px 0; }
 .boundaries h3 { font-size: 20px; }
 .boundaries p { margin-top: 10px; font-size: 14px; line-height: 1.9; }

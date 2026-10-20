@@ -1,6 +1,6 @@
 # 个人知识库展示资料
 
-资料核对日期：2026-10-20。网站在“我做的小工具”收录个人知识库，详情路径 `/tools/personal-knowledge/`。
+资料核对日期：2026-10-20。网站在“我做的 Agent”收录个人知识库，详情路径 `/agents/personal-knowledge/`。
 
 ## 来源与当前状态
 
@@ -23,13 +23,28 @@
 
 | 网站图片 | 实际界面 |
 | --- | --- |
-| `public/images/tools/personal-knowledge/library.png` | 资料库，两份演示笔记与摘要标签 |
-| `public/images/tools/personal-knowledge/evidence-answer.png` | Agent 对话、演示问题、模拟回答与两条引用 |
-| `public/images/tools/personal-knowledge/source-citation.png` | 点击引用后，右侧原文与段落定位 |
-| `public/images/tools/personal-knowledge/viewpoint-review.png` | 两条待确认观点、0 条已确认观点 |
+| `public/images/agents/personal-knowledge/library.png` | 资料库，两份演示笔记与摘要标签 |
+| `public/images/agents/personal-knowledge/evidence-answer.png` | Agent 对话、演示问题、模拟回答与两条引用 |
+| `public/images/agents/personal-knowledge/source-citation.png` | 点击引用后，右侧原文与段落定位 |
+| `public/images/agents/personal-knowledge/viewpoint-review.png` | 两条待确认观点、0 条已确认观点 |
 
 页面首屏、截图说明和案例均明确标注“演示资料与模拟模型输出”。网站仅收录展示代码、截图和资料说明，不收录知识库源码、数据库、用户笔记、API 配置或运行时文件。
 
 ## 验收方式
 
 运行 lint、typecheck、静态构建，再以静态 HTTP 服务运行 `scripts/check-personal-knowledge.mjs`。脚本检查作品计数、卡片跳转与返回、四张图片与原图打开、隐私和模拟模型标注，以及 320/375/768/1440px 布局。结果位于 `docs/checks/personal-knowledge/`；已有内容回归脚本继续检查原有分类和像素光标。
+
+## Agent 分类与 Archify 流程图
+
+按作者要求归入 Agent 分类；小工具恢复 2 件，Agent 为 1 件。详情地址 `/agents/personal-knowledge/`，旧地址 `/tools/personal-knowledge/` 保留客户端跳转及无脚本访问链接。
+
+复用知识库 `docs/implementation/current-dev-qa-workflow.json`，由本地 Archify 重新验证交付，不改写流程事实。它展示 React → FastAPI → 持久任务 → AnswerService → legacy/Agent → 引用核验 → 回答；Agent 的 rag_search 调用为独立支路。默认固定 RAG 与可选 Agent 的区别保留，未将可选能力宣称为默认运行方式。
+
+- 交互图：`public/diagrams/personal-knowledge-workflow.html`。
+- 全图预览：`public/images/agents/personal-knowledge/workflow.png`，1870 × 861；从交互图 SVG 区域实拍。
+- 规范与交付收据：`docs/diagrams/personal-knowledge-workflow.json` 和 `.delivery.json`。
+- Archify showcase 9/9，0 errors、0 warnings；自动浏览器证据 passed。实际查看了大屏浅色与桌面深色截图，视觉审核 passed，correction_rounds: 0。
+- specification_sha256: `6c872c0297523960d87bc7742052127d29b273535987e1592eb52ccd4449d5b7`。
+- artifact_sha256: `4ac98056352628290afebc34f642115c28ee31590fdc88231ef6e051f861d3ba`。
+
+首屏和流程图说明明确模型生成调用 DeepSeek API，本地 BGE 与资料存储分开说明。演示截图继续使用模拟模型，未发起真实 API 消耗。
