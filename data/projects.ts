@@ -158,6 +158,33 @@ export const projects: Project[] = [{
   features: [],
   steps: [],
   notice: "模型未随包附带，自动抠图需另行准备；正式导出需完成遮罩与对齐审核，Cocos 实际播放仍待验证。",
+}, {
+  id: "personal-knowledge",
+  title: "个人知识库",
+  subtitle: "从资料，到自己的理解",
+  visibility: "private",
+  typeLabel: "本地知识工作台",
+  detailLabel: "查看项目与案例",
+  coverCaption: "真实界面 · 演示资料与模拟模型输出",
+  category: "tools",
+  description: "把文档和学习笔记收进来，用摘要与标签整理，带着问题找回证据。点击引用核对原文，再由自己确认观点，保留理解的来处。",
+  status: "本地开发版",
+  cover: {
+    src: "/images/tools/personal-knowledge/source-citation.png",
+    alt: "个人知识库真实界面演示：带证据的回答与右侧原文定位面板",
+    width: 1600,
+    height: 1100,
+  },
+  detailHref: "/tools/personal-knowledge/",
+  links: [{ href: "https://github.com/wzh20010805-boop/personal-knowledge", label: "项目仓库（需访问权限）" }],
+  isPlaceholder: false,
+  published: true,
+  sourceVersion: "dev · 2026-10-20",
+  requirements: ["源码访问权限", "Python 与前端运行环境", "自己的模型与 API 配置"],
+  delivery: "本地源码工作台，尚无公开安装包或在线问答服务。",
+  features: [],
+  steps: [],
+  notice: "源码私有 · 本页公开展示项目与演示案例",
 }];
 
 export function getPublishedProjectsByCategory(category: CategoryId) {

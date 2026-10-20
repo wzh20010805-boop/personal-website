@@ -1,0 +1,71 @@
+.page { --accent: #b8d9ef; }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 42px; align-items: center; margin-top: 34px; }
+.labels { display: flex; flex-wrap: wrap; gap: 9px; font-size: 11px; font-weight: 800; margin-bottom: 24px; }
+.labels span, .badge { border: 2px solid var(--ink); border-radius: 5px; padding: 4px 9px; background: var(--accent); }
+.labels span + span { background: var(--paper-light); }
+.hero h1 { margin-top: 10px; font-size: clamp(35px, 4.5vw, 62px); font-weight: 900; line-height: 1.35; letter-spacing: -.045em; }
+.hero h1 > span { display: inline-block; background: var(--accent); padding-inline: 4px; }
+.hero h1 > i { font-style: normal; color: var(--prompt); margin-left: 8px; font-size: .6em; }
+.tagline { margin-top: 18px; font-size: 23px; font-weight: 800; line-height: 1.7; }
+.intro { margin-top: 14px; font-size: 14px; line-height: 1.95; }
+.actions { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; margin-top: 24px; }
+.actions :global(.candy-button) { font-size: 15px; }
+.textLink { font-size: 13px; font-weight: 800; text-decoration: underline; text-underline-offset: 4px; }
+.updated { font-size: 11px; margin-top: 20px; }
+.heroVisual { margin: 0 6px 0 0; min-width: 0; background: var(--paper-light); border: 3px solid var(--ink); border-radius: 13px; box-shadow: 6px 6px 0 var(--ink); overflow: hidden; }
+.windowBar { display: flex; justify-content: space-between; gap: 10px; padding: 10px 14px; background: var(--accent); font-size: 10px; font-weight: 800; border-bottom: 2px solid var(--ink); }
+.heroVisual img, .shot img { width: 100%; height: auto; object-fit: contain; }
+.heroVisual figcaption { padding: 11px 14px; font-size: 11px; }
+.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 40px 0 0; border-block: 2px solid var(--ink); padding: 20px 0; }
+.facts > div { padding-inline: 20px; border-right: 1px dashed var(--ink); }
+.facts > div:first-child { padding-left: 0; }
+.facts > div:last-child { border-right: 0; }
+.facts dt { font-size: 11px; }
+.facts dd { margin: 4px 0 0; font-size: 13px; font-weight: 800; }
+.notice { margin-top: 22px; padding: 18px 22px; border-left: 4px solid var(--ink); background: #e5eadb; border-radius: 0 9px 9px 0; font-size: 12px; }
+.notice p { margin-top: 4px; }
+.section { margin-top: 62px; scroll-margin-top: 24px; }
+.heading { margin-bottom: 24px; }
+.heading h2 { font-size: clamp(24px, 3vw, 33px); line-height: 1.45; margin-top: 8px; }
+.heading p { margin-top: 8px; font-size: 14px; }
+.features, .boundaries { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.feature { padding: 23px 26px; border: 2px solid var(--ink); border-radius: 11px; background: var(--paper-light); }
+.feature:nth-child(3n + 2) { background: #e8edde; }
+.feature > span { font-size: 10px; font-weight: 800; letter-spacing: .07em; }
+.feature h3 { margin-top: 15px; font-size: 20px; }
+.feature p { margin-top: 8px; font-size: 14px; line-height: 1.9; }
+.casePanel { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; padding: 30px; margin-right: 5px; border: 3px solid var(--ink); border-radius: 14px; background: var(--accent); box-shadow: 5px 5px 0 var(--ink); }
+.badge { display: inline-block; background: var(--paper-light); font-size: 10px; font-weight: 800; }
+.casePanel h3 { margin-top: 17px; font-size: 22px; }
+.casePanel ul { margin: 18px 0 0; padding-left: 20px; }
+.casePanel li { font-size: 13px; margin-top: 13px; }
+.casePanel li p { margin-top: 5px; }
+.question { padding: 22px; border: 2px solid var(--ink); border-radius: 10px; background: var(--paper-light); }
+.question blockquote { margin: 17px 0; font-size: 21px; line-height: 1.65; font-weight: 800; }
+.question p { margin-top: 13px; font-size: 13px; }
+.question small { display: block; margin-top: 17px; font-size: 10px; }
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; padding: 0; margin: 30px 0 0; list-style: none; }
+.steps li { border-top: 3px solid var(--ink); padding-top: 12px; }
+.steps li > span { font-size: 12px; font-weight: 800; }
+.steps h3 { margin-top: 7px; font-size: 19px; }
+.steps p { font-size: 13px; margin-top: 8px; }
+.gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; }
+.shot { margin: 0; min-width: 0; border: 2px solid var(--ink); border-radius: 12px; background: var(--paper-light); overflow: hidden; }
+.shot > a { display: block; position: relative; border-bottom: 2px solid var(--ink); background: #f4f6f9; }
+.shot > a > span { position: absolute; top: 10px; right: 10px; width: 29px; height: 29px; display: grid; place-items: center; background: var(--accent); border: 2px solid var(--ink); border-radius: 5px; }
+.shot figcaption { padding: 22px 25px; }
+.shotMeta { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px 12px; font-size: 10px; }
+.shotMeta > span { font-weight: 800; }
+.shot h3 { margin-top: 12px; font-size: 21px; }
+.shot p { margin-top: 8px; font-size: 13px; line-height: 1.9; }
+.caption { margin-top: 15px; font-size: 11px; }
+.boundaries > div { border-top: 3px solid var(--ink); padding: 20px 0; }
+.boundaries h3 { font-size: 20px; }
+.boundaries p { margin-top: 10px; font-size: 14px; line-height: 1.9; }
+.statusPanel { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 35px; padding: 30px; background: var(--paper-light); border: 2px dashed var(--ink); border-radius: 12px; }
+.statusPanel h2 { margin-top: 10px; font-size: 27px; line-height: 1.45; }
+.statusPanel h3 { font-size: 19px; }
+.statusPanel p { margin: 12px 0 17px; font-size: 13px; line-height: 1.95; }
+@media (max-width: 1000px) { .hero { gap: 25px; } .facts > div { padding-inline: 12px; } .casePanel { padding: 24px; gap: 22px; } .question { padding: 18px; } .question blockquote { font-size: 19px; } }
+@media (max-width: 700px) { .hero, .features, .casePanel, .gallery, .boundaries, .statusPanel { grid-template-columns: minmax(0, 1fr); } .hero { gap: 28px; } .hero h1 { font-size: 43px; } .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 17px 0; } .facts > div:nth-child(odd) { padding-left: 0; } .facts > div:nth-child(even) { border-right: 0; } .section { margin-top: 45px; } .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } .feature { padding: 21px; } .shot figcaption { padding: 20px; } .statusPanel { padding: 24px; gap: 18px; } }
+@media (max-width: 370px) { .hero h1 { font-size: 36px; } .casePanel { padding: 20px; } .question { padding: 16px; } .question blockquote { font-size: 17px; } }

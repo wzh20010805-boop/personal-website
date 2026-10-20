@@ -4,7 +4,7 @@ import { chromium } from "playwright";
 const baseURL = (process.env.CHECK_URL ?? "https://wzh20010805-boop.github.io/personal-website").replace(/\/$/, "");
 const base = new URL(baseURL);
 const basePath = base.pathname.replace(/\/$/, "");
-const routes = ["/", "/tools/", "/tools/sprint-motion-studio/", "/tools/pixel-cursor/", "/games/colony-roads/", "/skills/amazon-product-radar/", "/prompts/", "/agents/", "/learning/"];
+const routes = ["/", "/tools/", "/tools/sprint-motion-studio/", "/tools/pixel-cursor/", "/tools/personal-knowledge/", "/games/colony-roads/", "/skills/amazon-product-radar/", "/prompts/", "/agents/", "/learning/"];
 const browser = await chromium.launch({ headless: true, channel: process.env.PLAYWRIGHT_CHANNEL ?? "msedge" });
 try {
   for (const width of [375, 1440]) {
@@ -43,6 +43,16 @@ try {
         const [popup] = await Promise.all([page.waitForEvent("popup"), original.click()]);
         await popup.waitForLoadState();
         assert.equal(popup.url(), `${baseURL}/images/tools/sprint-motion-studio/v107-alignment-workshop.png`);
+        await popup.close();
+      }
+      if (route === "/tools/personal-knowledge/") {
+        assert.equal(await page.locator("#screenshots figure").count(), 4);
+        assert.match(await page.locator("#demo-note").innerText(), /演示资料与模拟模型输出/);
+        assert.match(await page.locator("#project-status").innerText(), /源码仓库为私有/);
+        const original = page.getByRole("link", { name: "打开引用定位", exact: false });
+        const [popup] = await Promise.all([page.waitForEvent("popup"), original.click()]);
+        await popup.waitForLoadState();
+        assert.equal(popup.url(), `${baseURL}/images/tools/personal-knowledge/source-citation.png`);
         await popup.close();
       }
       assert.deepEqual(errors, [], route);
