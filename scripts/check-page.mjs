@@ -26,7 +26,7 @@ try {
     page.on("response", (response) => { if (response.status() >= 400) failedRequests.push(`${response.status()} ${response.url()}`); });
     const response = await page.goto(baseURL, { waitUntil: "networkidle" });
     assert.equal(response.status(), 200, "Homepage must return 200");
-    await page.waitForFunction(() => document.querySelector("[data-creator-scene]")?.getAttribute("data-scene-state") === "ready");
+    await page.locator(".hero-illustration img").waitFor({ state: "visible" });
     await page.evaluate(async () => { await Promise.all([...document.images].map((image) => image.decode())); });
     const measured = await page.evaluate(() => {
       const github = document.querySelector('.hero-actions a[href^="https://github.com/"]');
@@ -43,6 +43,8 @@ try {
         title: document.title,
         columns: grid.gridTemplateColumns.split(" ").length,
         heroArrangement: scene.top >= hero.bottom ? "stacked" : "side-by-side",
+        heroImage: document.querySelector(".hero-illustration img")?.getAttribute("src"),
+        heroCanvases: document.querySelectorAll(".hero-illustration canvas").length,
         headingFits: title.right <= innerWidth && title.left >= 0,
         categoryTitles: [...document.querySelectorAll(".category-card h3")].map((el) => el.textContent),
         linkedCategories: document.querySelectorAll("a.category-card").length,
@@ -82,6 +84,8 @@ try {
     assert.ok(measured.contactFits);
     assert.ok(measured.buttons.every((button) => button.height >= 48));
     assert.ok(measured.images.every((image) => image.loaded && image.alt));
+    assert.ok(measured.heroImage.endsWith("/illustrations/creator-hero-v2.png"));
+    assert.equal(measured.heroCanvases, 0, "The hero must display the original illustration");
     assert.ok(measured.hashLinks.every((link) => link.href !== "#" && link.targetExists));
     assert.deepEqual(measured.motions, []);
     assert.equal(measured.activeAnimations, 0);
@@ -106,8 +110,8 @@ try {
 
   const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
   await page.goto(baseURL, { waitUntil: "networkidle" });
-  await page.waitForFunction(() => document.querySelector("[data-creator-scene]")?.getAttribute("data-scene-state") === "ready");
-  for (const expected of ["跳到作品预览", "创作空间", "作品", "学习积累", "浏览作品", "查看作者 GitHub 主页", "邮箱联系我", "旋转创作角", "我推荐的 Prompt", "我做的小工具", "我做的小游戏", "我做的 Skill", "我做的 Agent", "我的学习与技术积累", "缩小场景", "重置视角", "放大场景", "我推荐的 Prompt", "我做的小工具", "我做的小游戏", "我做的 Skill", "我做的 Agent", "我的学习与技术积累", "回到顶部"]) {
+  await page.locator(".hero-illustration img").waitFor({ state: "visible" });
+  for (const expected of ["跳到作品预览", "创作空间", "作品", "学习积累", "浏览作品", "查看作者 GitHub 主页", "邮箱联系我", "我推荐的 Prompt", "我做的小工具", "我做的小游戏", "我做的 Skill", "我做的 Agent", "我的学习与技术积累", "回到顶部"]) {
     await page.keyboard.press("Tab");
     const focused = await page.evaluate(() => {
       const el = document.activeElement;

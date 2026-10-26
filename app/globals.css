@@ -170,24 +170,6 @@ a:focus-visible, button:focus-visible {
 .hero-contact:hover .hero-contact__address { text-decoration-thickness: 2px; }
 .hero-postscript { display: flex; align-items: center; gap: 9px; margin-top: 16px; padding-left: 12px; font-size: 12px; letter-spacing: .07em; transform: rotate(-3deg); }
 .hero-postscript svg { transform: rotate(10deg); }
-.creator-scene { position: relative; width: 100%; height: 548px; margin: 0; isolation: isolate; }
-.scene-backdrop { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
-.scene-blob { position: absolute; border: 3px solid var(--ink); }
-.scene-blob--pink { background: var(--prompt); width: 77%; height: 63%; top: 15%; left: 13%; border-radius: 48% 48% 30% 37%; transform: rotate(10deg); }
-.scene-blob--yellow { background: var(--skill); width: 73%; height: 72%; top: 13%; left: 11%; border-radius: 37% 45% 40% 40%; transform: rotate(-12deg); }
-.scene-halftone { position: absolute; width: 75%; height: 65%; left: 22%; top: 21%; border-radius: 50%; background-image: radial-gradient(var(--ink) 1.7px, transparent 1.8px); background-size: 7px 7px; opacity: .62; transform: rotate(-15deg); }
-.scene-doodles { width: 100%; height: 100%; position: absolute; inset: 0; }
-.scene-sticker { position: absolute; left: 11%; top: 3%; z-index: 5; background: var(--paper-light); border: 2px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); padding: 4px 12px; font-size: 12px; font-weight: 700; transform: rotate(-8deg); }
-.scene-platform { position: absolute; width: 91%; bottom: 27px; left: 4%; z-index: 1; }
-.creator-character { position: absolute; width: 55%; height: auto; left: 23%; bottom: 95px; z-index: 3; }
-.scene-object { position: absolute; width: 26%; z-index: 4; pointer-events: none; }
-.scene-object--prompts { left: -2%; top: 19%; transform: rotate(-13deg); }
-.scene-object--tools { left: 0; top: 47%; width: 25%; transform: rotate(7deg); }
-.scene-object--games { left: 9%; bottom: 6%; width: 27%; transform: rotate(-12deg); }
-.scene-object--skills { right: 1%; bottom: 10%; width: 24%; transform: rotate(12deg); }
-.scene-object--agents { right: -2%; top: 45%; width: 26%; transform: rotate(9deg); }
-.scene-object--learning { right: 1%; top: 6%; width: 25%; transform: rotate(16deg); }
-.creator-scene figcaption { position: absolute; bottom: 0; left: 0; right: 0; text-align: center; font-size: 10px; letter-spacing: .1em; }
 .skip-link { position: fixed; left: 20px; top: -100px; z-index: 20; border: 3px solid var(--ink); background: var(--skill); padding: 8px 16px; font-weight: 700; }
 .skip-link:focus { top: 16px; }
 .works { padding-bottom: 77px; }
@@ -442,12 +424,6 @@ a:focus-visible, button:focus-visible {
   .hero { grid-template-columns: 1fr 1fr; gap: 4px; padding-block: 43px; }
   .hero h1 { font-size: clamp(36px, 5.2vw, 52px); }
   .hero-description { font-size: 16px; }
-  .creator-scene { height: 410px; }
-  .creator-character { bottom: 84px; width: 62%; left: 19%; }
-  .scene-platform { bottom: 41px; }
-  .scene-object--games { left: 0; bottom: 12%; }
-  .scene-object--skills { bottom: 15%; }
-  .scene-sticker { font-size: 10px; top: 9%; left: 1%; }
   .hero-actions { gap: 14px; }
   .candy-button { padding-inline: 14px; gap: 10px; font-size: 14px; min-height: 50px; }
   .hero-actions .candy-button { flex: 1 1 auto; }
@@ -473,20 +449,6 @@ a:focus-visible, button:focus-visible {
   .hero-actions .candy-button { flex: 1 1 auto; }
   .hero-contact { font-size: 13px; }
   .hero-postscript { display: none; }
-  .creator-scene { height: 403px; width: min(100%, 460px); margin-inline: auto; }
-  .scene-sticker { left: 8%; top: 3%; font-size: 10px; }
-  .scene-blob--pink { width: 81%; height: 63%; top: 15%; left: 9%; }
-  .scene-blob--yellow { width: 78%; height: 68%; top: 15%; left: 9%; }
-  .scene-halftone { width: 67%; height: 61%; left: 26%; top: 24%; background-size: 8px 8px; }
-  .scene-doodles { display: none; }
-  .creator-character { width: 61%; max-height: 296px; object-fit: contain; left: 20%; bottom: 70px; }
-  .scene-platform { width: 94%; left: 2%; bottom: 25px; }
-  .scene-object--prompts { left: -1%; top: 16%; width: 29%; transform: rotate(-12deg); }
-  .scene-object--learning { right: 0; top: 6%; width: 29%; transform: rotate(10deg); }
-  .scene-object--tools { left: -2%; top: 47%; width: 28%; transform: rotate(-7deg); }
-  .scene-object--agents { right: -2%; top: 44%; width: 28%; transform: rotate(8deg); }
-  .scene-object--games { left: 3%; bottom: 7%; width: 29%; transform: rotate(-5deg); }
-  .scene-object--skills { right: 1%; bottom: 8%; width: 27%; transform: rotate(12deg); }
   .works { padding-bottom: 46px; }
   .section-divider { font-size: 10px; gap: 8px; letter-spacing: 0; }
   .section-divider > span:first-child, .section-divider > span:last-child { font-size: 20px; }
@@ -548,5 +510,4 @@ a:focus-visible, button:focus-visible {
   .hero h1 { font-size: 36px; }
   .hero-actions { gap: 12px; }
   .candy-button { padding-inline: 13px; }
-  .creator-scene { height: 364px; }
 }
