@@ -29,6 +29,13 @@ try {
       assert.ok(layout.images, route);
       assert.ok(layout.links.every((href) => href.startsWith(`${basePath}/`)), `Unprefixed local link: ${route}`);
       assert.ok(layout.background.includes(`${basePath}/illustrations/paper-grain.svg`), "Paper texture path");
+      if (route === "/") {
+        const hero = page.locator(".hero-illustration img");
+        assert.equal(await hero.count(), 1, "The homepage must contain the original cat illustration");
+        assert.equal(await hero.getAttribute("src"), `${basePath}/illustrations/creator-hero-v2.webp`);
+        assert.ok(await hero.isVisible(), "The hero illustration must be visible");
+        assert.ok(await hero.evaluate((image) => image.complete && image.naturalWidth === 1312), "The hero illustration must load successfully");
+      }
       if (route === "/tools/sprint-motion-studio/") {
         assert.match(await page.locator("#screenshots").innerText(), /5s奔跑视频制作\.mp4/);
         assert.equal(await page.locator("#screenshots figure").count(), 4);

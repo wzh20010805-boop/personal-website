@@ -22,12 +22,13 @@ export function HeroSection() {
       </div>
       <div className="hero-illustration">
         <Image
-          src={publicAsset("/illustrations/creator-hero-v2.png")}
+          src={publicAsset("/illustrations/creator-hero-v2.webp")}
           alt="蓝灰猫抱着电脑坐在黄色沙发上，身旁蜷着黑猫，粉色背景周围环绕 Prompt、小工具、小游戏、Skill、Agent 和学习笔记六类创作元素。"
           width={1312}
           height={1199}
           unoptimized
           loading="eager"
+          fetchPriority="high"
         />
       </div>
     </section>

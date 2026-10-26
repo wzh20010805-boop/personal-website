@@ -84,7 +84,7 @@ try {
     assert.ok(measured.contactFits);
     assert.ok(measured.buttons.every((button) => button.height >= 48));
     assert.ok(measured.images.every((image) => image.loaded && image.alt));
-    assert.ok(measured.heroImage.endsWith("/illustrations/creator-hero-v2.png"));
+    assert.ok(measured.heroImage.endsWith("/illustrations/creator-hero-v2.webp"));
     assert.equal(measured.heroCanvases, 0, "The hero must display the original illustration");
     assert.ok(measured.hashLinks.every((link) => link.href !== "#" && link.targetExists));
     assert.deepEqual(measured.motions, []);

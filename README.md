@@ -30,7 +30,7 @@ Windows 无窗口启动：安装依赖后双击项目根目录的 `start-local.v
 
 ### 首页插画与网页伙伴
 
-首页右侧使用 `public/illustrations/creator-hero-v2.png`，按原图比例完整显示。六个分类入口保留在下方的作品卡片中。
+首页右侧使用原图的 WebP 版本 `public/illustrations/creator-hero-v2.webp`（约 500 KB），保留原尺寸和透明通道，按原图比例完整显示，并以高优先级加载。PNG 原稿保留在同目录，便于后续编辑。六个分类入口保留在下方的作品卡片中。
 
 Live2D 伙伴挂载在根布局中，站内切换页面时保持状态；访问者可以拖动位置、调节大小、选择待机或互动动作，以及主动退出互动后召回。眼神与面部跟随鼠标，动作和运行库均从本站加载。`components/Live2DPet.tsx` 管理界面，`lib/live2d-player.ts` 管理模型播放，`data/live2d-motions.ts` 管理动作列表。
 
