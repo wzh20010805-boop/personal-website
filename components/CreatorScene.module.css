@@ -1,0 +1,49 @@
+.scene { width: 100%; margin: 0; color: var(--ink); container-type: inline-size; }
+.stage { position: relative; width: 100%; aspect-ratio: 1; isolation: isolate; }
+.badge { position: absolute; z-index: 2; top: 12px; left: 12px; display: inline-flex; align-items: center; gap: 6px; padding: 6px 11px; border: 1.5px solid var(--ink); border-radius: 999px; background: var(--paper-light); font-size: 11px; font-weight: 800; letter-spacing: .06em; pointer-events: none; }
+.badge > span { color: #cd3e72; font-size: 16px; }
+.poster, .canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.poster { object-fit: contain; }
+.canvas { display: block; visibility: hidden; cursor: grab; border-radius: 28px; }
+.scene[data-scene-state="ready"] .poster { opacity: 0; pointer-events: none; }
+.scene[data-scene-state="ready"] .canvas { visibility: visible; }
+.canvas:focus-visible { outline: 3px solid var(--ink); outline-offset: -3px; }
+.label { position: absolute; z-index: 2; display: inline-flex; align-items: center; gap: 7px; padding: 5px 8px; transform: translate(-50%, -50%); border: 2px solid #171e1b; border-radius: 4px; background: #fff9e9; white-space: nowrap; color: #171e1b; text-decoration: none; font-family: "Arial Narrow", Impact, sans-serif; font-size: clamp(9px, 1vw, 12px); font-weight: 900; line-height: 1.3; }
+.arrow { font-size: 12px; }
+.compactLabel { display: none; }
+.label:hover, .label[data-active="true"] { background: var(--paper-light) !important; box-shadow: 3px 4px 0 var(--ink); }
+.label:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
+.label:active, .label[data-activating="true"] { transform: translate(-50%, -50%) scale(.97); background: var(--yellow) !important; }
+.caption { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 2px 12px 0; }
+.hint { display: grid; gap: 4px; min-width: 0; }
+.hint strong { font-size: 12px; line-height: 1.4; }
+.hint > span { font-size: 10px; opacity: .76; }
+.controls { display: flex; gap: 5px; flex-shrink: 0; }
+.controls[hidden] { display: none; }
+.controls button { display: grid; place-items: center; width: 34px; height: 34px; padding: 0; border: 1.5px solid var(--ink); border-radius: 50%; background: var(--paper-light); color: var(--ink); font: 700 20px/1 system-ui, sans-serif; cursor: pointer; }
+.controls button:hover { background: var(--yellow); }
+.controls button:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.controls button:disabled { opacity: .45; cursor: default; }
+.scene:not([data-scene-view="free"]) .label { display: none; }
+.inspection { margin: 12px 12px 0; border-top: 1px dashed #68745666; padding-top: 9px; }
+.inspection summary { width: fit-content; cursor: pointer; font-size: 11px; font-weight: 800; }
+.viewButtons { display: grid; grid-template-columns: repeat(6, 1fr); gap: 5px; margin-top: 10px; }
+.viewButtons button { padding: 6px 2px; border: 1px solid var(--ink); border-radius: 7px; color: var(--ink); background: var(--paper-light); font: 700 11px/1.2 system-ui, sans-serif; cursor: pointer; }
+.viewButtons button:hover, .viewButtons button[aria-pressed="true"] { background: var(--yellow); }
+.viewButtons button:focus-visible, .inspection summary:focus-visible, .inspectionLinks a:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.backdropToggle { display: flex; align-items: center; gap: 6px; margin-top: 10px; font-size: 11px; cursor: pointer; }
+.backdropToggle input { accent-color: #bd376e; }
+.inspection p { margin: 5px 0 0; font-size: 10px; line-height: 1.6; opacity: .75; }
+.inspectionLinks { display: flex; flex-wrap: wrap; gap: 7px 12px; margin: 10px 12px 0; font-size: 10px; font-weight: 800; }
+.inspectionLinks a { color: var(--ink); }
+@container (max-width: 420px) {
+  .label { padding: 4px 6px; gap: 0; font-size: 10px; }
+  .fullLabel, .arrow { display: none; }
+  .compactLabel { display: inline; }
+}
+@media (max-width: 400px) {
+  .badge { top: 6px; left: 5px; padding: 4px 8px; font-size: 10px; }
+  .caption { padding: 8px 0 0; gap: 6px; }
+  .hint strong { font-size: 11px; }
+  .controls button { width: 32px; height: 32px; }
+}

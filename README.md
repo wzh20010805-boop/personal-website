@@ -1,6 +1,6 @@
 # 创作空间 · 个人作品展厅
 
-使用 Next.js 静态导出的个人网页，保留糖果色、深橄榄绿粗描边、手绘 SVG、漫画网点和纸张颗粒。页面无动画。
+使用 Next.js 静态导出的个人网页，保留糖果色、深橄榄绿描边、手绘图形、漫画网点和纸张颗粒。首页有可交互 Three.js 创作角与 Live2D 伙伴；场景支持减少动态偏好。
 
 首页提供六个分类入口；小工具、游戏、Skill 和 Agent 分类通过作品卡片进入独立详情页，其他两个分类显示完整空状态。当前作品包含像素光标、Sprite Motion Studio、个人知识库、Colony Roads · 微境节点战争和 Amazon Product Radar。
 
@@ -25,6 +25,24 @@ npm run dev
 ```
 
 开发服务绑定本机，默认地址为 `http://127.0.0.1:3000`，实际端口以终端输出为准。停止服务使用对应终端的 `Ctrl+C`。
+
+Windows 无窗口启动：安装依赖后双击项目根目录的 `start-local.vbs`，后台服务使用 `http://127.0.0.1:3010/`，重复启动复用已有服务。日志位于 `output/local-server/`。普通终端也可运行 `npm run dev -- --port 3010`（先确保后台服务未占用该端口）。
+
+### 首页 3D 创作角
+
+沿用 Three.js 0.186.1，以程序化曲面生成完整猫咪、黄色沙发和道具，无外部模型下载。`lib/creator-scene-model.ts` 管理角色和沙发；`lib/creator-scene-props.ts` 管理六个独立入口；`lib/creator-scene-kit.ts` 提供共享材质、曲线与静态合批；`lib/creator-scene.ts` 管理灯光、相机、命中和资源清理。
+
+拖动旋转，使用加减按钮缩放、复位按钮恢复视角。画布获得键盘焦点后，方向键旋转、加减号缩放、Home 复位；六个文字入口支持 Tab 和 Enter。入口连接项目已有六类页面，其中 Prompt 与学习笔记保留现有空状态。无法使用 WebGL 时显示原插画和可点击标签。
+
+展开场景下方的“六视图检查”，可切换正面、左侧、右侧、背面、顶部和底部的等比例正交视角。检查时保持角色姿态和道具位置不变，入口链接集中在下方；拖动或按方向键恢复自由观察。实心粉色背板在背面会正常遮挡主体，可取消“显示粉色背板”检查猫咪、沙发及道具背部。双前脚、笔电转轴与键盘、圆形底座和四个底部脚垫使用同一套三维结构，不按视角搬动物件。
+
+温暖主光、冷色补光与轮廓光搭配织物、毛色、纸张、塑料、金属和陶瓷材质；彩色贴图使用 sRGB，数据贴图保持线性，最终由渲染器执行一次 ACES 与输出转换。像素比上限 1.75，角色轻微呼吸和眨眼最多 30Hz；离屏或后台暂停，减少动态偏好下静止。运动使阴影重新更新，相机单独运动复用阴影缓存。六个入口和可动角色保留独立控制身份。
+
+制作方法研究了指定的 [GPT-6 Astra 源码](https://github.com/ptsfdtz/711-night/blob/master/gpt-6-astra/index.html)：采用层次化细节、局部描边、材质复用、主辅光与静态合批；本场景没有使用雨路反射或全屏 Bloom。
+
+本地服务启动后运行 `npm run check:scene`，检查六个实体命中、键盘/指针操作、拖拽取消、重复激活、响应式布局与 WebGL 降级。实际全景、侧面、近景、入口状态和手机截图写入 `output/scene-refinement/`。
+
+运行 `node scripts/check-creator-six-views.mjs`，检查六个相机轴向、模型位置不变、背板开关和恢复自由视角。六张实际渲染截图、六视图拼图及隐藏背板的背面截图写入 `output/six-view-checks/`；可用 `CHECK_URL` 指定服务地址，`PLAYWRIGHT_CHANNEL=msedge` 使用本机 Edge。
 
 生产构建与静态预览：
 
@@ -84,7 +102,7 @@ python -m http.server 4174 --bind 127.0.0.1 --directory out
 | `public/images/games/colony-roads/` | 作者提供的流程原图与游戏项目真实引擎测试截图 |
 | `public/images/skills/amazon-product-radar/` | 用户提供的 Amazon Product Radar 历史报告截图 |
 
-首页“查看作者 GitHub 主页”指向 `https://github.com/wzh20010805-boop`；按钮下方展示 `wzh20010805@gmail.com`，点击邮箱通过 `mailto:` 打开用户的邮件应用。作品自身的 GitHub 入口保持独立。首页右侧使用用户最新提供的 `public/illustrations/creator-hero-v2.png` 原图（1312 × 1199，带透明通道），完整等比例显示；上一版图片、旧场景组件与素材保留，但不再在 Hero 中渲染。“创作空间”为默认站名，没有填入未经确认的个人履历。
+首页“查看作者 GitHub 主页”指向 `https://github.com/wzh20010805-boop`；按钮下方展示 `wzh20010805@gmail.com`，点击邮箱通过 `mailto:` 打开用户的邮件应用。作品自身的 GitHub 入口保持独立。首页右侧的 3D 创作角以用户提供的 `public/illustrations/creator-hero-v2.png` 原图（1312 × 1199，带透明通道）为美术依据；原图用于加载期间及 WebGL 不可用时的后备展示。“创作空间”为默认站名，没有填入未经确认的个人履历。
 
 ## 检查与截图
 

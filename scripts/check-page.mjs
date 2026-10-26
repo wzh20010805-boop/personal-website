@@ -1,13 +1,15 @@
 import assert from "node:assert/strict";
 import { mkdir, writeFile } from "node:fs/promises";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
+import { resolve } from "node:path";
 import { chromium } from "playwright";
 
 const baseURL = process.env.CHECK_URL ?? "http://127.0.0.1:3000";
-const output = new URL("../docs/checks/", import.meta.url);
+const output = process.env.CHECK_OUTPUT_DIR ? pathToFileURL(`${resolve(process.env.CHECK_OUTPUT_DIR)}/`) : new URL("../docs/checks/", import.meta.url);
 await mkdir(output, { recursive: true });
 const browser = await chromium.launch({
   headless: true,
+  args: ["--enable-unsafe-swiftshader"],
   ...(process.env.PLAYWRIGHT_CHANNEL ? { channel: process.env.PLAYWRIGHT_CHANNEL } : {}),
 });
 const results = { baseURL, checkedAt: new Date().toISOString(), browser: await browser.version(), viewports: [], keyboard: [] };
@@ -24,7 +26,7 @@ try {
     page.on("response", (response) => { if (response.status() >= 400) failedRequests.push(`${response.status()} ${response.url()}`); });
     const response = await page.goto(baseURL, { waitUntil: "networkidle" });
     assert.equal(response.status(), 200, "Homepage must return 200");
-    await page.locator(".hero-illustration img").waitFor({ state: "visible" });
+    await page.waitForFunction(() => document.querySelector("[data-creator-scene]")?.getAttribute("data-scene-state") === "ready");
     await page.evaluate(async () => { await Promise.all([...document.images].map((image) => image.decode())); });
     const measured = await page.evaluate(() => {
       const github = document.querySelector('.hero-actions a[href^="https://github.com/"]');
@@ -104,12 +106,13 @@ try {
 
   const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
   await page.goto(baseURL, { waitUntil: "networkidle" });
-  for (const expected of ["跳到作品预览", "创作空间", "作品", "学习积累", "浏览作品", "查看作者 GitHub 主页", "邮箱联系我", "我推荐的 Prompt", "我做的小工具", "我做的小游戏", "我做的 Skill", "我做的 Agent", "我的学习与技术积累", "回到顶部"]) {
+  await page.waitForFunction(() => document.querySelector("[data-creator-scene]")?.getAttribute("data-scene-state") === "ready");
+  for (const expected of ["跳到作品预览", "创作空间", "作品", "学习积累", "浏览作品", "查看作者 GitHub 主页", "邮箱联系我", "旋转创作角", "我推荐的 Prompt", "我做的小工具", "我做的小游戏", "我做的 Skill", "我做的 Agent", "我的学习与技术积累", "缩小场景", "重置视角", "放大场景", "我推荐的 Prompt", "我做的小工具", "我做的小游戏", "我做的 Skill", "我做的 Agent", "我的学习与技术积累", "回到顶部"]) {
     await page.keyboard.press("Tab");
     const focused = await page.evaluate(() => {
       const el = document.activeElement;
       const style = getComputedStyle(el);
-      return { text: el.textContent, tag: el.tagName, outline: style.outlineStyle, outlineWidth: style.outlineWidth, visible: el.getBoundingClientRect().top >= 0 && el.getBoundingClientRect().top < innerHeight };
+      return { text: el.getAttribute("aria-label") ?? el.textContent, tag: el.tagName, outline: style.outlineStyle, outlineWidth: style.outlineWidth, visible: el.getBoundingClientRect().top >= 0 && el.getBoundingClientRect().top < innerHeight };
     });
     assert.ok(focused.text.includes(expected), `Keyboard focus should reach ${expected}, got ${focused.text}`);
     assert.notEqual(focused.outline, "none");

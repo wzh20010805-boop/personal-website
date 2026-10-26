@@ -1,7 +1,6 @@
-import { publicAsset } from "@/lib/public-assets";
-import Image from "next/image";
 import { site } from "@/data/site";
 import { CandyButton } from "./CandyButton";
+import { CreatorScene } from "./CreatorScene";
 
 export function HeroSection() {
   return (
@@ -21,14 +20,7 @@ export function HeroSection() {
         <div className="hero-postscript"><svg viewBox="0 0 49 40" width="49" height="40" fill="none" aria-hidden="true"><path d="M3 11q17 36 40 1M33 12l12-7-1 14" stroke="var(--ink)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /></svg><span>从一个小小的「如果」开始。</span></div>
       </div>
       <div className="hero-illustration">
-        <Image
-          src={publicAsset("/illustrations/creator-hero-v2.png")}
-          alt="蓝灰猫抱着电脑坐在黄色沙发上，身旁蜷着黑猫，粉色背景周围环绕 Prompt、小工具、小游戏、Skill、Agent 和学习笔记六类创作元素。"
-          width={1312}
-          height={1199}
-          unoptimized
-          loading="eager"
-        />
+        <CreatorScene />
       </div>
     </section>
   );

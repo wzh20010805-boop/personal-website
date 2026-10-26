@@ -1,0 +1,102 @@
+.pet {
+  --pet-base-width: min(440px, calc(100vw - 24px));
+  --pet-base-height: min(clamp(300px, 68dvh, 560px), calc(100dvh - 220px));
+  --pet-stage-width: min(calc(var(--pet-base-width) * var(--pet-scale, 1)), calc(100vw - 24px));
+  --pet-stage-height: min(calc(var(--pet-base-height) * var(--pet-scale, 1)), calc(100dvh - 76px));
+  --pet-width: max(168px, var(--pet-stage-width));
+  position: fixed;
+  z-index: 40;
+  right: clamp(12px, var(--pet-right, 24px), calc(100vw - var(--pet-width) - 12px));
+  bottom: clamp(12px, var(--pet-bottom, 84px), calc(100dvh - var(--pet-stage-height) - 52px));
+  width: var(--pet-width);
+  height: calc(var(--pet-stage-height) + 40px);
+  pointer-events: none;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.stage { position: relative; width: var(--pet-stage-width); height: var(--pet-stage-height); margin-inline: auto; }
+.character {
+  position: absolute;
+  left: var(--pet-hit-left, 12%);
+  top: var(--pet-hit-top, 20%);
+  width: var(--pet-hit-width, 76%);
+  height: var(--pet-hit-height, 80%);
+  padding: 0;
+  border: 0;
+  border-radius: 16px;
+  background: transparent;
+  cursor: grab;
+  touch-action: none;
+  pointer-events: auto;
+  /* Follow this character's silhouette; the render canvas remains unclipped. */
+  clip-path: polygon(20% 0, 70% 0, 94% 25%, 100% 84%, 67% 100%, 33% 100%, 0 84%, 6% 25%);
+}
+.character:active, .drag:active { cursor: grabbing; }
+.character:focus-visible { background: transparent; outline: none; }
+.canvas { display: block; width: 100%; height: 100%; pointer-events: none; }
+.stage:has(.character:focus-visible)::after { content: ""; position: absolute; left: var(--pet-hit-left); top: var(--pet-hit-top); width: var(--pet-hit-width); height: var(--pet-hit-height); outline: 2px solid var(--ink); outline-offset: 2px; border-radius: 16px; pointer-events: none; }
+.placeholder { position: absolute; inset: auto 12px 20px; padding: 12px; border: 2px solid var(--ink); border-radius: 12px; background: var(--paper-light); font-size: 12px; }
+.toolbar { position: absolute; top: calc(var(--pet-hit-top, 0px) + var(--pet-hit-height, var(--pet-stage-height)) - 6px); left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; gap: 6px; width: max-content; height: 36px; }
+.toolbar button { pointer-events: auto; }
+.toolbar button, .recall { border: 2px solid var(--ink); border-radius: 20px; box-shadow: 2px 3px 0 var(--ink); background: var(--paper-light); cursor: pointer; font-size: 12px; font-weight: 800; }
+.drag { width: 34px; min-height: 34px; padding: 0; touch-action: none; cursor: grab !important; }
+.drag > span { font-size: 20px; line-height: 1; }
+.menuButton { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 34px; padding: 4px 13px; }
+.menuButton > span:last-child { font-size: 17px; line-height: 1; }
+.dot { width: 7px; height: 7px; border: 1px solid var(--ink); border-radius: 50%; background: var(--tool); }
+.toolbar button:hover, .recall:hover { background: var(--skill); }
+.panel {
+  position: fixed;
+  left: 12px;
+  top: 12px;
+  width: min(292px, calc(100vw - 24px));
+  max-height: calc(100dvh - 24px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 18px;
+  border: 3px solid var(--ink);
+  border-radius: 18px;
+  background: var(--paper-light);
+  box-shadow: 5px 5px 0 var(--ink);
+  pointer-events: auto;
+}
+.panelHeader { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.eyebrow { display: block; margin-bottom: 4px; font-size: 8px; font-weight: 800; letter-spacing: .09em; }
+.panelHeader h2 { font-size: 18px; font-weight: 900; letter-spacing: -.03em; }
+.closeMenu { flex-shrink: 0; width: 28px; height: 28px; padding: 0; border: 1.5px solid var(--ink); border-radius: 50%; background: transparent; font-size: 22px; line-height: 1; cursor: pointer; }
+.sizeControl { margin-top: 14px; }
+.sizeLabel { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; }
+.sizeLabel output { font-size: 11px; font-variant-numeric: tabular-nums; }
+.sizeLabel button { margin-left: auto; padding: 3px 0 3px 8px; border: 0; background: transparent; color: var(--ink); font-size: 10px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.sizeLabel button:disabled { opacity: .45; cursor: default; }
+.sizeControl input { display: block; width: 100%; height: 28px; margin: 1px 0 0; accent-color: var(--ink); cursor: ew-resize; touch-action: none; }
+.sizeHint { font-size: 9px; opacity: .7; }
+.message { min-height: 55px; margin-top: 14px; padding: 10px 12px; border: 1.5px solid var(--ink); border-radius: 10px 10px 10px 2px; background: #f3ecd5; font-size: 12px; line-height: 1.7; }
+.groupLabel { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-top: 16px; margin-bottom: 8px; font-size: 12px; font-weight: 800; }
+.groupLabel > span { font-size: 10px; font-weight: 400; }
+.idleGrid, .actionGrid { display: grid; gap: 7px; }
+.idleGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.actionGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.idleGrid button, .actionGrid button, .retry { min-height: 34px; padding: 6px 7px; border: 1.5px solid var(--ink); border-radius: 7px; background: transparent; font-size: 11px; cursor: pointer; }
+.actionGrid button { display: flex; align-items: center; justify-content: space-between; }
+.idleGrid button[aria-pressed="true"] { background: var(--skill); font-weight: 800; }
+.actionGrid button[aria-pressed="true"] { background: #c6e9cc; }
+.idleGrid button:hover:not(:disabled), .actionGrid button:hover:not(:disabled), .retry:hover, .closeMenu:hover { background: var(--skill); }
+.idleGrid button:disabled, .actionGrid button:disabled { opacity: .5; }
+.retry { width: 100%; margin-top: 10px; }
+.panelFooter { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-top: 14px; margin-top: 14px; border-top: 1px dashed #a5ac8b; font-size: 9px; }
+.panelFooter button { flex-shrink: 0; min-height: 32px; padding: 4px 6px; border: 0; border-radius: 5px; background: transparent; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; font-size: 11px; cursor: pointer; }
+.panelFooter button:hover { background: #ffe0d7; }
+.recall { position: fixed; z-index: 40; right: 20px; bottom: 84px; min-height: 38px; padding: 6px 14px; color: var(--ink); }
+.recall > span { margin-left: 8px; }
+
+@media (max-width: 600px) {
+  .pet { --pet-base-width: min(332px, calc(100vw - 24px)); --pet-base-height: min(clamp(300px, 60dvh, 440px), calc(100dvh - 220px)); --pet-stage-height: min(calc(var(--pet-base-height) * var(--pet-scale, 1)), calc(100dvh - 220px)); }
+  .pet:has(.panel) { right: 12px; bottom: 12px; }
+  .panel {
+    width: calc(100vw - 24px);
+    padding: 16px;
+  }
+}

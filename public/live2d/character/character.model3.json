@@ -1,0 +1,104 @@
+{
+  "Version": 3,
+  "FileReferences": {
+    "Moc": "character.moc3",
+    "Textures": [
+      "textures/texture_00.png",
+      "textures/texture_01.png"
+    ],
+    "Physics": "character.physics3.json",
+    "DisplayInfo": "character.cdi3.json",
+    "Motions": {
+      "Idle": [
+        {
+          "File": "motions/NaturalIdle36.motion3.json",
+          "FadeInTime": 0.55,
+          "FadeOutTime": 0.55
+        },
+        {
+          "File": "motions/AttentiveIdle24.motion3.json",
+          "FadeInTime": 0.55,
+          "FadeOutTime": 0.55
+        },
+        {
+          "File": "motions/RelaxedIdle30.motion3.json",
+          "FadeInTime": 0.55,
+          "FadeOutTime": 0.55
+        }
+      ],
+      "LookAround": [
+        {
+          "File": "motions/LookAround12.motion3.json",
+          "FadeInTime": 0.55,
+          "FadeOutTime": 0.55
+        }
+      ],
+      "Greeting": [
+        {
+          "File": "motions/Greeting8.motion3.json",
+          "FadeInTime": 0.55,
+          "FadeOutTime": 0.55
+        }
+      ],
+      "NodYes": [
+        {
+          "File": "motions/NodYes6.motion3.json",
+          "FadeInTime": 0.55,
+          "FadeOutTime": 0.55
+        }
+      ],
+      "HeadShake": [
+        {
+          "File": "motions/HeadShake6.motion3.json",
+          "FadeInTime": 0.55,
+          "FadeOutTime": 0.55
+        }
+      ],
+      "CuriousTilt": [
+        {
+          "File": "motions/CuriousTilt8.motion3.json",
+          "FadeInTime": 0.55,
+          "FadeOutTime": 0.55
+        }
+      ],
+      "JoySmile": [
+        {
+          "File": "motions/JoySmile6.motion3.json",
+          "FadeInTime": 0.55,
+          "FadeOutTime": 0.55
+        }
+      ],
+      "SoftWink": [
+        {
+          "File": "motions/SoftWink4.motion3.json",
+          "FadeInTime": 0.55,
+          "FadeOutTime": 0.55
+        }
+      ],
+      "Thoughtful": [
+        {
+          "File": "motions/Thoughtful8.motion3.json",
+          "FadeInTime": 0.55,
+          "FadeOutTime": 0.55
+        }
+      ]
+    }
+  },
+  "Groups": [
+    {
+      "Target": "Parameter",
+      "Name": "EyeBlink",
+      "Ids": [
+        "ParamEyeLOpen",
+        "ParamEyeROpen"
+      ]
+    },
+    {
+      "Target": "Parameter",
+      "Name": "LipSync",
+      "Ids": [
+        "ParamMouthOpenY"
+      ]
+    }
+  ]
+}

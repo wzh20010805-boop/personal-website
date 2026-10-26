@@ -8,18 +8,22 @@
     "typecheck": "next typegen && tsc --noEmit",
     "lint": "eslint . --max-warnings 0",
     "check:page": "node scripts/check-page.mjs",
-    "check:content": "node scripts/check-content-pages.mjs"
+    "check:content": "node scripts/check-content-pages.mjs",
+    "check:pet": "node scripts/check-live2d.mjs",
+    "check:scene": "node scripts/check-creator-scene.mjs"
   },
   "dependencies": {
     "next": "16.3.5",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "three": "0.186.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.3",
     "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/three": "0.186.0",
     "eslint": "9.39.5",
     "eslint-config-next": "16.3.5",
     "playwright": "1.63.0",

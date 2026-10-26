@@ -49,6 +49,24 @@ try {
   }
 
   async function clickAndCheck(link, path) {
+    await link.scrollIntoViewIfNeeded();
+    const box = await link.boundingBox();
+    const point = { x: box.x + box.width / 2, y: box.y + box.height / 2 };
+    const coveredByPet = await page.evaluate(({ x, y }) => !!document.elementFromPoint(x, y)?.closest("[data-pet-status]"), point);
+    if (coveredByPet) {
+      // The enlarged floating companion is intentionally draggable. Exercise
+      // that visitor flow instead of bypassing pointer events with force clicks.
+      const pet = await page.locator("[data-pet-status]").boundingBox();
+      const handle = await page.getByRole("button", { name: "拖动伙伴", exact: true }).boundingBox();
+      const viewport = page.viewportSize();
+      const left = point.x > viewport.width / 2 ? 12 : viewport.width - pet.width - 12;
+      const top = point.y > viewport.height / 2 ? 12 : viewport.height - pet.height - 12;
+      const start = { x: handle.x + handle.width / 2, y: handle.y + handle.height / 2 };
+      await page.mouse.move(start.x, start.y);
+      await page.mouse.down();
+      await page.mouse.move(start.x + left - pet.x, start.y + top - pet.y, { steps: 8 });
+      await page.mouse.up();
+    }
     await link.click();
     await page.waitForURL(`${baseURL}${path}`);
     await page.waitForLoadState("networkidle");

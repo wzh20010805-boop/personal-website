@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import { publicAsset } from "@/lib/public-assets";
+import Live2DPet from "@/components/Live2DPet";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -10,5 +11,5 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const style = { "--paper-grain": `url("${publicAsset("/illustrations/paper-grain.svg")}")` } as CSSProperties;
-  return <html lang="zh-CN"><body style={style}>{children}</body></html>;
+  return <html lang="zh-CN"><body style={style}>{children}<Live2DPet /></body></html>;
 }
