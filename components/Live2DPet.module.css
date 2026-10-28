@@ -76,6 +76,18 @@
 .message { min-height: 55px; margin-top: 14px; padding: 10px 12px; border: 1.5px solid var(--ink); border-radius: 10px 10px 10px 2px; background: #f3ecd5; font-size: 12px; line-height: 1.7; }
 .groupLabel { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-top: 16px; margin-bottom: 8px; font-size: 12px; font-weight: 800; }
 .groupLabel > span { font-size: 10px; font-weight: 400; }
+.sections { position: sticky; top: -1px; z-index: 1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; margin-top: 14px; padding: 4px; border: 1.5px solid var(--ink); border-radius: 10px; background: var(--paper-light); }
+.sections button { min-height: 34px; padding: 5px 4px; border: 0; border-radius: 6px; background: transparent; color: var(--ink); font-size: 12px; font-weight: 700; cursor: pointer; }
+.sections button[aria-pressed="true"] { background: var(--ink); color: var(--paper-light); }
+.sections button:hover:not([aria-pressed="true"]) { background: var(--skill); }
+.expressionGrid, .outfitGrid { display: grid; gap: 7px; }
+.expressionGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.outfitGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.expressionGrid button, .outfitGrid button { min-height: 36px; padding: 7px 5px; border: 1.5px solid var(--ink); border-radius: 7px; background: transparent; font-size: 11px; cursor: pointer; }
+.expressionGrid button[aria-pressed="true"], .outfitGrid button[aria-pressed="true"] { background: #c6e9cc; font-weight: 800; }
+.expressionGrid button:hover:not(:disabled), .outfitGrid button:hover:not(:disabled) { background: var(--skill); }
+.expressionGrid button:disabled, .outfitGrid button:disabled { opacity: .5; }
+.appearanceHint { margin-top: 10px; font-size: 10px; line-height: 1.7; opacity: .75; }
 .idleGrid, .actionGrid { display: grid; gap: 7px; }
 .idleGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .actionGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

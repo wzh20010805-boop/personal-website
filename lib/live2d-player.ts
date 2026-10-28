@@ -1,5 +1,6 @@
 import { getPetMotion, petMotions, type PetMotionId } from "@/data/live2d-motions";
 import { publicAsset } from "@/lib/public-assets";
+import { getPetExpression, getPetOutfit, type PetAppearance } from "@/data/live2d-appearance";
 
 // This boundary describes only the APIs consumed from the pinned browser runtimes.
 type Motion = { setIsLoop(loop: boolean): void };
@@ -15,7 +16,11 @@ type Model = {
     eyeBlink?: unknown;
     lipSync: boolean;
     focusController: { x: number; y: number; focus(x: number, y: number, instant: boolean): void };
-    coreModel: { addParameterValueById(id: string, value: number): void };
+    coreModel: {
+      addParameterValueById(id: string, value: number): void;
+      setParameterValueById(id: string, value: number): void;
+    };
+    on(event: "beforeModelUpdate", callback: () => void): void;
     updateFocus(): void;
     motionManager: {
       state: { isActive(group: string, index: number): boolean };
@@ -42,13 +47,15 @@ type PixiRuntime = {
   Application: new (options: Record<string, unknown>) => Application;
   Texture: { removeFromCache(url: string): { destroy(baseTexture: boolean): void } | null };
   live2d: {
-    Live2DModel: { fromSync(url: string, options: Record<string, unknown>): Model };
+    Cubism4ModelSettings: new (source: Record<string, unknown>) => { resolveURL(file: string): string };
+    Live2DModel: { fromSync(source: Record<string, unknown>, options: Record<string, unknown>): Model };
     config: { logLevel: number; sound: boolean };
   };
 };
 
 export type PetPlayer = {
   play(id: PetMotionId): Promise<void>;
+  setAppearance(appearance: PetAppearance): void;
   destroy(): void;
 };
 export type PetBounds = { left: number; top: number; width: number; height: number };
@@ -117,7 +124,10 @@ export async function createPetPlayer(
   let destroyed = false;
   let sequence = 0;
   let idle = initialIdle;
+  let appearance: PetAppearance = { expression: "neutral", outfit: "maid" };
   let pointer: { x: number; y: number } | undefined;
+  let mocUrl: string | undefined;
+  let textureUrls: string[] = [];
   const trackPointer = (event: PointerEvent) => {
     if (event.pointerType === "mouse" || event.pointerType === "pen") pointer = { x: event.clientX, y: event.clientY };
   };
@@ -150,9 +160,36 @@ export async function createPetPlayer(
   try {
     signal.throwIfAborted();
     signal.addEventListener("abort", abort, { once: true });
+    // The expanded rig exceeds the static host's per-file limit. Transport its
+    // lossless gzip archive in bounded parts, then give Cubism the original bytes.
+    const modelUrl = new URL(publicAsset("/live2d/character/character.model3.json"), window.location.href).href;
+    const response = await fetch(modelUrl, { signal, cache: "no-cache" });
+    if (!response.ok) throw new Error(`Unable to load model settings (${response.status})`);
+    const source = await response.json();
+    source.url = modelUrl;
+    textureUrls = source.FileReferences.Textures.map((file: string) => new URL(file, modelUrl).href);
+    if (source.MocArchive) {
+      const archive = source.MocArchive as { encoding: string; parts: string[]; byteLength: number };
+      if (archive.encoding !== "gzip" || !archive.parts.length) throw new Error("Unsupported model archive");
+      const parts = await Promise.all(archive.parts.map(async (file) => {
+        const part = await fetch(new URL(file, modelUrl), { signal });
+        if (!part.ok) throw new Error(`Unable to load model part (${part.status})`);
+        return part.arrayBuffer();
+      }));
+      const stream = new Blob(parts).stream().pipeThrough(new DecompressionStream("gzip"));
+      const bytes = await new Response(stream).arrayBuffer();
+      signal.throwIfAborted();
+      if (bytes.byteLength !== archive.byteLength) throw new Error("Incomplete model archive");
+      mocUrl = URL.createObjectURL(new Blob([bytes], { type: "application/octet-stream" }));
+      source.FileReferences.Moc = mocUrl;
+    }
+    const settings = new pixi.live2d.Cubism4ModelSettings(source);
+    // The adapter's legacy URL resolver corrupts blob:http:// URLs. Use the
+    // native resolver for both the decoded model and ordinary relative assets.
+    settings.resolveURL = (file) => new URL(file, modelUrl).href;
     await new Promise<void>((resolve, reject) => {
       // Holding the instance from the start also lets us release it on texture failure.
-      model = pixi.live2d.Live2DModel.fromSync(publicAsset("/live2d/character/character.model3.json"), {
+      model = pixi.live2d.Live2DModel.fromSync(settings, {
         autoUpdate: false,
         autoInteract: false,
         motionPreload: "NONE",
@@ -171,6 +208,27 @@ export async function createPetPlayer(
     internal.breath.setParameters([]);
     internal.eyeBlink = undefined;
     internal.lipSync = false;
+    // Apply appearance after the runtime saves the authored motion pose. Its
+    // loadParameters() then restores that baseline, so expressions never leak
+    // into subsequent frames or accumulate on top of cursor tracking.
+    internal.on("beforeModelUpdate", () => {
+      const core = internal.coreModel;
+      core.setParameterValueById("ParamOutfit", getPetOutfit(appearance.outfit).value);
+      if (appearance.expression === "neutral") return;
+      const { values } = getPetExpression(appearance.expression);
+      for (const [id, value] of Object.entries(values)) {
+        if (id === "ParamEyeBallX" || id === "ParamEyeBallY") {
+          core.addParameterValueById(id, value);
+        } else if (id === "ParamEyeLOpen" || id === "ParamEyeROpen") {
+          // Original eyes keep the clip's blinking. Alternate closed-eye art
+          // must not be squashed again by the openness parameter.
+          const style = id === "ParamEyeLOpen" ? values.ParamEyeLStyle : values.ParamEyeRStyle;
+          if (style !== 0) core.setParameterValueById(id, 1);
+        } else if (id !== "ParamEyeBallForm") {
+          core.setParameterValueById(id, value);
+        }
+      }
+    });
     // Preserve the authored clips and physics, adding the same five cursor
     // bindings as PSD2Live. Its direct mode does not add cursor-driven Z tilt.
     internal.updateFocus = () => {
@@ -198,7 +256,9 @@ export async function createPetPlayer(
       sharedTicker: false,
       preserveDrawingBuffer: true,
     });
-    app.ticker.maxFPS = 30;
+    // Continuous motion curves and pointer tracking benefit from 60 Hz updates.
+    // Keep a ceiling for high-refresh displays; hidden pages still stop below.
+    app.ticker.maxFPS = 60;
     app.stage.addChild(model);
     model.anchor.set(0.5, 1);
     const resize = () => {
@@ -215,7 +275,7 @@ export async function createPetPlayer(
       loadedModel.x = width / 2;
       loadedModel.y = height - inset;
       // Resizing clears the WebGL drawing buffer. Paint the current pose before
-      // the browser presents it; the 30 FPS ticker may not run this frame.
+      // the browser presents it; the next ticker update may run after this frame.
       // Rendering consumes only any pending delta, without advancing motion.
       app.render();
       onBounds({
@@ -275,19 +335,26 @@ export async function createPetPlayer(
       });
     });
     await play("Greeting8");
-    return { play, destroy };
+    return {
+      play,
+      setAppearance: (next) => {
+        appearance = { expression: getPetExpression(next.expression).id, outfit: getPetOutfit(next.outfit).id };
+      },
+      destroy,
+    };
   } catch (error) {
     loading = false;
     destroy();
     // The adapter starts textures before the model is ready. On failure they
     // may exist only in Pixi's cache, not yet in model.textures; clear both.
     if (model) {
-      for (const file of ["texture_00.png", "texture_01.png"]) {
-        pixi.Texture.removeFromCache(publicAsset(`/live2d/character/textures/${file}`))?.destroy(true);
+      for (const url of textureUrls) {
+        pixi.Texture.removeFromCache(url)?.destroy(true);
       }
     }
     throw error;
   } finally {
+    if (mocUrl) URL.revokeObjectURL(mocUrl);
     releaseInitialization();
   }
 }

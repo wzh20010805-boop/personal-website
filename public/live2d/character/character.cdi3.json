@@ -2,6 +2,81 @@
 	"Version": 3,
 	"Parameters": [
 		{
+			"Id": "ParamTearPool",
+			"GroupId": "",
+			"Name": "ParamTearPool"
+		},
+		{
+			"Id": "ParamTears",
+			"GroupId": "",
+			"Name": "ParamTears"
+		},
+		{
+			"Id": "ParamBlush",
+			"GroupId": "",
+			"Name": "ParamBlush"
+		},
+		{
+			"Id": "ParamQuestion",
+			"GroupId": "",
+			"Name": "question"
+		},
+		{
+			"Id": "ParamSweat",
+			"GroupId": "",
+			"Name": "sweat"
+		},
+		{
+			"Id": "ParamEyeEmotion",
+			"GroupId": "",
+			"Name": "Eye emotion"
+		},
+		{
+			"Id": "ParamBrowRForm",
+			"GroupId": "",
+			"Name": "Brow R emotion"
+		},
+		{
+			"Id": "ParamBrowLForm",
+			"GroupId": "",
+			"Name": "Brow L emotion"
+		},
+		{
+			"Id": "ParamMouthStyle",
+			"GroupId": "",
+			"Name": "嘴巴表情"
+		},
+		{
+			"Id": "ParamEyeRStyle",
+			"GroupId": "",
+			"Name": "右眼表情"
+		},
+		{
+			"Id": "ParamEyeLStyle",
+			"GroupId": "",
+			"Name": "左眼表情"
+		},
+		{
+			"Id": "ParamOutfit",
+			"GroupId": "",
+			"Name": "衣装（0女仆装 / 1冬装）"
+		},
+		{
+			"Id": "ParamArmFrontL",
+			"GroupId": "",
+			"Name": "左臂前后"
+		},
+		{
+			"Id": "ParamArmFrontR",
+			"GroupId": "",
+			"Name": "右臂前后"
+		},
+		{
+			"Id": "ParamHandR",
+			"GroupId": "",
+			"Name": "右手型"
+		},
+		{
 			"Id": "ParamTailLag",
 			"GroupId": "",
 			"Name": "尾巴惯性"
@@ -120,6 +195,36 @@
 			"Id": "ParamHairBack",
 			"GroupId": "ParamGroupPhysics",
 			"Name": "后发摆动"
+		},
+		{
+			"Id": "ParamElbowR",
+			"GroupId": "",
+			"Name": "右肘"
+		},
+		{
+			"Id": "ParamShoulderR",
+			"GroupId": "",
+			"Name": "右肩"
+		},
+		{
+			"Id": "ParamWristR",
+			"GroupId": "",
+			"Name": "右腕"
+		},
+		{
+			"Id": "ParamElbowL",
+			"GroupId": "",
+			"Name": "左肘"
+		},
+		{
+			"Id": "ParamWristL",
+			"GroupId": "",
+			"Name": "左腕"
+		},
+		{
+			"Id": "ParamShoulderL",
+			"GroupId": "",
+			"Name": "左肩"
 		}
 	],
 	"ParameterGroups": [
@@ -260,14 +365,6 @@
 			"Name": "topwear"
 		},
 		{
-			"Id": "ArtMeshHandwearR",
-			"Name": "handwear-r"
-		},
-		{
-			"Id": "ArtMeshHandwearL",
-			"Name": "handwear-l"
-		},
-		{
 			"Id": "ArtMeshNeck",
 			"Name": "neck"
 		},
@@ -277,15 +374,143 @@
 		},
 		{
 			"Id": "ArtMeshTail",
-			"Name": "tail"
-		},
-		{
-			"Id": "ArtMeshBackHair",
-			"Name": "back hair"
+			"Name": "共用 · 鲸鱼尾巴"
 		},
 		{
 			"Id": "ArtMeshImage",
 			"Name": "后领"
+		},
+		{
+			"Id": "ArtMeshImage_3",
+			"Name": "hand-point-r"
+		},
+		{
+			"Id": "ArtMeshImage_2",
+			"Name": "hand-open-r"
+		},
+		{
+			"Id": "ArtMeshImage_7",
+			"Name": "左掌（原PSD）"
+		},
+		{
+			"Id": "ArtMeshImage_6",
+			"Name": "左袖（原PSD）"
+		},
+		{
+			"Id": "ArtMeshImage_5",
+			"Name": "右掌（原PSD）"
+		},
+		{
+			"Id": "ArtMeshImage_4",
+			"Name": "右袖（原PSD）"
+		},
+		{
+			"Id": "ArtMeshImage_14",
+			"Name": "冬装 · 鲸鱼帽_含完整两侧坠饰"
+		},
+		{
+			"Id": "ArtMeshImage_13",
+			"Name": "冬装 · 前领_蝴蝶结与垂饰"
+		},
+		{
+			"Id": "ArtMeshImage_12",
+			"Name": "冬装 · 手臂_画面右_含袖口手套"
+		},
+		{
+			"Id": "ArtMeshImage_11",
+			"Name": "冬装 · 手臂_画面左_含袖口手套"
+		},
+		{
+			"Id": "ArtMeshImage_10",
+			"Name": "冬装 · 外套_完整前身与下摆毛球"
+		},
+		{
+			"Id": "ArtMeshImage_9",
+			"Name": "冬装 · 腿与靴子_画面右"
+		},
+		{
+			"Id": "ArtMeshImage_8",
+			"Name": "冬装 · 腿与靴子_画面左"
+		},
+		{
+			"Id": "ArtMeshBackHair2",
+			"Name": "后发 · 帽内顶部"
+		},
+		{
+			"Id": "ArtMeshBackHair3",
+			"Name": "后发 · 主体"
+		},
+		{
+			"Id": "ArtMeshImage_15",
+			"Name": "冬装 · 后领_完整内衬"
+		},
+		{
+			"Id": "ArtMeshImage_19",
+			"Name": "expression_surprise_mouth"
+		},
+		{
+			"Id": "ArtMeshImage_18",
+			"Name": "expression_open_mouth"
+		},
+		{
+			"Id": "ArtMeshImage_17",
+			"Name": "expression_smile_mouth"
+		},
+		{
+			"Id": "ArtMeshImage_21",
+			"Name": "expression_laugh_eye_l"
+		},
+		{
+			"Id": "ArtMeshImage_20",
+			"Name": "expression_happy_eye_l"
+		},
+		{
+			"Id": "ArtMeshImage_23",
+			"Name": "expression_laugh_eye_r"
+		},
+		{
+			"Id": "ArtMeshImage_22",
+			"Name": "expression_happy_eye_r"
+		},
+		{
+			"Id": "ArtMeshImage_24",
+			"Name": "effect_sweat"
+		},
+		{
+			"Id": "ArtMeshImage_25",
+			"Name": "effect_question"
+		},
+		{
+			"Id": "ArtMeshImage_26",
+			"Name": "mouth_anger"
+		},
+		{
+			"Id": "ArtMeshImage_27",
+			"Name": "mouth_sad"
+		},
+		{
+			"Id": "ArtMeshImage_28",
+			"Name": "effect_blush_R"
+		},
+		{
+			"Id": "ArtMeshImage_29",
+			"Name": "effect_blush_L"
+		},
+		{
+			"Id": "ArtMeshImage_30",
+			"Name": "effect_tears"
+		},
+		{
+			"Id": "ArtMeshImage_31",
+			"Name": "effect_tears"
+		},
+		{
+			"Id": "ArtMeshImage_32",
+			"Name": "effect_tear_pool_R"
+		},
+		{
+			"Id": "ArtMeshImage_33",
+			"Name": "effect_tear_pool_L"
 		}
 	]
 }

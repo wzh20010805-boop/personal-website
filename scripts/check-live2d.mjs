@@ -21,7 +21,7 @@ try {
   page.on("requestfailed", (request) => { if (request.failure()?.errorText !== "net::ERR_ABORTED") failedRequests.push(request.url()); });
   page.on("request", (request) => {
     if (new URL(request.url()).origin !== new URL(baseURL).origin) externalRequests.push(request.url());
-    if (request.url().endsWith("character.moc3")) modelRequests.push(request.url());
+    if (request.url().endsWith("character.model3.json")) modelRequests.push(request.url());
   });
   await page.goto(baseURL, { waitUntil: "networkidle" });
   const pet = page.getByRole("region", { name: "Live2D 网页伙伴" });
@@ -78,7 +78,7 @@ try {
   const trackingErrors = [];
   let trackingModelRequests = 0;
   tracking.on("pageerror", (error) => trackingErrors.push(error.message));
-  tracking.on("request", (request) => { if (request.url().endsWith("character.moc3")) trackingModelRequests++; });
+  tracking.on("request", (request) => { if (request.url().endsWith("character.model3.json")) trackingModelRequests++; });
   await tracking.route("**/character.model3.json", async (route) => {
     await tracking.evaluate(() => {
       if (window.trackingModels) return;
@@ -180,8 +180,8 @@ try {
   assert.ok(Math.abs(hit.x - initialPanel.x - initialPanel.width - 8) < 2, "The menu must sit immediately beside the character");
   assert.ok(Math.abs(initialPanel.y + initialPanel.height - initialControl.y - initialControl.height) < 2, "The menu must align with the character controls, not the viewport floor");
   assert.ok(initialControl.y - hit.y - hit.height <= 8, "Controls must remain close to the character's feet");
-  assert.equal(await pet.locator("button[data-motion]").count(), 11);
-  for (const id of ["NaturalIdle36", "AttentiveIdle24", "RelaxedIdle30", "Greeting8", "NodYes6", "HeadShake6", "CuriousTilt8", "JoySmile6", "SoftWink4", "LookAround12", "Thoughtful8"]) {
+  assert.equal(await pet.locator("button[data-motion]").count(), 15);
+  for (const id of ["NaturalIdle36", "AttentiveIdle24", "RelaxedIdle30", "Greeting8", "NodYes6", "HeadShake6", "CuriousTilt8", "JoySmile6", "SoftWink4", "LookAround12", "Thoughtful8", "Wave7", "Point7", "HandsOnHips7", "GestureSequence18"]) {
     await pet.locator(`button[data-motion="${id}"]`).click();
     await page.waitForFunction((expected) => document.querySelector("[data-pet-motion]")?.getAttribute("data-pet-motion") === expected, id);
     await page.waitForTimeout(180);
@@ -191,7 +191,7 @@ try {
   await pet.locator('button[data-motion="SoftWink4"]').click();
   await page.waitForFunction(() => document.querySelector("[data-pet-motion]")?.getAttribute("data-pet-motion") === "RelaxedIdle30", null, { timeout: 8000 });
   assert.equal(await pet.locator('button[data-motion="RelaxedIdle30"]').getAttribute("aria-pressed"), "true");
-  console.log("PASS: all 11 motions start, the rendered pose changes, and one-shot actions return to the chosen idle");
+  console.log("PASS: all 15 motions start, the rendered pose changes, and one-shot actions return to the chosen idle");
 
   await pet.getByRole("button", { name: "收起互动菜单" }).click();
   const beforeDrag = await pet.boundingBox();
@@ -283,7 +283,7 @@ try {
   const sizeErrors = [];
   let sizeModelRequests = 0;
   sizing.on("pageerror", (error) => sizeErrors.push(error.message));
-  sizing.on("request", (request) => { if (request.url().endsWith("character.moc3")) sizeModelRequests++; });
+  sizing.on("request", (request) => { if (request.url().endsWith("character.model3.json")) sizeModelRequests++; });
   await sizing.goto(baseURL, { waitUntil: "networkidle" });
   const sizedPet = sizing.getByRole("region", { name: "Live2D 网页伙伴" });
   await sizing.waitForFunction(() => document.querySelector("[data-pet-status]")?.getAttribute("data-pet-status") === "ready");
@@ -358,11 +358,11 @@ try {
   console.log("PASS: 25–200% scales the actual artwork live, pointer/keyboard controls and reset work, size persists, and small screens remain usable");
 
   const blocked = await browser.newPage();
-  await blocked.route("**/live2d/character/character.moc3", (route) => route.fulfill({ status: 503, body: "unavailable" }));
+  await blocked.route("**/character-20261028.moc3.gz.part1", (route) => route.fulfill({ status: 503, body: "unavailable" }));
   await blocked.goto(baseURL, { waitUntil: "networkidle" });
   await blocked.waitForFunction(() => document.querySelector("[data-pet-status]")?.getAttribute("data-pet-status") === "error");
   await blocked.getByRole("button", { name: "陪你逛逛" }).click();
-  await blocked.unroute("**/live2d/character/character.moc3");
+  await blocked.unroute("**/character-20261028.moc3.gz.part1");
   await blocked.getByRole("button", { name: "重新加载伙伴" }).click();
   await blocked.waitForFunction(() => document.querySelector("[data-pet-status]")?.getAttribute("data-pet-status") === "ready");
   assert.equal(await blocked.locator('[data-pet-status] canvas').count(), 1);

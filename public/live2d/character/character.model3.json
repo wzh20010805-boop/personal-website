@@ -3,8 +3,8 @@
   "FileReferences": {
     "Moc": "character.moc3",
     "Textures": [
-      "textures/texture_00.png",
-      "textures/texture_01.png"
+      "textures/texture_00-20261028.png",
+      "textures/texture_01-20261028.png"
     ],
     "Physics": "character.physics3.json",
     "DisplayInfo": "character.cdi3.json",
@@ -22,13 +22,6 @@
         },
         {
           "File": "motions/RelaxedIdle30.motion3.json",
-          "FadeInTime": 0.55,
-          "FadeOutTime": 0.55
-        }
-      ],
-      "LookAround": [
-        {
-          "File": "motions/LookAround12.motion3.json",
           "FadeInTime": 0.55,
           "FadeOutTime": 0.55
         }
@@ -75,14 +68,107 @@
           "FadeOutTime": 0.55
         }
       ],
+      "LookAround": [
+        {
+          "File": "motions/LookAround12.motion3.json",
+          "FadeInTime": 0.55,
+          "FadeOutTime": 0.55
+        }
+      ],
       "Thoughtful": [
         {
           "File": "motions/Thoughtful8.motion3.json",
           "FadeInTime": 0.55,
           "FadeOutTime": 0.55
         }
+      ],
+      "Wave": [
+        {
+          "File": "motions/Wave7.motion3.json",
+          "FadeInTime": 0.35,
+          "FadeOutTime": 0.35
+        }
+      ],
+      "Point": [
+        {
+          "File": "motions/Point7.motion3.json",
+          "FadeInTime": 0.35,
+          "FadeOutTime": 0.35
+        }
+      ],
+      "HandsOnHips": [
+        {
+          "File": "motions/HandsOnHips7.motion3.json",
+          "FadeInTime": 0.35,
+          "FadeOutTime": 0.35
+        }
+      ],
+      "GestureSequence": [
+        {
+          "File": "motions/GestureSequence18.motion3.json",
+          "FadeInTime": 0.35,
+          "FadeOutTime": 0.35
+        }
       ]
-    }
+    },
+    "Expressions": [
+      {
+        "Name": "自然",
+        "File": "expressions/neutral.exp3.json"
+      },
+      {
+        "Name": "微笑",
+        "File": "expressions/smile.exp3.json"
+      },
+      {
+        "Name": "张嘴",
+        "File": "expressions/open.exp3.json"
+      },
+      {
+        "Name": "开心",
+        "File": "expressions/happy.exp3.json"
+      },
+      {
+        "Name": "大笑",
+        "File": "expressions/laugh.exp3.json"
+      },
+      {
+        "Name": "眨眼",
+        "File": "expressions/wink.exp3.json"
+      },
+      {
+        "Name": "惊讶",
+        "File": "expressions/surprise.exp3.json"
+      },
+      {
+        "Name": "脸红",
+        "File": "expressions/blush.exp3.json"
+      },
+      {
+        "Name": "害羞",
+        "File": "expressions/shy.exp3.json"
+      },
+      {
+        "Name": "生气",
+        "File": "expressions/angry.exp3.json"
+      },
+      {
+        "Name": "委屈",
+        "File": "expressions/sad.exp3.json"
+      },
+      {
+        "Name": "流泪",
+        "File": "expressions/cry.exp3.json"
+      },
+      {
+        "Name": "汗滴",
+        "File": "expressions/sweat.exp3.json"
+      },
+      {
+        "Name": "困惑",
+        "File": "expressions/confused.exp3.json"
+      }
+    ]
   },
   "Groups": [
     {
@@ -100,5 +186,13 @@
         "ParamMouthOpenY"
       ]
     }
-  ]
+  ],
+  "MocArchive": {
+    "encoding": "gzip",
+    "parts": [
+      "character-20261028.moc3.gz.part1",
+      "character-20261028.moc3.gz.part2"
+    ],
+    "byteLength": 46118400
+  }
 }

@@ -2,13 +2,15 @@
 
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore, type CSSProperties, type PointerEvent } from "react";
 import { getPetMotion, petMotions, type PetMotionId } from "@/data/live2d-motions";
+import { getPetExpression, getPetOutfit, petExpressions, petOutfits, type PetExpressionId, type PetOutfitId } from "@/data/live2d-appearance";
 import type { PetBounds, PetPlayer } from "@/lib/live2d-player";
 import styles from "./Live2DPet.module.css";
 
 const storageKey = "creator-space:live2d:v1";
 const preferencesEvent = "creator-space:live2d-preferences";
 type Position = { right: number; bottom: number };
-type Preferences = { dismissed: boolean; idle: PetMotionId; size: number; position?: Position };
+type Preferences = { dismissed: boolean; idle: PetMotionId; size: number; expression: PetExpressionId; outfit: PetOutfitId; position?: Position };
+type MenuSection = "motions" | "expressions" | "outfits";
 let memoryPreferences: string | undefined;
 
 function readPreferences() {
@@ -26,10 +28,12 @@ function parsePreferences(raw: string | null): Preferences {
       dismissed: value.dismissed === true,
       idle: motion.idle ? motion.id : "NaturalIdle36",
       size: Number.isFinite(value.size) ? Math.max(25, Math.min(200, value.size)) : 100,
+      expression: getPetExpression(typeof value.expression === "string" ? value.expression : "neutral").id,
+      outfit: getPetOutfit(typeof value.outfit === "string" ? value.outfit : "maid").id,
       position: position && Number.isFinite(position.right) && Number.isFinite(position.bottom)
         ? { right: position.right, bottom: position.bottom } : undefined,
     };
-  } catch { return { dismissed: false, idle: "NaturalIdle36", size: 100 }; }
+  } catch { return { dismissed: false, idle: "NaturalIdle36", size: 100, expression: "neutral", outfit: "maid" }; }
 }
 
 function savePreferences(update: Partial<Preferences>) {
@@ -70,6 +74,7 @@ function ActivePet({ preferences }: { preferences: Preferences }) {
   const [retry, setRetry] = useState(0);
   const [motionId, setMotionId] = useState<PetMotionId>(initialIdle);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [menuSection, setMenuSection] = useState<MenuSection>("motions");
   const [bounds, setBounds] = useState<PetBounds>();
   const [dragPosition, setDragPosition] = useState<Position | undefined>();
   const [feedback, setFeedback] = useState("");
@@ -97,6 +102,12 @@ function ActivePet({ preferences }: { preferences: Preferences }) {
       player.current = null;
     };
   }, [initialIdle, retry]);
+
+  useEffect(() => {
+    if (status === "ready") {
+      player.current?.setAppearance({ expression: preferences.expression, outfit: preferences.outfit });
+    }
+  }, [status, preferences.expression, preferences.outfit]);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -147,9 +158,14 @@ function ActivePet({ preferences }: { preferences: Preferences }) {
     observer.observe(menu);
     window.addEventListener("resize", placeMenu);
     return () => { observer.disconnect(); window.removeEventListener("resize", placeMenu); repositionMenu.current = () => undefined; };
-  }, [menuOpen, bounds]);
+  }, [menuOpen, bounds, menuSection]);
 
   function toggleMenu() { resizing.current = false; setMenuOpen(!menuOpen); }
+
+  function selectSection(section: MenuSection) {
+    setMenuSection(section);
+    panel.current?.scrollTo({ top: 0 });
+  }
 
   function finishResize() {
     resizing.current = false;
@@ -221,7 +237,7 @@ function ActivePet({ preferences }: { preferences: Preferences }) {
   } as CSSProperties;
 
   return (
-    <section ref={root} className={styles.pet} style={style} aria-label="Live2D 网页伙伴" data-pet-status={status} data-pet-motion={motionId}>
+    <section ref={root} className={styles.pet} style={style} aria-label="Live2D 网页伙伴" data-pet-status={status} data-pet-motion={motionId} data-pet-expression={preferences.expression} data-pet-outfit={preferences.outfit}>
       <div className={styles.stage}>
         <canvas ref={canvas} className={styles.canvas} aria-hidden="true" />
         <button ref={character} type="button" className={styles.character} aria-label="和网页伙伴互动，也可以拖动位置" title="点击互动，按住可拖动位置" data-interact="true" {...dragHandlers} onClick={(event) => { if (event.detail === 0) interact(); }} />
@@ -240,10 +256,29 @@ function ActivePet({ preferences }: { preferences: Preferences }) {
         </div>
         <p className={styles.message} aria-live="polite">{feedback || (status === "ready" ? motion.message : status === "error" ? "连接有点小问题，点一下重试，我还在这里。" : "稍等一下，马上就能见面啦。")}</p>
         {status === "error" && <button type="button" className={styles.retry} onClick={() => { setStatus("loading"); setRetry((value) => value + 1); }}>重新加载伙伴</button>}
-        <p className={styles.groupLabel}>陪伴状态 <span>循环播放</span></p>
-        <div className={styles.idleGrid}>{petMotions.filter((item) => item.idle).map((item) => <button type="button" key={item.id} data-motion={item.id} aria-pressed={preferences.idle === item.id} disabled={status !== "ready"} onClick={() => play(item.id)}>{item.label}</button>)}</div>
-        <p className={styles.groupLabel}>和我互动 <span>{status === "ready" ? `正在${motion.label}` : "加载后即可互动"}</span></p>
-        <div className={styles.actionGrid}>{petMotions.filter((item) => !item.idle).map((item) => <button type="button" key={item.id} data-motion={item.id} aria-pressed={motionId === item.id} disabled={status !== "ready"} onClick={() => play(item.id)}>{item.label}<span aria-hidden="true">↗</span></button>)}</div>
+        <div className={styles.sections} role="group" aria-label="互动分类">
+          <button type="button" aria-pressed={menuSection === "motions"} aria-controls="live2d-menu-content" onClick={() => selectSection("motions")}>动作</button>
+          <button type="button" aria-pressed={menuSection === "expressions"} aria-controls="live2d-menu-content" onClick={() => selectSection("expressions")}>表情</button>
+          <button type="button" aria-pressed={menuSection === "outfits"} aria-controls="live2d-menu-content" onClick={() => selectSection("outfits")}>服饰</button>
+        </div>
+        <div id="live2d-menu-content">
+          {menuSection === "motions" && <>
+            <p className={styles.groupLabel}>陪伴状态 <span>循环播放</span></p>
+            <div className={styles.idleGrid}>{petMotions.filter((item) => item.idle).map((item) => <button type="button" key={item.id} data-motion={item.id} aria-pressed={preferences.idle === item.id} disabled={status !== "ready"} onClick={() => play(item.id)}>{item.label}</button>)}</div>
+            <p className={styles.groupLabel}>和我互动 <span>{status === "ready" ? `正在${motion.label}` : "加载后即可互动"}</span></p>
+            <div className={styles.actionGrid}>{petMotions.filter((item) => !item.idle).map((item) => <button type="button" key={item.id} data-motion={item.id} aria-pressed={motionId === item.id} disabled={status !== "ready"} onClick={() => play(item.id)}>{item.label}<span aria-hidden="true">↗</span></button>)}</div>
+          </>}
+          {menuSection === "expressions" && <>
+            <p className={styles.groupLabel}>换个表情 <span>当前：{getPetExpression(preferences.expression).label}</span></p>
+            <div className={styles.expressionGrid}>{petExpressions.map((item) => <button type="button" key={item.id} data-expression={item.id} title={item.note} aria-pressed={preferences.expression === item.id} disabled={status !== "ready"} onClick={() => { savePreferences({ expression: item.id }); setFeedback(item.note); }}>{item.label}</button>)}</div>
+            <p className={styles.appearanceHint}>选择“自然”恢复动作中的表情。</p>
+          </>}
+          {menuSection === "outfits" && <>
+            <p className={styles.groupLabel}>今天穿什么 <span>当前：{getPetOutfit(preferences.outfit).label}</span></p>
+            <div className={styles.outfitGrid}>{petOutfits.map((item) => <button type="button" key={item.id} data-outfit={item.id} aria-pressed={preferences.outfit === item.id} disabled={status !== "ready"} onClick={() => { savePreferences({ outfit: item.id }); setFeedback(`换上${item.label}，继续陪你逛逛。`); }}>{item.label}</button>)}</div>
+            <p className={styles.appearanceHint}>换装后，动作与表情会继续保留。</p>
+          </>}
+        </div>
         <div className={styles.panelFooter}><span>换个页面，我也会陪着你。</span><button type="button" onClick={() => savePreferences({ dismissed: true })}>退出互动</button></div>
       </div>}
     </section>

@@ -1,0 +1,107 @@
+{
+  "Type": "Live2D Expression",
+  "FadeInTime": 0,
+  "FadeOutTime": 0,
+  "Parameters": [
+    {
+      "Id": "ParamEyeLStyle",
+      "Value": 0,
+      "Blend": "Overwrite"
+    },
+    {
+      "Id": "ParamEyeRStyle",
+      "Value": 0,
+      "Blend": "Overwrite"
+    },
+    {
+      "Id": "ParamMouthStyle",
+      "Value": 1,
+      "Blend": "Overwrite"
+    },
+    {
+      "Id": "ParamMouthOpenY",
+      "Value": 0,
+      "Blend": "Overwrite"
+    },
+    {
+      "Id": "ParamMouthForm",
+      "Value": 0,
+      "Blend": "Overwrite"
+    },
+    {
+      "Id": "ParamEyeLOpen",
+      "Value": 1,
+      "Blend": "Overwrite"
+    },
+    {
+      "Id": "ParamEyeROpen",
+      "Value": 1,
+      "Blend": "Overwrite"
+    },
+    {
+      "Id": "ParamEyeBallX",
+      "Value": 0,
+      "Blend": "Overwrite"
+    },
+    {
+      "Id": "ParamEyeBallY",
+      "Value": 0,
+      "Blend": "Overwrite"
+    },
+    {
+      "Id": "ParamEyeBallForm",
+      "Value": 0,
+      "Blend": "Overwrite"
+    },
+    {
+      "Id": "ParamBrowLY",
+      "Value": 0,
+      "Blend": "Overwrite"
+    },
+    {
+      "Id": "ParamBrowRY",
+      "Value": 0,
+      "Blend": "Overwrite"
+    },
+    {
+      "Id": "ParamBrowLForm",
+      "Value": 0,
+      "Blend": "Overwrite"
+    },
+    {
+      "Id": "ParamBrowRForm",
+      "Value": 0,
+      "Blend": "Overwrite"
+    },
+    {
+      "Id": "ParamEyeEmotion",
+      "Value": 0,
+      "Blend": "Overwrite"
+    },
+    {
+      "Id": "ParamBlush",
+      "Value": 0,
+      "Blend": "Overwrite"
+    },
+    {
+      "Id": "ParamTearPool",
+      "Value": 0,
+      "Blend": "Overwrite"
+    },
+    {
+      "Id": "ParamTears",
+      "Value": 0,
+      "Blend": "Overwrite"
+    },
+    {
+      "Id": "ParamSweat",
+      "Value": 0,
+      "Blend": "Overwrite"
+    },
+    {
+      "Id": "ParamQuestion",
+      "Value": 0,
+      "Blend": "Overwrite"
+    }
+  ]
+}

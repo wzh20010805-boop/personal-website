@@ -10,6 +10,10 @@ export const petMotions = [
   { id: "SoftWink4", label: "眨个眼睛", group: "SoftWink", index: 0, idle: false, message: "送你一个小小的眨眼。" },
   { id: "LookAround12", label: "左右看看", group: "LookAround", index: 0, idle: false, message: "让我看看，这里还有什么宝藏。" },
   { id: "Thoughtful8", label: "安静思考", group: "Thoughtful", index: 0, idle: false, message: "让我想一想……灵感正在路上。" },
+  { id: "Wave7", label: "挥挥手", group: "Wave", index: 0, idle: false, message: "嗨，我在这里！" },
+  { id: "Point7", label: "指一指", group: "Point", index: 0, idle: false, message: "看看这边，也许有你感兴趣的东西。" },
+  { id: "HandsOnHips7", label: "双手叉腰", group: "HandsOnHips", index: 0, idle: false, message: "准备好了，今天也要元气满满。" },
+  { id: "GestureSequence18", label: "连续手势", group: "GestureSequence", index: 0, idle: false, message: "挥挥手、指一指，再摆个小姿势。" },
 ] as const;
 
 export type PetMotionId = (typeof petMotions)[number]["id"];

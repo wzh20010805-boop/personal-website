@@ -32,9 +32,11 @@ Windows 无窗口启动：安装依赖后双击项目根目录的 `start-local.v
 
 首页右侧使用原图的 WebP 版本 `public/illustrations/creator-hero-v2.webp`（约 500 KB），保留原尺寸和透明通道，按原图比例完整显示，并以高优先级加载。PNG 原稿保留在同目录，便于后续编辑。六个分类入口保留在下方的作品卡片中。
 
-Live2D 伙伴挂载在根布局中，站内切换页面时保持状态；访问者可以拖动位置、调节大小、选择待机或互动动作，以及主动退出互动后召回。眼神与面部跟随鼠标，动作和运行库均从本站加载。`components/Live2DPet.tsx` 管理界面，`lib/live2d-player.ts` 管理模型播放，`data/live2d-motions.ts` 管理动作列表。
+Live2D 伙伴挂载在根布局中，站内切换页面时保持状态；访问者可以拖动位置、调节大小、选择待机或互动动作，以及主动退出互动后召回。互动菜单分为动作、表情和服饰：共 15 个动作（包括挥手、指向、叉腰和连续手势）、14 个表情选项（含跟随动作的自然表情），以及女仆装和冬装。眼神与面部跟随鼠标，换装和切换表情复用同一个模型，不重新加载画布；选择在当前浏览会话中保留，刷新或召回后恢复。`components/Live2DPet.tsx` 管理界面，`lib/live2d-player.ts` 管理模型播放，`data/live2d-motions.ts` 和 `data/live2d-appearance.ts` 管理动作与外观列表。
 
-本地服务启动后运行 `npm run check:pet` 检查伙伴交互，运行 `node scripts/check-live2d-resize.mjs` 检查连续缩放。可用 `CHECK_URL` 指定服务地址，`PLAYWRIGHT_CHANNEL=msedge` 使用本机 Edge。此前的 3D 场景代码保留在 Git 历史中。
+2026-10-28 的模型由 `arm-gestures-20261023/character_arm_gestures.psd2live` 最新工作区原生导出，表情值来自 `expressions-extended-20261028/presets.json`。扩展模型的原始 MOC 约 46 MB，为满足静态托管的单文件大小限制，无损 gzip 后分为两个文件；`character.model3.json` 的 `MocArchive` 记录分片和解压长度，播放器下载后通过浏览器 `DecompressionStream` 还原，再交给 Cubism。纹理使用带日期的文件名，避免旧缓存。初次访问需要下载约 43 MB 的模型与纹理资源，后续可复用浏览器缓存。
+
+本地服务启动后运行 `npm run check:pet` 检查伙伴交互，运行 `node scripts/check-live2d-resize.mjs` 检查连续缩放，运行 `node scripts/check-live2d-appearance.mjs` 检查两套服饰的全部表情、特效复位、四个新增手势、刷新和召回恢复、手机菜单。可用 `CHECK_URL` 指定服务地址，`PLAYWRIGHT_CHANNEL=msedge` 使用本机 Edge。此前的 3D 场景代码保留在 Git 历史中。
 
 生产构建与静态预览：
 
