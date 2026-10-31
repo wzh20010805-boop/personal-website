@@ -2,6 +2,21 @@
 	"Version": 3,
 	"Parameters": [
 		{
+			"Id": "ParamIrisColorR",
+			"GroupId": "",
+			"Name": "右眼（画面左）瞳色：蓝 / 紫"
+		},
+		{
+			"Id": "ParamIrisColorL",
+			"GroupId": "",
+			"Name": "左眼（画面右）瞳色：蓝 / 紫"
+		},
+		{
+			"Id": "ParamIrisStyle",
+			"GroupId": "",
+			"Name": "虹膜（原色 / 星星 / 爱心）"
+		},
+		{
 			"Id": "ParamTearPool",
 			"GroupId": "",
 			"Name": "ParamTearPool"
@@ -393,16 +408,8 @@
 			"Name": "左掌（原PSD）"
 		},
 		{
-			"Id": "ArtMeshImage_6",
-			"Name": "左袖（原PSD）"
-		},
-		{
 			"Id": "ArtMeshImage_5",
 			"Name": "右掌（原PSD）"
-		},
-		{
-			"Id": "ArtMeshImage_4",
-			"Name": "右袖（原PSD）"
 		},
 		{
 			"Id": "ArtMeshImage_14",
@@ -411,14 +418,6 @@
 		{
 			"Id": "ArtMeshImage_13",
 			"Name": "冬装 · 前领_蝴蝶结与垂饰"
-		},
-		{
-			"Id": "ArtMeshImage_12",
-			"Name": "冬装 · 手臂_画面右_含袖口手套"
-		},
-		{
-			"Id": "ArtMeshImage_11",
-			"Name": "冬装 · 手臂_画面左_含袖口手套"
 		},
 		{
 			"Id": "ArtMeshImage_10",
@@ -511,6 +510,70 @@
 		{
 			"Id": "ArtMeshImage_33",
 			"Name": "effect_tear_pool_L"
+		},
+		{
+			"Id": "ArtMeshImage_34",
+			"Name": "iris_star_L"
+		},
+		{
+			"Id": "ArtMeshImage_35",
+			"Name": "iris_star_R"
+		},
+		{
+			"Id": "ArtMeshImage_36",
+			"Name": "iris_heart_L"
+		},
+		{
+			"Id": "ArtMeshImage_37",
+			"Name": "iris_heart_R"
+		},
+		{
+			"Id": "ArtMeshImage_38",
+			"Name": "eye_round_L"
+		},
+		{
+			"Id": "ArtMeshImage_39",
+			"Name": "eye_round_R"
+		},
+		{
+			"Id": "ArtMeshImage_40",
+			"Name": "紫色虹膜L"
+		},
+		{
+			"Id": "ArtMeshImage_41",
+			"Name": "紫色虹膜R"
+		},
+		{
+			"Id": "ArtMeshArmBackMaidR",
+			"Name": "女仆右袖 · 肩根后层"
+		},
+		{
+			"Id": "ArtMeshArmFrontMaidR",
+			"Name": "女仆右袖 · 前臂前层"
+		},
+		{
+			"Id": "ArtMeshArmBackMaidL",
+			"Name": "女仆左袖 · 肩根后层"
+		},
+		{
+			"Id": "ArtMeshArmFrontMaidL",
+			"Name": "女仆左袖 · 前臂前层"
+		},
+		{
+			"Id": "ArtMeshArmBackWinterR",
+			"Name": "冬装右袖 · 肩根后层"
+		},
+		{
+			"Id": "ArtMeshArmFrontWinterR",
+			"Name": "冬装右袖 · 前臂前层"
+		},
+		{
+			"Id": "ArtMeshArmBackWinterL",
+			"Name": "冬装左袖 · 肩根后层"
+		},
+		{
+			"Id": "ArtMeshArmFrontWinterL",
+			"Name": "冬装左袖 · 前臂前层"
 		}
 	]
 }

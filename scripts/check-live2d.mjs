@@ -180,8 +180,9 @@ try {
   assert.ok(Math.abs(hit.x - initialPanel.x - initialPanel.width - 8) < 2, "The menu must sit immediately beside the character");
   assert.ok(Math.abs(initialPanel.y + initialPanel.height - initialControl.y - initialControl.height) < 2, "The menu must align with the character controls, not the viewport floor");
   assert.ok(initialControl.y - hit.y - hit.height <= 8, "Controls must remain close to the character's feet");
-  assert.equal(await pet.locator("button[data-motion]").count(), 15);
-  for (const id of ["NaturalIdle36", "AttentiveIdle24", "RelaxedIdle30", "Greeting8", "NodYes6", "HeadShake6", "CuriousTilt8", "JoySmile6", "SoftWink4", "LookAround12", "Thoughtful8", "Wave7", "Point7", "HandsOnHips7", "GestureSequence18"]) {
+  assert.equal(await pet.locator("button[data-motion]").count(), 17);
+  assert.equal(await pet.locator('button[data-motion="Point7"]').count(), 0, "The removed pointing motion must not remain in the menu");
+  for (const id of ["NaturalIdle36", "AttentiveIdle24", "RelaxedIdle30", "Greeting8", "NodYes6", "HeadShake6", "CuriousTilt8", "JoySmile6", "SoftWink4", "LookAround12", "Thoughtful8", "Wave7", "motion_18", "HeadTiltArmClearance", "HandsOnHips7", "motion_19", "GestureSequence18"]) {
     await pet.locator(`button[data-motion="${id}"]`).click();
     await page.waitForFunction((expected) => document.querySelector("[data-pet-motion]")?.getAttribute("data-pet-motion") === expected, id);
     await page.waitForTimeout(180);
@@ -191,7 +192,7 @@ try {
   await pet.locator('button[data-motion="SoftWink4"]').click();
   await page.waitForFunction(() => document.querySelector("[data-pet-motion]")?.getAttribute("data-pet-motion") === "RelaxedIdle30", null, { timeout: 8000 });
   assert.equal(await pet.locator('button[data-motion="RelaxedIdle30"]').getAttribute("aria-pressed"), "true");
-  console.log("PASS: all 15 motions start, the rendered pose changes, and one-shot actions return to the chosen idle");
+  console.log("PASS: all 17 motions start, the rendered pose changes, and one-shot actions return to the chosen idle");
 
   await pet.getByRole("button", { name: "收起互动菜单" }).click();
   const beforeDrag = await pet.boundingBox();
@@ -358,11 +359,11 @@ try {
   console.log("PASS: 25–200% scales the actual artwork live, pointer/keyboard controls and reset work, size persists, and small screens remain usable");
 
   const blocked = await browser.newPage();
-  await blocked.route("**/character-20261028.moc3.gz.part1", (route) => route.fulfill({ status: 503, body: "unavailable" }));
+  await blocked.route("**/character-*.moc3.gz.part1", (route) => route.fulfill({ status: 503, body: "unavailable" }));
   await blocked.goto(baseURL, { waitUntil: "networkidle" });
   await blocked.waitForFunction(() => document.querySelector("[data-pet-status]")?.getAttribute("data-pet-status") === "error");
   await blocked.getByRole("button", { name: "陪你逛逛" }).click();
-  await blocked.unroute("**/character-20261028.moc3.gz.part1");
+  await blocked.unroute("**/character-*.moc3.gz.part1");
   await blocked.getByRole("button", { name: "重新加载伙伴" }).click();
   await blocked.waitForFunction(() => document.querySelector("[data-pet-status]")?.getAttribute("data-pet-status") === "ready");
   assert.equal(await blocked.locator('[data-pet-status] canvas').count(), 1);

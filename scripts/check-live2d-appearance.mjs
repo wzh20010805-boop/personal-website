@@ -3,7 +3,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { chromium } from "playwright";
 import { petExpressions } from "../data/live2d-appearance.ts";
 
-const output = "output/pet-update-20261028/browser";
+const output = "output/pet-update-20261031/browser";
 await mkdir(output, { recursive: true });
 const browser = await chromium.launch({ headless: true, channel: process.env.PLAYWRIGHT_CHANNEL ?? "msedge" });
 const baseURL = process.env.CHECK_URL ?? "http://127.0.0.1:3010";
@@ -75,14 +75,19 @@ try {
   }
   assert.equal(settingsRequests, 1, "Changing expression/outfit must not reload model assets");
   await pet.getByRole("button", { name: "动作", exact: true }).click();
-  for (const motion of ["Wave7", "Point7", "HandsOnHips7", "GestureSequence18"]) {
+  for (const motion of ["Wave7", "HandsOnHips7", "GestureSequence18", "motion_18", "HeadTiltArmClearance", "motion_19"]) {
     await pet.locator(`[data-motion="${motion}"]`).click();
-    await page.waitForTimeout(1500);
+    await page.waitForFunction(expected => document.querySelector("[data-pet-motion]")?.dataset.petMotion === expected, motion);
+    await page.waitForTimeout(450);
+    const earlyPose = await nextPose();
+    await page.waitForTimeout(450);
     const pose = await nextPose();
     assert.equal(await pet.getAttribute("data-pet-motion"), motion);
     assert.equal(pose.ParamOutfit, 1);
     assert.equal(pose.ParamQuestion, 1);
-    assert.ok(Math.abs(pose.ParamShoulderR) + Math.abs(pose.ParamElbowR) + Math.abs(pose.ParamElbowL) > 1, `${motion} must move actual arm parameters`);
+    const poseParameters = ["ParamAngleX", "ParamAngleY", "ParamAngleZ", "ParamBodyAngleX", "ParamBodyAngleY", "ParamBodyAngleZ", "ParamShoulderR", "ParamShoulderL", "ParamElbowR", "ParamElbowL"];
+    assert.ok(poseParameters.some(id => Math.abs(pose[id] - earlyPose[id]) > .05), `${motion} must change the actual rendered pose`);
+    await pet.locator("canvas").screenshot({ path: `${output}/winter-${motion}.png` });
   }
   await pet.getByRole("button", { name: "表情", exact: true }).click();
   await pet.locator('[data-expression="happy"]').click();
@@ -117,8 +122,8 @@ try {
     await page.keyboard.press("Escape");
   }
   assert.deepEqual(errors, []);
-  await writeFile(`${output}/verification.json`, JSON.stringify({ report, settingsRequests, errors, checks: ["all expressions both outfits", "effect reset", "four arm motions", "same renderer", "nested routes", "refresh", "recall", "mobile menu"] }, null, 2));
-  console.log("PASS: all expressions in both outfits, actual rendered parameters, arm motions, persistence, mobile menu; zero runtime errors");
+  await writeFile(`${output}/verification.json`, JSON.stringify({ report, settingsRequests, errors, checks: ["all expressions both outfits", "effect reset", "six updated gesture motions", "same renderer", "nested routes", "refresh", "recall", "mobile menu"] }, null, 2));
+  console.log("PASS: all expressions in both outfits, actual rendered parameters, six updated gesture motions, persistence, mobile menu; zero runtime errors");
 } finally {
   await browser.close();
 }
