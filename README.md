@@ -2,7 +2,7 @@
 
 使用 Next.js 静态导出的个人网页，保留糖果色、深橄榄绿描边、手绘图形、漫画网点和纸张颗粒。首页展示原来的猫咪插画，并保留可交互的 Live2D 伙伴。
 
-首页提供六个分类入口；小工具、游戏、Skill 和 Agent 分类通过作品卡片进入独立详情页，其他两个分类显示完整空状态。当前作品包含像素光标、Sprite Motion Studio、个人知识库、Colony Roads · 微境节点战争和 Amazon Product Radar。
+首页提供六个分类入口；小工具、游戏、Skill、Agent 和学习积累分类通过卡片进入独立详情页，Prompt 分类保留空状态。当前内容包含像素光标、Sprite Motion Studio、个人知识库、Colony Roads · 微境节点战争、Amazon Product Radar，以及虚拟角色视频制作记录。
 
 ## 在线访问与自动发布
 
@@ -12,7 +12,7 @@ GitHub Pages 使用 `.github/workflows/deploy-pages.yml` 构建并发布。推�
 
 发布时设置 `NEXT_PUBLIC_BASE_PATH=/personal-website`，供 Next.js 路由和 `lib/public-assets.ts` 中的图片、原图及纸纹资源使用。本地不设置该变量，仍可在根路径预览。仓库 Settings → Pages 的构建来源为 GitHub Actions。公开地址是否已经更新，以最新发布工作流和公网检查为准。
 
-发布后运行 `node scripts/check-public-site.mjs`，检查公开网页的十条路由、手机与桌面布局、图片和纸纹资源、原图链接及页面导航。可通过 `CHECK_URL` 指向带仓库路径的本地预览进行发布前验证。
+发布后运行 `node scripts/check-public-site.mjs`，检查公开网页的主要路由、手机与桌面布局、图片和纸纹资源、原图链接及页面导航。可通过 `CHECK_URL` 指向带仓库路径的本地预览进行发布前验证。
 
 ## 本地运行
 
@@ -65,7 +65,8 @@ python -m http.server 4174 --bind 127.0.0.1 --directory out
 | `/skills/` | Skill 作品卡片列表，目前 1 件作品 |
 | `/skills/amazon-product-radar/` | Amazon Product Radar 私有 Skill 案例展示、工作流程与历史报告效果 |
 | `/agents/` | Agent 作品列表，目前 1 件作品 |
-| `/learning/` | 学习与技术积累空状态 |
+| `/learning/` | 学习与技术积累列表 |
+| `/learning/virtual-character-video/` | 三条虚拟角色成片及序列帧、Live2D、配音与导出的制作复盘 |
 
 像素光标介绍基于用户确认的 v0.1.1 资料。下载链接指向 [GitHub 发布页](https://github.com/wzh20010805-boop/pointer-tool/releases/latest)，源码与说明指向 [pointer-tool 仓库](https://github.com/wzh20010805-boop/pointer-tool)。这些链接是作品入口，本网页源代码仍属于 personal-website 项目。
 
@@ -123,9 +124,11 @@ node scripts/check-sprint-motion-studio.mjs
 node scripts/check-personal-knowledge.mjs
 ```
 
-`check:page` 检查首页布局、分类入口、作者 GitHub 主页、邮箱链接、锚点和键盘焦点。`check:content` 检查六分类实际跳转、两个空状态、工具卡片进入详情、独立访问和刷新、面包屑和返回导航、截图加载与完整显示、GitHub 链接配置，以及 320/375/768/1440px 下的溢出、动画和浏览器运行错误。`check-amazon-product-radar.mjs` 检查 Skill 卡片、三级详情导航、六张本地原图、历史案例与私有项目措辞，以及四种屏宽下的布局和站外请求。`check-game-showcase.mjs` 检查首页到游戏详情的完整导航、四张实况截图、流程原图打开与四种屏宽；结果写入 `docs/checks/game-showcase/`。外链真实网络可达性需单独检查，脚本不会把目标地址校验写成外站访问通过。
+`check:page` 检查首页布局、分类入口、作者 GitHub 主页、邮箱链接、锚点和键盘焦点。`check:content` 检查六分类实际跳转、Prompt 空状态、工具卡片进入详情、独立访问和刷新、面包屑和返回导航、截图加载与完整显示、GitHub 链接配置，以及 320/375/768/1440px 下的溢出、动画和浏览器运行错误。`check-amazon-product-radar.mjs` 检查 Skill 卡片、三级详情导航、六张本地原图、历史案例与私有项目措辞，以及四种屏宽下的布局和站外请求。`check-game-showcase.mjs` 检查首页到游戏详情的完整导航、四张实况截图、流程原图打开与四种屏宽；结果写入 `docs/checks/game-showcase/`。外链真实网络可达性需单独检查，脚本不会把目标地址校验写成外站访问通过。
 
 个人知识库资料来源见 `docs/personal-knowledge-showcase.md`。四张截图拍自隔离运行的真实应用，使用演示笔记与模拟模型输出，不包含私人资料。新增本地原有 Archify 交互流程图，说明 DeepSeek API 调用；旧工具地址转到 Agent 详情。项目源码当前私有，无公开安装包；详情页已标明访问方式和模型调用边界。`check-personal-knowledge.mjs` 检查四种屏宽、原图、导航和演示标注，结果写入 `docs/checks/personal-knowledge/`。
+
+虚拟角色制作记录位于 `/learning/virtual-character-video/`，公开三条正式成片、真实海报与早期拆件示例。制作说明以 `video1/outputs/live2d-showcase-20261031/README.md`、实际时间轴与渲染代码为依据；早期两条成片分别说明序列帧与 Live2D 路线。网页视频使用 H.264/AAC 与 faststart，均低于静态托管的 25 MiB 单文件限制；保留原成片，视频不自动播放并使用 `preload="none"`。运行 `node scripts/check-learning-video.mjs` 验证首页→学习列表→文章、三条视频实际解码与拖动、四种屏宽及刷新；使用 `CHECK_URL` 指向本地或线上地址，结果写入 `output/video-learning-20261031/`。
 
 检查产物：
 

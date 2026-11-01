@@ -4,7 +4,7 @@ import { chromium } from "playwright";
 const baseURL = (process.env.CHECK_URL ?? "https://wzh20010805-boop.github.io/personal-website").replace(/\/$/, "");
 const base = new URL(baseURL);
 const basePath = base.pathname.replace(/\/$/, "");
-const routes = ["/", "/tools/", "/tools/sprint-motion-studio/", "/tools/pixel-cursor/", "/agents/personal-knowledge/", "/games/colony-roads/", "/skills/amazon-product-radar/", "/prompts/", "/agents/", "/learning/"];
+const routes = ["/", "/tools/", "/tools/sprint-motion-studio/", "/tools/pixel-cursor/", "/agents/personal-knowledge/", "/games/colony-roads/", "/skills/amazon-product-radar/", "/prompts/", "/agents/", "/learning/", "/learning/virtual-character-video/"];
 const browser = await chromium.launch({ headless: true, channel: process.env.PLAYWRIGHT_CHANNEL ?? "msedge" });
 try {
   for (const width of [375, 1440]) {

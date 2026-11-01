@@ -185,6 +185,32 @@ export const projects: Project[] = [{
   features: [],
   steps: [],
   notice: "源码私有 · 本页公开展示项目与演示案例",
+}, {
+  id: "virtual-character-video",
+  title: "从立绘到 Live2D：虚拟角色视频制作记",
+  subtitle: "从序列帧，到 Live2D，再到一条完整的影片",
+  typeLabel: "视频作品 / 制作复盘",
+  detailLabel: "观看视频与制作过程",
+  coverCaption: "Live2D 最新成片 · 2026-10-31",
+  category: "learning",
+  description: "三条成片，记录同一个角色的成长：从六动作序列帧口播，到可换装、可调表情的 Live2D。拆开讲清素材处理、参数绑定、动作时间轴、配音和视频导出。",
+  status: "实践记录",
+  cover: {
+    src: "/images/learning/virtual-character/showcase.webp",
+    alt: "蓝发虚拟角色 Live2D 展示片的真实画面",
+    width: 1280,
+    height: 720,
+  },
+  detailHref: "/learning/virtual-character-video/",
+  links: [],
+  isPlaceholder: false,
+  published: true,
+  sourceVersion: "2026-10-31",
+  requirements: [],
+  delivery: "三条可在线播放的视频与制作方法记录。",
+  features: [],
+  steps: [],
+  notice: "",
 }];
 
 export function getPublishedProjectsByCategory(category: CategoryId) {

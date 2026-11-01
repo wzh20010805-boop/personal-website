@@ -14,7 +14,7 @@ const categories = [
   ["games", "我做的小游戏", "1"],
   ["skills", "我做的 Skill", "1"],
   ["agents", "我做的 Agent", "1"],
-  ["learning", "我的学习与技术积累", "0"],
+  ["learning", "我的学习与技术积累", "1"],
 ];
 const detailPath = "/tools/pixel-cursor/";
 const projectTitle = "像素光标 · Pixel Cursor";
@@ -211,7 +211,7 @@ try {
     checkedAt: new Date().toISOString(),
     routes,
     categoryLinks: 6,
-    emptyCategories: 2,
+    emptyCategories: 1,
     publishedSkills: 1,
     publishedTools: 2,
     publishedAgents: 1,
@@ -224,7 +224,7 @@ try {
     imageChecks,
     layoutChecks,
   }, null, 2)}\n`, "utf8");
-  console.log(`内容页检查通过：六分类入口与两个空状态、工具列表与详情点击/刷新/返回、真实截图加载与完整比例、外链配置、四种屏宽布局、无动画及无运行错误。截图和检查 JSON 已写入 ${fileURLToPath(screenshotOutput)}。`);
+  console.log(`内容页检查通过：六分类入口与Prompt 空状态、工具列表与详情点击/刷新/返回、真实截图加载与完整比例、外链配置、四种屏宽布局、无动画及无运行错误。截图和检查 JSON 已写入 ${fileURLToPath(screenshotOutput)}。`);
 } finally {
   await browser.close();
 }
