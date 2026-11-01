@@ -29,6 +29,8 @@ try {
   assert.equal(await page.locator("h1").count(), 1);
   assert.equal(await page.locator("video").count(), 3);
   assert.equal(videoRequests.length, 0, "Videos should not download before visitors choose to play");
+  await page.locator("video").evaluateAll(videos => videos.forEach(video => { video.textTracks[0].mode = "hidden"; }));
+  await page.waitForFunction(() => [...document.querySelectorAll("video")].every(video => video.textTracks[0]?.cues?.length > 0));
   const metadata = [];
   for (const video of await page.locator("video").all()) {
     assert.equal(await video.getAttribute("preload"), "none");
@@ -69,6 +71,6 @@ try {
   await page.locator(`.breadcrumb a[href="${basePath}/learning/"]`).click();
   await page.waitForURL(`**${basePath}/learning/`);
   assert.deepEqual(errors, []);
-  await writeFile(`${output}/verification.json`, JSON.stringify({ baseURL, metadata, layouts, errors, checks: ["home and learning navigation", "no eager video downloads", "three real video frames", "seek beyond midpoint", "responsive layouts", "direct refresh"] }, null, 2));
+  await writeFile(`${output}/verification.json`, JSON.stringify({ baseURL, metadata, layouts, errors, checks: ["home and learning navigation", "no eager video downloads", "three loaded caption tracks", "three real video frames", "seek beyond midpoint", "responsive layouts", "direct refresh"] }, null, 2));
   console.log(`PASS ${baseURL}: learning entry, 3 playable/seekable 1080p videos, four responsive layouts, refresh, zero browser/HTTP errors`);
 } finally { await browser.close(); }

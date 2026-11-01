@@ -12,6 +12,10 @@ export const metadata: Metadata = {
 };
 
 const mediaRoot = "/videos/learning/virtual-character";
+// Cloudflare Pages ignores HTTP Range; the existing GitHub Pages mirror supports seeking.
+const playbackRoot = process.env.NODE_ENV === "production"
+  ? `https://wzh20010805-boop.github.io/personal-website${mediaRoot}`
+  : publicAsset(mediaRoot);
 const imageRoot = "/images/learning/virtual-character";
 
 const stages = [
@@ -40,8 +44,8 @@ const projectFiles = [
 
 function VideoPlayer({ file, poster, title }: { file: string; poster: string; title: string }) {
   return (
-    <video className={styles.video} controls playsInline preload="none" poster={publicAsset(`${imageRoot}/${poster}`)} aria-label={title}>
-      <source src={publicAsset(`${mediaRoot}/${file}`)} type="video/mp4" />
+    <video className={styles.video} controls playsInline crossOrigin="anonymous" preload="none" poster={publicAsset(`${imageRoot}/${poster}`)} aria-label={title}>
+      <source src={`${playbackRoot}/${file}`} type="video/mp4" />
       <track kind="captions" src={publicAsset(`${mediaRoot}/${file.replace(/\.mp4$/, ".vtt")}`)} srcLang="zh" label="中文字幕" />
       你的浏览器暂时无法播放这段视频，可以<a href={publicAsset(`${mediaRoot}/${file}`)}>直接打开 MP4</a>。
     </video>

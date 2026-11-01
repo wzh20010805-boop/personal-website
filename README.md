@@ -130,6 +130,8 @@ node scripts/check-personal-knowledge.mjs
 
 虚拟角色制作记录位于 `/learning/virtual-character-video/`，公开三条正式成片、真实海报与早期拆件示例。制作说明以 `video1/outputs/live2d-showcase-20261031/README.md`、实际时间轴与渲染代码为依据；早期两条成片分别说明序列帧与 Live2D 路线。网页视频使用 H.264/AAC 与 faststart，均低于静态托管的 25 MiB 单文件限制；保留原成片，视频不自动播放并使用 `preload="none"`。运行 `node scripts/check-learning-video.mjs` 验证首页→学习列表→文章、三条视频实际解码与拖动、四种屏宽及刷新；使用 `CHECK_URL` 指向本地或线上地址，结果写入 `output/video-learning-20261031/`。
 
+生产播放器从现有 GitHub Pages 镜像读取 MP4，字幕、封面与下载仍使用本站资源；开发模式读取本地视频。原因是 [Cloudflare Pages 当前不支持 206 分段响应](https://developers.cloudflare.com/pages/configuration/serving-pages/#behavior)，刚开始播放时跳转到未缓冲的位置会失败。GitHub Pages 已验证支持实际播放和跳转，播放器开启匿名 CORS；验收同时检查三条字幕轨道能否加载。新增视频应确认 GitHub Pages 部署完成后再验收 Cloudflare 页面。
+
 检查产物：
 
 Sprint Motion Studio 的新增验收脚本检查两件工具的分类计数、实际卡片跳转与返回、原有像素光标导航、截图加载、原图打开以及 320/375/768/1440px 布局。截图和结果写入 `docs/checks/sprint-motion-studio/`；本地素材与资料来源见 `docs/sprint-motion-studio-showcase.md`。
