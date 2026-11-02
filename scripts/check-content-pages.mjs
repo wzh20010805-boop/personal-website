@@ -14,7 +14,7 @@ const categories = [
   ["games", "我做的小游戏", "1"],
   ["skills", "我做的 Skill", "1"],
   ["agents", "我做的 Agent", "1"],
-  ["learning", "我的学习与技术积累", "1"],
+  ["learning", "我的学习与技术积累", "2"],
 ];
 const detailPath = "/tools/pixel-cursor/";
 const projectTitle = "像素光标 · Pixel Cursor";

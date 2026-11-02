@@ -6,11 +6,13 @@ import styles from "./ProjectCard.module.css";
 
 export function ProjectCard({ project }: { project: Project }) {
   const isSkill = project.category === "skills";
+  // Standalone HTML experiences need a full navigation, outside the Next.js router.
+  const CardLink = project.standalone ? "a" : Link;
 
   return (
-    <Link
-      href={project.detailHref}
-      prefetch={false}
+    <CardLink
+      href={project.standalone ? publicAsset(project.detailHref) : project.detailHref}
+      {...(project.standalone ? {} : { prefetch: false })}
       className={isSkill ? `project-card ${styles.skillCard}` : "project-card"}
       aria-labelledby={`project-${project.id}-title`}
       aria-describedby={`project-${project.id}-description`}
@@ -40,6 +42,6 @@ export function ProjectCard({ project }: { project: Project }) {
           <p className={styles.privateNote}><span aria-hidden="true">🔒</span> {project.notice}</p>
         )}
       </div>
-    </Link>
+    </CardLink>
   );
 }

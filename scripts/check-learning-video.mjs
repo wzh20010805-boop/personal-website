@@ -19,7 +19,7 @@ try {
   page.on("request", request => { if (request.url().endsWith(".mp4")) videoRequests.push(request.url()); });
   await page.goto(baseURL, { waitUntil: "networkidle" });
   const learning = page.locator(`a.category-card[href="${basePath}/learning/"]`);
-  assert.match(await learning.innerText(), /1 篇记录/);
+  assert.match(await learning.innerText(), /2 篇记录/);
   await learning.click();
   await page.waitForURL(`**${basePath}/learning/`);
   assert.equal(await page.locator(".empty-state").count(), 0);

@@ -66,6 +66,7 @@ python -m http.server 4174 --bind 127.0.0.1 --directory out
 | `/skills/amazon-product-radar/` | Amazon Product Radar 私有 Skill 案例展示、工作流程与历史报告效果 |
 | `/agents/` | Agent 作品列表，目前 1 件作品 |
 | `/learning/` | 学习与技术积累列表 |
+| `/live2d-showcase/` | Live2D 交互展示：原音轨播放、动作、表情、换装、瞳色与镜头控制 |
 | `/learning/virtual-character-video/` | 三条虚拟角色成片及序列帧、Live2D、配音与导出的制作复盘 |
 
 像素光标介绍基于用户确认的 v0.1.1 资料。下载链接指向 [GitHub 发布页](https://github.com/wzh20010805-boop/pointer-tool/releases/latest)，源码与说明指向 [pointer-tool 仓库](https://github.com/wzh20010805-boop/pointer-tool)。这些链接是作品入口，本网页源代码仍属于 personal-website 项目。
@@ -73,6 +74,8 @@ python -m http.server 4174 --bind 127.0.0.1 --directory out
 `public/images/tools/pixel-cursor-overview.png` 来自用户提供的真实软件截图，原始尺寸 1246 × 863。列表和详情共用该图片，完整等比例展示，不裁掉软件界面。网页不包含工具程序或安装包，也没有添加许可证或商用授权声明。
 
 `public/images/skills/amazon-product-radar/` 保存 Amazon Product Radar 的六张真实历史报告截图。页面将 2026-09-14 的内容明确标注为历史案例，不把评分、证据置信或 AI 判断描述为当前实时推荐；该私人项目不提供仓库、源码、下载或安装入口。
+
+Live2D 交互页由已完成的独立展示页迁入 `public/live2d-showcase/`，学习列表和制作记录均提供入口。使用普通链接完整打开页面，避免与全站伙伴同时占用两个模型实例；页内可返回学习列表或制作记录。资源采用相对路径，兼容根目录与 GitHub Pages 的 `/personal-website` 前缀。运行 `node scripts/check-interactive-showcase.mjs` 检查导航、播放与互动、资源加载和手机布局；支持 `CHECK_URL` 与 `PLAYWRIGHT_CHANNEL`。
 
 ## 内容维护
 

@@ -72,7 +72,7 @@ export default function VirtualCharacterVideoPage() {
               <h1>从立绘到 Live2D<span>虚拟角色视频制作记</span></h1>
               <p className={styles.tagline}>让角色动起来，<br />也让她把故事讲清楚。</p>
               <p className={styles.intro}>从一段自我介绍，到跟着时间轴表演、换装的 Live2D 展示片。我把三条成片放在这里，也把素材、动作、声音与代码是怎样接起来的记录下来。</p>
-              <div className={styles.actions}><a className="candy-button candy-button--primary" href="#videos">先看成片 <span aria-hidden="true">↘</span></a><a className={styles.textLink} href="#workflow">看看怎么做的 <span aria-hidden="true">→</span></a></div>
+              <div className={styles.actions}><a className="candy-button candy-button--primary" href="#videos">先看成片 <span aria-hidden="true">↘</span></a><a className={styles.textLink} href={publicAsset("/live2d-showcase/index.html")}>与角色互动 <span aria-hidden="true">→</span></a><a className={styles.textLink} href="#workflow">看看怎么做的 <span aria-hidden="true">→</span></a></div>
             </div>
             <figure className={styles.heroVisual}>
               <div className={styles.windowBar}><span aria-hidden="true">● ● ●</span><span>最新成片 / LIVE2D SHOWCASE</span><span>01:00</span></div>

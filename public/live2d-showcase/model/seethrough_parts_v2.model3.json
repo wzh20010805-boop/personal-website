@@ -1,0 +1,244 @@
+{
+  "Version": 3,
+  "FileReferences": {
+    "Moc": "seethrough_parts_v2.moc3",
+    "Textures": [
+      "../../live2d/character/textures/texture_00-20261031.png",
+      "../../live2d/character/textures/texture_01-20261031.png",
+      "../../live2d/character/textures/texture_02-20261031.png"
+    ],
+    "Physics": "seethrough_parts_v2.physics3.json",
+    "DisplayInfo": "seethrough_parts_v2.cdi3.json",
+    "Motions": {
+      "Idle": [
+        {
+          "File": "seethrough_parts_v2.idle.motion3.json"
+        },
+        {
+          "File": "seethrough_parts_v2.36.motion3.json"
+        },
+        {
+          "File": "seethrough_parts_v2.24.motion3.json"
+        },
+        {
+          "File": "seethrough_parts_v2.30.motion3.json"
+        }
+      ],
+      "Blink": [
+        {
+          "File": "seethrough_parts_v2.blink.motion3.json"
+        }
+      ],
+      "Nod": [
+        {
+          "File": "seethrough_parts_v2.nod.motion3.json"
+        }
+      ],
+      "Shake": [
+        {
+          "File": "seethrough_parts_v2.shake.motion3.json"
+        }
+      ],
+      "Shy": [
+        {
+          "File": "seethrough_parts_v2.shy.motion3.json"
+        }
+      ],
+      "HeadTilt": [
+        {
+          "File": "seethrough_parts_v2.headTilt.motion3.json"
+        }
+      ],
+      "Cheer": [
+        {
+          "File": "seethrough_parts_v2.cheer.motion3.json"
+        }
+      ],
+      "Sway": [
+        {
+          "File": "seethrough_parts_v2.sway.motion3.json"
+        }
+      ],
+      "左右观察 12 秒": [
+        {
+          "File": "seethrough_parts_v2.12.motion3.json"
+        }
+      ],
+      "轻提袖问候 8 秒": [
+        {
+          "File": "seethrough_parts_v2.8.motion3.json"
+        }
+      ],
+      "轻点头确认 6 秒": [
+        {
+          "File": "seethrough_parts_v2.6.motion3.json"
+        }
+      ],
+      "轻摇头 6 秒": [
+        {
+          "File": "seethrough_parts_v2.62.motion3.json"
+        }
+      ],
+      "好奇侧倾 8 秒": [
+        {
+          "File": "seethrough_parts_v2.82.motion3.json"
+        }
+      ],
+      "闭口喜悦微笑 6 秒": [
+        {
+          "File": "seethrough_parts_v2.63.motion3.json"
+        }
+      ],
+      "温柔眨单眼 4 秒": [
+        {
+          "File": "seethrough_parts_v2.4.motion3.json"
+        }
+      ],
+      "安静思考 8 秒": [
+        {
+          "File": "seethrough_parts_v2.83.motion3.json"
+        }
+      ],
+      "自然待机连续两轮预热 72 秒": [
+        {
+          "File": "seethrough_parts_v2.72.motion3.json"
+        }
+      ],
+      "八段表演动作展示 58 秒": [
+        {
+          "File": "seethrough_parts_v2.58.motion3.json"
+        }
+      ],
+      "双手叉腰": [
+        {
+          "File": "seethrough_parts_v2.motion.motion3.json"
+        }
+      ],
+      "挥手": [
+        {
+          "File": "seethrough_parts_v2.motion2.motion3.json"
+        }
+      ],
+      "挥手、双手叉腰": [
+        {
+          "File": "seethrough_parts_v2.motion3.motion3.json"
+        }
+      ]
+    },
+    "Expressions": [
+      {
+        "Name": "自然",
+        "File": "expressions/neutral.exp3.json"
+      },
+      {
+        "Name": "微笑",
+        "File": "expressions/smile.exp3.json"
+      },
+      {
+        "Name": "张嘴",
+        "File": "expressions/open.exp3.json"
+      },
+      {
+        "Name": "开心",
+        "File": "expressions/happy.exp3.json"
+      },
+      {
+        "Name": "大笑",
+        "File": "expressions/laugh.exp3.json"
+      },
+      {
+        "Name": "眨眼",
+        "File": "expressions/wink.exp3.json"
+      },
+      {
+        "Name": "惊讶",
+        "File": "expressions/surprise.exp3.json"
+      },
+      {
+        "Name": "脸红",
+        "File": "expressions/blush.exp3.json"
+      },
+      {
+        "Name": "害羞",
+        "File": "expressions/shy.exp3.json"
+      },
+      {
+        "Name": "生气",
+        "File": "expressions/angry.exp3.json"
+      },
+      {
+        "Name": "委屈",
+        "File": "expressions/sad.exp3.json"
+      },
+      {
+        "Name": "流泪",
+        "File": "expressions/cry.exp3.json"
+      },
+      {
+        "Name": "汗滴",
+        "File": "expressions/sweat.exp3.json"
+      },
+      {
+        "Name": "困惑",
+        "File": "expressions/confused.exp3.json"
+      },
+      {
+        "Name": "星星眼",
+        "File": "expressions/star.exp3.json"
+      },
+      {
+        "Name": "爱心眼",
+        "File": "expressions/heart.exp3.json"
+      },
+      {
+        "Name": "无奈",
+        "File": "expressions/helpless.exp3.json"
+      },
+      {
+        "Name": "吃惊",
+        "File": "expressions/shocked.exp3.json"
+      },
+      {
+        "Name": "超开心",
+        "File": "expressions/ecstatic.exp3.json"
+      },
+      {
+        "Name": "eyes-blue",
+        "File": "expressions/eyes-blue.exp3.json"
+      },
+      {
+        "Name": "eyes-blue-purple",
+        "File": "expressions/eyes-blue-purple.exp3.json"
+      },
+      {
+        "Name": "eyes-purple-blue",
+        "File": "expressions/eyes-purple-blue.exp3.json"
+      }
+    ]
+  },
+  "Groups": [
+    {
+      "Target": "Parameter",
+      "Name": "EyeBlink",
+      "Ids": [
+        "ParamEyeLOpen",
+        "ParamEyeROpen"
+      ]
+    },
+    {
+      "Target": "Parameter",
+      "Name": "LipSync",
+      "Ids": [
+        "ParamMouthOpenY"
+      ]
+    }
+  ],
+  "MocArchive": {
+    "encoding": "gzip",
+    "parts": [
+      "../../live2d/character/character-20261031.moc3.gz.part1",
+      "../../live2d/character/character-20261031.moc3.gz.part2"
+    ],
+    "byteLength": 39850496
+  }
+}

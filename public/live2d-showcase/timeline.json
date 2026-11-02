@@ -1,0 +1,222 @@
+{
+  "title": "每一面，都很可爱",
+  "duration": 60,
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "modelSource": "outputs/arm-gestures-20261023/character_arm_gestures.psd2live",
+  "chapters": [
+    {
+      "start": 0,
+      "end": 4,
+      "chapter": "01 / HELLO",
+      "title": "你好呀。",
+      "subtitle": "一起认识我的每一面",
+      "tag": "角色模型与动画展示",
+      "view": "full",
+      "motion": "轻提袖问候 8 秒",
+      "speed": 2,
+      "expression": "smile"
+    },
+    {
+      "start": 4,
+      "end": 10,
+      "chapter": "02 / LITTLE MOVEMENTS",
+      "title": "轻轻一动，\n就有了心情。",
+      "subtitle": "转头 · 视线 · 自然眨眼",
+      "tag": "头发与尾巴的自然运动",
+      "view": "full",
+      "motion": "左右观察 12 秒",
+      "speed": 2,
+      "expression": "neutral"
+    },
+    {
+      "start": 10,
+      "end": 27,
+      "chapter": "03 / EXPRESSIONS",
+      "title": "把心情，\n写在脸上。",
+      "subtitle": "18 种表情 · 精选 7 种展示",
+      "view": "face",
+      "expression": "happy"
+    },
+    {
+      "start": 27,
+      "end": 34,
+      "chapter": "04 / GESTURES",
+      "title": "挥挥手，\n打个招呼。",
+      "subtitle": "手势 01 / 03",
+      "tag": "挥手",
+      "view": "full",
+      "motion": "挥手",
+      "expression": "smile"
+    },
+    {
+      "start": 34,
+      "end": 41,
+      "chapter": "04 / GESTURES",
+      "title": "哼，\n我有小脾气。",
+      "subtitle": "手势 02 / 03",
+      "tag": "双手叉腰 × 生气",
+      "view": "full",
+      "motion": "双手叉腰",
+      "expression": "angry"
+    },
+    {
+      "start": 41,
+      "end": 44.5,
+      "chapter": "04 / GESTURES",
+      "title": "开心，\n就举起小手。",
+      "subtitle": "手势 03 / 03",
+      "tag": "欢呼",
+      "view": "full",
+      "motion": "Cheer",
+      "expression": "happy",
+      "speed": 0.7
+    },
+    {
+      "start": 44.5,
+      "end": 48,
+      "chapter": "04 / LITTLE MOMENTS",
+      "title": "有一点，\n不好意思。",
+      "subtitle": "害羞的小动作",
+      "tag": "害羞",
+      "view": "full",
+      "motion": "Shy",
+      "speed": 1,
+      "expression": "shy"
+    },
+    {
+      "start": 48,
+      "end": 53,
+      "chapter": "05 / OUTFITS",
+      "title": "歪一下头，\n换个心情。",
+      "subtitle": "同一个我，不同心情",
+      "tag": "歪头 × 微笑",
+      "view": "full",
+      "expression": "smile",
+      "motion": "HeadTilt",
+      "speed": 0.5
+    },
+    {
+      "start": 53,
+      "end": 56,
+      "chapter": "06 / EYE COLORS",
+      "title": "一点紫色，\n一点不一样。",
+      "subtitle": "左右眼独立选择蓝色 / 紫色",
+      "tag": "蓝紫异色瞳",
+      "view": "face",
+      "expression": "neutral"
+    },
+    {
+      "start": 56,
+      "end": 60,
+      "chapter": "LIVE2D / CHARACTER SHOWCASE",
+      "title": "每一面，\n都很可爱。",
+      "subtitle": "18 种表情 / 3 种手势 / 2 套服装",
+      "tag": "左右独立瞳色 · 自然动态",
+      "view": "full",
+      "motion": "轻提袖问候 8 秒",
+      "speed": 2,
+      "expression": "smile",
+      "irisColorL": 1
+    }
+  ],
+  "expressions": [
+    {
+      "start": 10,
+      "id": "happy",
+      "label": "开心",
+      "note": "弯弯的笑眼"
+    },
+    {
+      "start": 12.43,
+      "id": "star",
+      "label": "星星眼",
+      "note": "眼睛里藏着期待"
+    },
+    {
+      "start": 14.86,
+      "id": "shy",
+      "label": "害羞",
+      "note": "悄悄红了脸"
+    },
+    {
+      "start": 17.29,
+      "id": "cry",
+      "label": "流泪",
+      "note": "一点点委屈"
+    },
+    {
+      "start": 19.72,
+      "id": "angry",
+      "label": "生气",
+      "note": "认真地闹小脾气"
+    },
+    {
+      "start": 22.15,
+      "id": "heart",
+      "label": "爱心眼",
+      "note": "喜欢都写在眼里"
+    },
+    {
+      "start": 24.58,
+      "id": "shocked",
+      "label": "吃惊",
+      "note": "诶？发生了什么"
+    }
+  ],
+  "previewCuts": [
+    {
+      "from": 0,
+      "to": 5
+    },
+    {
+      "from": 12.43,
+      "to": 16.43
+    },
+    {
+      "from": 49.5,
+      "to": 52
+    },
+    {
+      "from": 53,
+      "to": 55.5
+    }
+  ],
+  "modelRuntime": "video/public/live2d-showcase/model/seethrough_parts_v2.model3.json",
+  "revision": "2026-10-31",
+  "outfits": [
+    {
+      "start": 0,
+      "value": 0
+    },
+    {
+      "start": 6.4,
+      "value": 1
+    },
+    {
+      "start": 14.86,
+      "value": 0
+    },
+    {
+      "start": 27.23,
+      "value": 1
+    },
+    {
+      "start": 34.2,
+      "value": 0
+    },
+    {
+      "start": 41.2,
+      "value": 1
+    },
+    {
+      "start": 47.7,
+      "value": 0
+    },
+    {
+      "start": 49.2,
+      "value": 1
+    }
+  ]
+}

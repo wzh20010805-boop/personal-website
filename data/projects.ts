@@ -15,6 +15,7 @@ export interface Project {
   status: string;
   cover: { src: string; alt: string; width: number; height: number } | null;
   detailHref: string;
+  standalone?: boolean;
   links: { href: string; label: string }[];
   isPlaceholder: boolean;
   published: boolean;
@@ -185,6 +186,33 @@ export const projects: Project[] = [{
   features: [],
   steps: [],
   notice: "源码私有 · 本页公开展示项目与演示案例",
+}, {
+  id: "live2d-showcase",
+  title: "和她互动一下 · Live2D 交互展示",
+  subtitle: "看一段展示，也亲手导演角色的表演",
+  typeLabel: "交互视频 / Live2D",
+  detailLabel: "进入交互展示",
+  coverCaption: "实时角色展示 · 可播放、可互动",
+  category: "learning",
+  description: "播放带配音的角色展示，随时接管动作、表情与服饰；试试不同瞳色和面部特写，再从暂停的位置继续观看。",
+  status: "在线体验",
+  cover: {
+    src: "/images/learning/virtual-character/showcase.webp",
+    alt: "蓝发 Live2D 角色的展示画面，进入页面可切换动作、表情与服饰",
+    width: 1280,
+    height: 720,
+  },
+  detailHref: "/live2d-showcase/index.html",
+  standalone: true,
+  links: [],
+  isPlaceholder: false,
+  published: true,
+  sourceVersion: "2026-11-02",
+  requirements: [],
+  delivery: "浏览器内实时播放与互动。",
+  features: [],
+  steps: [],
+  notice: "",
 }, {
   id: "virtual-character-video",
   title: "从立绘到 Live2D：虚拟角色视频制作记",
